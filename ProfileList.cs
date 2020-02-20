@@ -14,15 +14,10 @@ namespace VisualZorgApp
         {
             /*profiles.Add(new Profile { id = 1, name = "Hugh", surname = "Mungu", age = 96, weight = 68.71, length = 1.31, type = 1, username = "hugh", password = "mungu" });
             profiles.Add(new Profile { id = 2, name = "Jack", surname = "Mango", age = 56, weight = 78.23, length = 1.81, type = 2, username = "jack", password = "mango" });
-            profiles.Add(new Profile { id = 3, name = "Phil", surname = "PorPo", age = 14, weight = 45.22, length = 2.11, type = 2, username = "phil", password = "porpo" });
-       */ }
-
-        public bool CheckIfEmptyRowCells()
-        {
-            if 
-            return false;
-
+            profiles.Add(new Profile { id = 3, name = "Phil", surname = "PorPo", age = 14, weight = 45.22, length = 2.11, type = 2, username = "phil", password = "porpo" });*/
         }
+
+
         public string SerializeProfileListToJson()
         {
 
@@ -31,11 +26,12 @@ namespace VisualZorgApp
 
         public void SaveJsonToFile(string jsonString)
         {
-            System.IO.File.WriteAllText(@"C:\Users\georg\source\repos\gaterin\VisualZorgApp\json\ProfileList.json", jsonString);
+            System.IO.File.Delete(Const.jsonPath);
+            System.IO.File.WriteAllText(Const.jsonPath, jsonString);
         }
         public void DeserializeJsonToProfileList()
         {
-            string json = System.IO.File.ReadAllText(@"C:\Users\georg\source\repos\gaterin\VisualZorgApp\json\ProfileList.json");
+            string json = System.IO.File.ReadAllText(Const.jsonPath);
             var jsonDeserialize = JsonConvert.DeserializeObject<List<Profile>>(json);
             profiles = jsonDeserialize;
             

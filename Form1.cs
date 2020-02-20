@@ -17,17 +17,18 @@ namespace VisualZorgApp
         public Form1()
         {
             InitializeComponent();
+            profileList.DeserializeJsonToProfileList();
+            RenderAll();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             RenderAll();
-
-
         }
 
         private void RenderAll()
         {
+           
             ProfileGridView.Rows.Clear();
             ProfileGridView.Refresh();
             foreach (var item in profileList.profiles)
@@ -53,73 +54,33 @@ namespace VisualZorgApp
             }
         }
 
-        private void SaveAll()
+        public ProfileList GetGridData()
         {
-            int rowIndex = 0;
-            var profile = profileList.profiles[rowIndex];
-            string r = "";
             ProfileList profilesLocal = new ProfileList();
 
             foreach (DataGridViewRow row in ProfileGridView.Rows)
             {
-                /*Convertrow.Cells[0].Value;*/
-                /* row.Cells[1].ValueType = typeof(string);
-                 row.Cells[2].ValueType = typeof(string);
-                 row.Cells[3].ValueType = typeof(int);
-                 row.Cells[4].ValueType = typeof(double);
-                 row.Cells[5].ValueType = typeof(double);
- */
-                int id = Convert.ToInt32(row.Cells[0].Value);
-                string name = (string)row.Cells[1].Value;
-                string surname = (string)row.Cells[2].Value;
-                int age = Convert.ToInt32(row.Cells[3].Value);
-                double weight = Convert.ToDouble(row.Cells[0].Value);
-                double length = Convert.ToDouble(row.Cells[0].Value);
+                
+                    int id = Convert.ToInt32(row.Cells[0].Value);
+                    string name = (string)row.Cells[1].Value;
+                    string surname = (string)row.Cells[2].Value;
+                    int age = Convert.ToInt32(row.Cells[3].Value);
+                    double weight = Convert.ToDouble(row.Cells[4].Value);
+                    double length = Convert.ToDouble(row.Cells[5].Value);
 
-
-                if (id == 0 && name == "" && surname =="" && age == 0 && weight == 0.0 && length == 0.0)
-                {
-                    break;
-                }
-
-                profilesLocal.profiles.Add(new Profile {id = id , name =name, surname=surname,age=age,weight = weight, length = length});
-                try
-                {
-                    profile.id = id;
-                    profile.name = name;
-                    profile.surname = surname;
-                    profile.age = age;
-                    profile.weight = weight;
-                    profile.length = length;
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-
-                /*
-                                profileList.profiles[rowIndex].name = name;
-                                profileList.profiles[rowIndex].surname = surname;
-                                profileList.profiles[rowIndex].age = age;
-                                profileList.profiles[rowIndex].weight = weight;
-                                profileList.profiles[rowIndex].length = length;*/
-                rowIndex++;
-
-                /*foreach (var item in row.Cells)
-                {
-                    
-                    *//*item.name = ProfileGridView.Rows[n].Cells[1].Value;
-                    item.surname = ProfileGridView.Rows[n].Cells[2].Value;
-                    item.age = ProfileGridView.Rows[n].Cells[3].Value;
-                    item.weight = ProfileGridView.Rows[n].Cells[4].Value;
-                    item.length = ProfileGridView.Rows[n].Cells[5].Value;*//*
-                }*/
-
-
+                    profilesLocal.profiles.Add(new Profile { id = id, name = name, surname = surname, age = age, weight = weight, length = length });
+                
             }
+            profilesLocal.profiles.RemoveAt(profilesLocal.profiles.Count - 1);
+            return profilesLocal;
+        }
 
-            profilesLocal.SaveJsonToFile(profilesLocal.SerializeProfileListToJson());
+        private void SaveAll()
+        {
+            ProfileList gridData = GetGridData();
+            gridData.SaveJsonToFile(gridData.SerializeProfileListToJson());
+            profileList.DeserializeJsonToProfileList();
+            RenderAll();
         }
 
 
