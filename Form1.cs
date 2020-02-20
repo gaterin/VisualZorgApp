@@ -13,7 +13,7 @@ namespace VisualZorgApp
     public partial class Form1 : Form
     {
         ProfileList profileList = new ProfileList();
-        
+
         public Form1()
         {
             InitializeComponent();
@@ -32,6 +32,13 @@ namespace VisualZorgApp
             ProfileGridView.Refresh();
             foreach (var item in profileList.profiles)
             {
+
+                if (item.name == null || item.surname == null)
+                {
+                    item.name = "";
+                    item.surname = "";
+                }
+
                 int n = ProfileGridView.Rows.Add();
                 ProfileGridView.Rows[n].Cells[0].Value = item.id.ToString();
                 ProfileGridView.Rows[n].Cells[1].Value = item.name.ToString();
@@ -41,38 +48,64 @@ namespace VisualZorgApp
                 ProfileGridView.Rows[n].Cells[5].Value = item.length.ToString();
                 ProfileGridView.Rows[n].Cells[6].Value = item.GetBmi().ToString();
 
+
+
             }
         }
 
         private void SaveAll()
         {
             int rowIndex = 0;
+            var profile = profileList.profiles[rowIndex];
             string r = "";
-            
-            
+            ProfileList profilesLocal = new ProfileList();
+
             foreach (DataGridViewRow row in ProfileGridView.Rows)
             {
                 /*Convertrow.Cells[0].Value;*/
-            /*    row.Cells[1].ValueType = typeof(string);
-                row.Cells[2].ValueType = typeof(string);
-                row.Cells[3].ValueType = typeof(int);
-                row.Cells[4].ValueType = typeof(double);
-                row.Cells[5].ValueType = typeof(double);
-                MessageBox.Show(r);
-                *//*r += row.Cells[1].Value.GetType();
-                r += row.Cells[2].Value.GetType();
-                r += row.Cells[3].Value.GetType();
-                r += row.Cells[4].Value.GetType();
-                r += row.Cells[5].Value.GetType();
-*//*
-                profileList.profiles[rowIndex].id = row.Cells[id].Value;
-                profileList.profiles[rowIndex].name = row.Cells[1].Value;
-                profileList.profiles[rowIndex].surname = row.Cells[2].Value;
-                profileList.profiles[rowIndex].age = Convert.ToInt32(row.Cells[3].Value);
-                profileList.profiles[rowIndex].weight = Convert.ToDouble(row.Cells[4].Value);
-                profileList.profiles[rowIndex].length = Convert.ToDouble(row.Cells[5].Value);
-*/
-                
+                /* row.Cells[1].ValueType = typeof(string);
+                 row.Cells[2].ValueType = typeof(string);
+                 row.Cells[3].ValueType = typeof(int);
+                 row.Cells[4].ValueType = typeof(double);
+                 row.Cells[5].ValueType = typeof(double);
+ */
+                int id = Convert.ToInt32(row.Cells[0].Value);
+                string name = (string)row.Cells[1].Value;
+                string surname = (string)row.Cells[2].Value;
+                int age = Convert.ToInt32(row.Cells[3].Value);
+                double weight = Convert.ToDouble(row.Cells[0].Value);
+                double length = Convert.ToDouble(row.Cells[0].Value);
+
+
+                if (id == 0 && name == "" && surname =="" && age == 0 && weight == 0.0 && length == 0.0)
+                {
+                    break;
+                }
+
+                profilesLocal.profiles.Add(new Profile {id = id , name =name, surname=surname,age=age,weight = weight, length = length});
+                try
+                {
+                    profile.id = id;
+                    profile.name = name;
+                    profile.surname = surname;
+                    profile.age = age;
+                    profile.weight = weight;
+                    profile.length = length;
+                }
+                catch (Exception)
+                {
+
+                    throw;
+                }
+
+                /*
+                                profileList.profiles[rowIndex].name = name;
+                                profileList.profiles[rowIndex].surname = surname;
+                                profileList.profiles[rowIndex].age = age;
+                                profileList.profiles[rowIndex].weight = weight;
+                                profileList.profiles[rowIndex].length = length;*/
+                rowIndex++;
+
                 /*foreach (var item in row.Cells)
                 {
                     
@@ -83,13 +116,13 @@ namespace VisualZorgApp
                     item.length = ProfileGridView.Rows[n].Cells[5].Value;*//*
                 }*/
 
-                rowIndex++;
+
             }
-            
-            profileList.SaveJsonToFile(profileList.SerializeProfileListToJson());
+
+            profilesLocal.SaveJsonToFile(profilesLocal.SerializeProfileListToJson());
         }
-       
-        
+
+
         private void RenderAllButton_Click(object sender, EventArgs e)
         {
             profileList.DeserializeJsonToProfileList();
