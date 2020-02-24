@@ -23,6 +23,7 @@ namespace VisualZorgApp
 
      
         }
+        
         public double GetBmi()
         {
             return Math.Round(weight / (length * length), 2);

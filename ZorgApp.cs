@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace VisualZorgApp
 {
-    public partial class Form1 : Form
+    public partial class ZorgApp : Form
     {
         ProfileList profileList = new ProfileList();
 
-        public Form1()
+        public ZorgApp()
         {
             InitializeComponent();
-            profileList.DeserializeJsonToProfileList();
+            
             RenderAll();
         }
 
@@ -28,7 +28,9 @@ namespace VisualZorgApp
 
         private void RenderAll()
         {
-           
+
+            profileList.DeserializeJsonToProfileList();
+
             ProfileGridView.Rows.Clear();
             ProfileGridView.Refresh();
             foreach (var item in profileList.profiles)
@@ -99,5 +101,8 @@ namespace VisualZorgApp
         {
             SaveAll();
         }
+
+        
+        
     }
 }
