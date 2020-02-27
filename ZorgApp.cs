@@ -13,27 +13,58 @@ namespace VisualZorgApp
     public partial class ZorgApp : Form
     {
         ProfileList profileList = new ProfileList();
+        DrugList drugList = new DrugList();
+
         public ZorgApp()
         {
             InitializeComponent();
-
             /*      RenderAll();*/
             
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            RenderAll();
 
+            profileList.SqlAllProfilesToList();
+            drugList.SqlAllDrugsToList();
+
+            RenderProfiles();
+            RenderDrugs();
             /*string msg = profileList.SqlAllUsersToProfiles();
             MessageBox.Show(msg);*//**/
-           
-        }
 
-        private void RenderAll()
+        }
+        private void RenderDrugs()
         {
 
-            profileList.SqlAllUsersToProfiles();
+
+
+            DrugGridView.Rows.Clear();
+            DrugGridView.Refresh();
+
+            foreach (var item in drugList.drugs)
+            {
+
+                if (item.name == null )
+                {
+                    item.name = "";
+                }
+
+                int n = DrugGridView.Rows.Add();
+                DrugGridView.Rows[n].Cells[0].Value = item.id.ToString();
+                DrugGridView.Rows[n].Cells[1].Value = item.name.ToString();
+                DrugGridView.Rows[n].Cells[2].Value = item.description.ToString();
+                DrugGridView.Rows[n].Cells[3].Value = item.type.ToString();
+                DrugGridView.Rows[n].Cells[4].Value = item.dosage.ToString();
+
+
+
+            }
+        }
+        private void RenderProfiles()
+        {
+
+           
 
             ProfileGridView.Rows.Clear();
             ProfileGridView.Refresh();
@@ -87,14 +118,14 @@ namespace VisualZorgApp
             ProfileList gridData = GetGridData();
             gridData.SaveJsonToFile(gridData.SerializeProfileListToJson());
             profileList.DeserializeJsonToProfileList();
-            RenderAll();
+            RenderProfiles();
         }
 
 
         private void RenderAllButton_Click(object sender, EventArgs e)
         {
             profileList.DeserializeJsonToProfileList();
-            RenderAll();
+            RenderProfiles();
         }
 
         private void ProfileGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -110,6 +141,11 @@ namespace VisualZorgApp
         private void button1_Click(object sender, EventArgs e)
         {
            
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

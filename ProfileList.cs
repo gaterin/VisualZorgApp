@@ -16,42 +16,49 @@ namespace VisualZorgApp
         public ProfileList()
         {
 
-            /*
+/*
             profiles.Add(new Profile { id = 1, name = "Hugh", surname = "Mungu", age = 96, weight = 68.71, length = 1.31, type = 1, username = "hugh", password = "mungu" });
             profiles.Add(new Profile { id = 2, name = "Jack", surname = "Mango", age = 56, weight = 78.23, length = 1.81, type = 2, username = "jack", password = "mango" });
             profiles.Add(new Profile { id = 3, name = "Phil", surname = "PorPo", age = 14, weight = 45.22, length = 2.11, type = 2, username = "phil", password = "porpo" });
-            */
-            SqlAllUsersToProfiles();
+*/
+            /*SqlAllUsersToProfiles();*/
         
         }
 
-        public void SqlAllUsersToProfiles()
+        public void SqlAllProfilesToList()
         {
-            MySqlCommand qry = ExecuteSql("SELECT * FROM profile");
-            db.con.Open();
-            MySqlDataReader reader = qry.ExecuteReader();
-
-            while (reader.Read())
+            using (MySqlCommand qry = ExecuteSql("SELECT * FROM profile"))
             {
-                int id = (int)reader["id"];
-                string name = reader["name"].ToString();
-                string surname = reader["surname"].ToString();
-                int age = (int)reader["age"];
-                double weight = (double)reader["weight"];
-                double length = (double)reader["length"];
-                int type = (int)reader["roleId"];
-                string username = reader["username"].ToString();
-                string password = reader["password"].ToString();
+                db.con.Open();
+                using (MySqlDataReader reader = qry.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        profiles.Add(new Profile
+                        {
+                            id = (int)reader["id"],
+                            name = (string)reader["name"],
+                            surname = (string)reader["surname"],
+                            age = (int)reader["age"],
+                            weight = (double)reader["weight"],
+                            length = (double)reader["length"],
+                            type = (int)reader["roleId"],
+                            username = (string)reader["username"],
+                            password = (string)reader["password"]
+                        });
 
-                profiles.Add(new Profile { id = id, name = name, surname = surname, age = age, weight = weight, length = length, type = type, username = username, password = password });
+                    }
+                }
+                //MySqlCommand qry = ExecuteSql("SELECT * FROM profile");
+                //db.con.Open();
+                //MySqlDataReader reader = qry.ExecuteReader();
 
 
+
+
+                //}
             }
-
-           
-            
             db.con.Close();
-            
         }
         public MySqlCommand ExecuteSql(string sql)
         {
