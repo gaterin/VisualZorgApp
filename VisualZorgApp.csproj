@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Const.cs" />
+    <Compile Include="DBConnection.cs" />
     <Compile Include="ZorgApp.cs">
       <SubType>Form</SubType>
     </Compile>

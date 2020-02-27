@@ -13,23 +13,27 @@ namespace VisualZorgApp
     public partial class ZorgApp : Form
     {
         ProfileList profileList = new ProfileList();
-
         public ZorgApp()
         {
             InitializeComponent();
+
+            /*      RenderAll();*/
             
-            RenderAll();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             RenderAll();
+
+            /*string msg = profileList.SqlAllUsersToProfiles();
+            MessageBox.Show(msg);*//**/
+           
         }
 
         private void RenderAll()
         {
 
-            profileList.DeserializeJsonToProfileList();
+            profileList.SqlAllUsersToProfiles();
 
             ProfileGridView.Rows.Clear();
             ProfileGridView.Refresh();
@@ -59,6 +63,7 @@ namespace VisualZorgApp
         public ProfileList GetGridData()
         {
             ProfileList profilesLocal = new ProfileList();
+
 
             foreach (DataGridViewRow row in ProfileGridView.Rows)
             {
@@ -102,7 +107,9 @@ namespace VisualZorgApp
             SaveAll();
         }
 
-        
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
