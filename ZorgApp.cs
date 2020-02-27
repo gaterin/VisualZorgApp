@@ -14,7 +14,9 @@ namespace VisualZorgApp
     {
         ProfileList profileList = new ProfileList();
         DrugList drugList = new DrugList();
+        MyProfile myProfile = new MyProfile(2);
 
+        
         public ZorgApp()
         {
             InitializeComponent();
@@ -27,11 +29,42 @@ namespace VisualZorgApp
 
             profileList.SqlAllProfilesToList();
             drugList.SqlAllDrugsToList();
-
+            RenderMyProfile();
             RenderProfiles();
             RenderDrugs();
             /*string msg = profileList.SqlAllUsersToProfiles();
             MessageBox.Show(msg);*//**/
+
+        }
+        private void RenderMyProfile()
+        {
+            myProfileIdLabel.Text += myProfile.id.ToString();
+            myProfileNameLabel.Text += myProfile.name.ToString();
+            myProfileSurnameLabel.Text += myProfile.surname.ToString();
+            myProfileAgeLabel.Text += myProfile.age.ToString();
+            myProfileWeightLabel.Text += myProfile.weight.ToString();
+            myProfileLengthLabel.Text += myProfile.length.ToString();
+            myProfileBmiLabel.Text += myProfile.GetBmi().ToString();
+            myProfileRoleIdLabel.Text += myProfile.roleId.ToString();
+            myProfileRoleNameLabel.Text += myProfile.roleName.ToString();
+
+            
+            PrescribedDrugsGridView.Rows.Clear();
+            PrescribedDrugsGridView.Refresh();
+
+            foreach (var item in myProfile.prescribedDrugs)
+            {
+
+
+                int n = PrescribedDrugsGridView.Rows.Add();
+                PrescribedDrugsGridView.Rows[n].Cells[0].Value = item.drugName.ToString();
+                PrescribedDrugsGridView.Rows[n].Cells[1].Value = item.drugIntakeTime.ToString();
+                PrescribedDrugsGridView.Rows[n].Cells[2].Value = item.drugStartDate.ToString();
+                PrescribedDrugsGridView.Rows[n].Cells[3].Value = item.drugEndDate.ToString();
+
+
+
+            }
 
         }
         private void RenderDrugs()
@@ -138,12 +171,7 @@ namespace VisualZorgApp
             SaveAll();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void label10_Click(object sender, EventArgs e)
+        private void DrugList_Click(object sender, EventArgs e)
         {
 
         }

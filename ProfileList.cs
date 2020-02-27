@@ -29,26 +29,36 @@ namespace VisualZorgApp
         {
             using (MySqlCommand qry = ExecuteSql("SELECT * FROM profile"))
             {
-                db.con.Open();
-                using (MySqlDataReader reader = qry.ExecuteReader())
+                try
                 {
-                    while (reader.Read())
+                    db.con.Open();
+                    using (MySqlDataReader reader = qry.ExecuteReader())
                     {
-                        profiles.Add(new Profile
+                        while (reader.Read())
                         {
-                            id = (int)reader["id"],
-                            name = (string)reader["name"],
-                            surname = (string)reader["surname"],
-                            age = (int)reader["age"],
-                            weight = (double)reader["weight"],
-                            length = (double)reader["length"],
-                            type = (int)reader["roleId"],
-                            username = (string)reader["username"],
-                            password = (string)reader["password"]
-                        });
+                            profiles.Add(new Profile
+                            {
+                                id = (int)reader["id"],
+                                name = (string)reader["name"],
+                                surname = (string)reader["surname"],
+                                age = (int)reader["age"],
+                                weight = (double)reader["weight"],
+                                length = (double)reader["length"],
+                                roleId = (int)reader["roleId"],
+                                username = (string)reader["username"],
+                                password = (string)reader["password"]
+                            });
 
+                        }
                     }
                 }
+                catch (Exception e)
+                {
+
+
+                }
+
+                
                 //MySqlCommand qry = ExecuteSql("SELECT * FROM profile");
                 //db.con.Open();
                 //MySqlDataReader reader = qry.ExecuteReader();

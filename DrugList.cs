@@ -11,26 +11,43 @@ namespace VisualZorgApp
     {
         public List<Drug> drugs = new List<Drug>();
         private DBConnection db = new DBConnection();
-        public void SqlAllDrugsToList()
+        public bool SqlAllDrugsToList()
         {
-            MySqlCommand qry = ExecuteSql("SELECT * FROM drug");
-            db.con.Open();
-            MySqlDataReader reader = qry.ExecuteReader();
-
-            while (reader.Read())
+            using (MySqlCommand qry = ExecuteSql("SELECT * FROM drug"))
             {
 
-                drugs.Add(new Drug
+                try
                 {
-                    id = (int)reader["id"],
-                    name = reader["name"].ToString(),
-                    description = reader["description"].ToString(),
-                    type = reader["type"].ToString(),
-                    dosage = reader["dosage"].ToString()
-                });
+                    db.con.Open();
+                    using (MySqlDataReader reader = qry.ExecuteReader())
+                    {
 
+
+
+                        while (reader.Read())
+                        {
+
+                            drugs.Add(new Drug
+                            {
+                                id = (int)reader["id"],
+                                name = reader["name"].ToString(),
+                                description = reader["description"].ToString(),
+                                type = reader["type"].ToString(),
+                                dosage = reader["dosage"].ToString()
+                            });
+
+
+                        }
+                    }
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
 
             }
+
         }
         public MySqlCommand ExecuteSql(string sql)
         {

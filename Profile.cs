@@ -14,7 +14,7 @@ namespace VisualZorgApp
         public int age { get; set; }
         public double weight { get; set; }
         public double length { get; set; }
-        public int type { get; set; }
+        public int roleId { get; set; }
         public string username { get; set; }
         public string password { get; set; }
 
