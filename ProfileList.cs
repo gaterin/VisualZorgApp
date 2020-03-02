@@ -11,7 +11,7 @@ namespace VisualZorgApp
     public class ProfileList
     {
 
-        private List<Profile> profileList = new List<Profile>();
+        public List<Profile> profiles = new List<Profile>();
         private DBConnection db = new DBConnection();
         public ProfileList()
         {
@@ -36,16 +36,18 @@ namespace VisualZorgApp
                     {
                         while (reader.Read())
                         {
-                            profileList.Add(new Profile
-                            (
-                                (int)reader["id"],
-                                (string)reader["name"],
-                                (string)reader["surname"],
-                                (int)reader["age"],
-                                (double)reader["weight"],
-                                (double)reader["length"],
-                                (int)reader["roleId"]
-                            ));
+                            profiles.Add(new Profile
+                            {
+                                id = (int)reader["id"],
+                                name = (string)reader["name"],
+                                surname = (string)reader["surname"],
+                                age = (int)reader["age"],
+                                weight = (double)reader["weight"],
+                                length = (double)reader["length"],
+                                roleId = (int)reader["roleId"],
+                                username = (string)reader["username"],
+                                password = (string)reader["password"]
+                            });
 
                         }
                     }
@@ -76,7 +78,7 @@ namespace VisualZorgApp
         }
         public string SerializeProfileListToJson()
         {
-            return JsonConvert.SerializeObject(profileList, Formatting.Indented);
+            return JsonConvert.SerializeObject(profiles, Formatting.Indented);
         }
 
         public void SaveJsonToFile(string jsonString)
@@ -88,17 +90,24 @@ namespace VisualZorgApp
         {
             string json = System.IO.File.ReadAllText(Const.jsonPath);
             var jsonDeserialize = JsonConvert.DeserializeObject<List<Profile>>(json);
-            profileList = jsonDeserialize;
-
+            profiles = jsonDeserialize;
             
         }
-        public void AddProfile(Profile profile)
+     
+        public Profile GetProfile(int id)
         {
-            profileList.Add(profile);
-        }
-        public List<Profile> GetProfileList()
-        {
-            return profileList;
+
+            foreach (var profile in profiles)
+            {
+                if (profile.id == id)
+                {
+                 
+                    return profile;
+
+                }
+                
+            }
+            return null;
         }
 
        

@@ -9,7 +9,7 @@ namespace VisualZorgApp
 {
     class DrugList
     {
-        private List<Drug> drugList = new List<Drug>();
+        public List<Drug> drugs = new List<Drug>();
         private DBConnection db = new DBConnection();
         public bool SqlAllDrugsToList()
         {
@@ -27,15 +27,14 @@ namespace VisualZorgApp
                         while (reader.Read())
                         {
 
-                            AddDrug(new Drug
-                            (
-                                (int)reader["id"],
-                                (string)reader["name"],
-                                (string)reader["description"],
-                                (string)reader["type"],
-                                (string)reader["dosage"]
-                                )
-                            );
+                            drugs.Add(new Drug
+                            {
+                                id = (int)reader["id"],
+                                name = reader["name"].ToString(),
+                                description = reader["description"].ToString(),
+                                type = reader["type"].ToString(),
+                                dosage = reader["dosage"].ToString()
+                            });
 
 
                         }
@@ -49,14 +48,6 @@ namespace VisualZorgApp
 
             }
 
-        }
-        public List<Drug> GetDrugList()
-        {
-            return drugList;
-        }
-        public void AddDrug(Drug drug)
-        {
-            drugList.Add(drug);
         }
         public MySqlCommand ExecuteSql(string sql)
         {

@@ -14,7 +14,7 @@ namespace VisualZorgApp
     {
         ProfileList profileList = new ProfileList();
         DrugList drugList = new DrugList();
-        MyProfile myProfile = new MyProfile(1);
+        MyProfile myProfile = new MyProfile(2);
 
         
         public ZorgApp()
@@ -38,29 +38,29 @@ namespace VisualZorgApp
         }
         private void RenderMyProfile()
         {
-            myProfileIdLabel.Text += myProfile.GetId().ToString();
-            myProfileNameLabel.Text += myProfile.GetName().ToString();
-            myProfileSurnameLabel.Text += myProfile.GetSurname().ToString();
-            myProfileAgeLabel.Text += myProfile.GetAge().ToString();
-            myProfileWeightLabel.Text += myProfile.GetWeight().ToString();
-            myProfileLengthLabel.Text += myProfile.GetLength().ToString();
+            myProfileIdLabel.Text += myProfile.id.ToString();
+            myProfileNameLabel.Text += myProfile.name.ToString();
+            myProfileSurnameLabel.Text += myProfile.surname.ToString();
+            myProfileAgeLabel.Text += myProfile.age.ToString();
+            myProfileWeightLabel.Text += myProfile.weight.ToString();
+            myProfileLengthLabel.Text += myProfile.length.ToString();
             myProfileBmiLabel.Text += myProfile.GetBmi().ToString();
-            myProfileRoleIdLabel.Text += myProfile.GetRoleId().ToString();
-            myProfileRoleNameLabel.Text += myProfile.GetRoleName().ToString();
+            myProfileRoleIdLabel.Text += myProfile.roleId.ToString();
+            myProfileRoleNameLabel.Text += myProfile.roleName.ToString();
 
             
             PrescribedDrugsGridView.Rows.Clear();
             PrescribedDrugsGridView.Refresh();
 
-            foreach (var item in myProfile.GetPrescribedDrugs())
+            foreach (var item in myProfile.prescribedDrugs)
             {
 
 
                 int n = PrescribedDrugsGridView.Rows.Add();
-                PrescribedDrugsGridView.Rows[n].Cells[0].Value = item.GetDrugName().ToString();
-                PrescribedDrugsGridView.Rows[n].Cells[1].Value = item.GetDrugIntakeTime().ToString();
-                PrescribedDrugsGridView.Rows[n].Cells[2].Value = item.GetDrugStartDate().ToString();
-                PrescribedDrugsGridView.Rows[n].Cells[3].Value = item.GetDrugEndDate().ToString();
+                PrescribedDrugsGridView.Rows[n].Cells[0].Value = item.drugName.ToString();
+                PrescribedDrugsGridView.Rows[n].Cells[1].Value = item.drugIntakeTime.ToString();
+                PrescribedDrugsGridView.Rows[n].Cells[2].Value = item.drugStartDate.ToString();
+                PrescribedDrugsGridView.Rows[n].Cells[3].Value = item.drugEndDate.ToString();
 
 
 
@@ -75,20 +75,20 @@ namespace VisualZorgApp
             DrugGridView.Rows.Clear();
             DrugGridView.Refresh();
 
-            foreach (var item in drugList.GetDrugList())
+            foreach (var item in drugList.drugs)
             {
 
-                if (item.GetName() == null )
+                if (item.name == null )
                 {
-                    item.SetName("");
+                    item.name = "";
                 }
 
                 int n = DrugGridView.Rows.Add();
-                DrugGridView.Rows[n].Cells[0].Value = item.GetId().ToString();
-                DrugGridView.Rows[n].Cells[1].Value = item.GetName().ToString();
-                DrugGridView.Rows[n].Cells[2].Value = item.GetDescription().ToString();
-                DrugGridView.Rows[n].Cells[3].Value = item.GetType().ToString();
-                DrugGridView.Rows[n].Cells[4].Value = item.GetDosage().ToString();
+                DrugGridView.Rows[n].Cells[0].Value = item.id.ToString();
+                DrugGridView.Rows[n].Cells[1].Value = item.name.ToString();
+                DrugGridView.Rows[n].Cells[2].Value = item.description.ToString();
+                DrugGridView.Rows[n].Cells[3].Value = item.type.ToString();
+                DrugGridView.Rows[n].Cells[4].Value = item.dosage.ToString();
 
 
 
@@ -101,22 +101,22 @@ namespace VisualZorgApp
 
             ProfileGridView.Rows.Clear();
             ProfileGridView.Refresh();
-            foreach (var item in profileList.GetProfileList())
+            foreach (var item in profileList.profiles)
             {
 
-                if (item.GetName() == null || item.GetSurname() == null)
+                if (item.name == null || item.surname == null)
                 {
-                    item.SetName("");
-                    item.SetSurname("");
+                    item.name = "";
+                    item.surname = "";
                 }
 
                 int n = ProfileGridView.Rows.Add();
-                ProfileGridView.Rows[n].Cells[0].Value = item.GetId().ToString();
-                ProfileGridView.Rows[n].Cells[1].Value = item.GetName().ToString();
-                ProfileGridView.Rows[n].Cells[2].Value = item.GetSurname().ToString();
-                ProfileGridView.Rows[n].Cells[3].Value = item.GetAge().ToString();
-                ProfileGridView.Rows[n].Cells[4].Value = item.GetWeight().ToString();
-                ProfileGridView.Rows[n].Cells[5].Value = item.GetLength().ToString();
+                ProfileGridView.Rows[n].Cells[0].Value = item.id.ToString();
+                ProfileGridView.Rows[n].Cells[1].Value = item.name.ToString();
+                ProfileGridView.Rows[n].Cells[2].Value = item.surname.ToString();
+                ProfileGridView.Rows[n].Cells[3].Value = item.age.ToString();
+                ProfileGridView.Rows[n].Cells[4].Value = item.weight.ToString();
+                ProfileGridView.Rows[n].Cells[5].Value = item.length.ToString();
                 ProfileGridView.Rows[n].Cells[6].Value = item.GetBmi().ToString();
 
 
@@ -138,13 +138,11 @@ namespace VisualZorgApp
                     int age = Convert.ToInt32(row.Cells[3].Value);
                     double weight = Convert.ToDouble(row.Cells[4].Value);
                     double length = Convert.ToDouble(row.Cells[5].Value);
-                    int roleId = 2;
 
-                    profilesLocal.AddProfile(new Profile( id = id, name = name, surname = surname, age = age, weight = weight, length = length, roleId = roleId));
+                    profilesLocal.profiles.Add(new Profile { id = id, name = name, surname = surname, age = age, weight = weight, length = length });
                 
             }
-            profilesLocal.GetProfileList().RemoveAt(profilesLocal.GetProfileList().Count - 1);
-             
+            profilesLocal.profiles.RemoveAt(profilesLocal.profiles.Count - 1);
             return profilesLocal;
         }
 

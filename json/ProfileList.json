@@ -1,4 +1,24 @@
 [
-  {},
-  {}
+  {
+    "id": 1,
+    "name": "Georgi",
+    "surname": "Atanasov",
+    "age": 21,
+    "weight": 95.6,
+    "length": 1.87,
+    "type": 0,
+    "username": null,
+    "password": null
+  },
+  {
+    "id": 2,
+    "name": "Karel",
+    "surname": "de Kleine",
+    "age": 24,
+    "weight": 85.8,
+    "length": 1.78,
+    "type": 0,
+    "username": null,
+    "password": null
+  }
 ]

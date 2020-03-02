@@ -8,61 +8,14 @@ namespace VisualZorgApp
 {
     class Drug
     {
-        private int id;
-        private string name;
-        private string description;
-        private string type;
-        private string dosage;
-        public Drug(int id, string name, string description, string type, string dosage)
+        public int id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public string type { get; set; }
+        public string dosage { get; set; }
+        public Drug()
         {
-            SetId(id);
-            SetName(name);
-            SetDescription(description);
-            SetType(type);
-            SetDosage(dosage);
-        }
 
-        public int GetId()
-        {
-            return id;
-        }
-        public string GetName()
-        {
-            return name;
-        }
-        public string GetDescription()
-        {
-            return description;
-        }
-        public string GetType()
-        {
-            return type;
-        }
-        public string GetDosage()
-        {
-            return dosage;
-        }
-
-        public void SetId(int id)
-        {
-            this.id = id;
-        }
-        public void SetName(string name)
-        {
-            this.name = name;
-        }
-        public void SetDescription(string description)
-        {
-            this.description = description;
-
-        }
-        public void SetType(string type)
-        {
-            this.type = type;
-        }
-        public void SetDosage(string dosage)
-        {
-            this.dosage = dosage;
         }
     }
 }
