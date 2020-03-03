@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tulpep.NotificationWindow;
 
 namespace VisualZorgApp
 {
@@ -20,8 +21,6 @@ namespace VisualZorgApp
         public ZorgApp()
         {
             InitializeComponent();
-            /*      RenderAll();*/
-            
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,9 +31,24 @@ namespace VisualZorgApp
             RenderMyProfile();
             RenderProfiles();
             RenderDrugs();
+            NotifyPrescribedDrugs();
             /*string msg = profileList.SqlAllUsersToProfiles();
             MessageBox.Show(msg);*//**/
 
+        }
+        private void NotifyPrescribedDrugs()
+        {
+            
+            if (myProfile.GetPrescribedDrugsToNotify().Any())
+            {
+                string drugsToTakeIn = "";
+                foreach (var item in myProfile.GetPrescribedDrugsToNotify())
+                {
+                    drugsToTakeIn += item.ToString() + System.Environment.NewLine;
+                }
+                Notification notification = new Notification("DRUG INTAKE ALERT!", drugsToTakeIn, true);
+            }
+            
         }
         private void RenderMyProfile()
         {
@@ -48,29 +62,21 @@ namespace VisualZorgApp
             myProfileRoleIdLabel.Text += myProfile.GetRoleId().ToString();
             myProfileRoleNameLabel.Text += myProfile.GetRoleName().ToString();
 
-            
             PrescribedDrugsGridView.Rows.Clear();
             PrescribedDrugsGridView.Refresh();
 
             foreach (var item in myProfile.GetPrescribedDrugs())
             {
-
-
                 int n = PrescribedDrugsGridView.Rows.Add();
                 PrescribedDrugsGridView.Rows[n].Cells[0].Value = item.GetDrugName().ToString();
                 PrescribedDrugsGridView.Rows[n].Cells[1].Value = item.GetDrugIntakeTime().ToString();
                 PrescribedDrugsGridView.Rows[n].Cells[2].Value = item.GetDrugStartDate().ToString();
                 PrescribedDrugsGridView.Rows[n].Cells[3].Value = item.GetDrugEndDate().ToString();
-
-
-
             }
 
         }
         private void RenderDrugs()
         {
-
-
 
             DrugGridView.Rows.Clear();
             DrugGridView.Refresh();
@@ -89,18 +95,14 @@ namespace VisualZorgApp
                 DrugGridView.Rows[n].Cells[2].Value = item.GetDescription().ToString();
                 DrugGridView.Rows[n].Cells[3].Value = item.GetType().ToString();
                 DrugGridView.Rows[n].Cells[4].Value = item.GetDosage().ToString();
-
-
-
             }
         }
         private void RenderProfiles()
         {
 
-           
-
             ProfileGridView.Rows.Clear();
             ProfileGridView.Refresh();
+
             foreach (var item in profileList.GetProfileList())
             {
 
@@ -119,15 +121,12 @@ namespace VisualZorgApp
                 ProfileGridView.Rows[n].Cells[5].Value = item.GetLength().ToString();
                 ProfileGridView.Rows[n].Cells[6].Value = item.GetBmi().ToString();
 
-
-
             }
         }
 
         public ProfileList GetGridData()
         {
             ProfileList profilesLocal = new ProfileList();
-
 
             foreach (DataGridViewRow row in ProfileGridView.Rows)
             {
@@ -177,5 +176,7 @@ namespace VisualZorgApp
         {
 
         }
+
+        
     }
 }

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace VisualZorgApp
@@ -17,13 +14,31 @@ namespace VisualZorgApp
 
         private DBConnection db = new DBConnection();
         private List<DrugPrescription> prescribedDrugs = new List<DrugPrescription>();
+        private List<string> prescribedDrugsToNotify = new List<string>();
 
         public MyProfile(int id)
         {
             FetchProfileById(id);
             FetchPrescribedDrugsForMyProfile(id);
+            SetPrescribedDrugsToNotify();
         }
-
+        public List<string> GetPrescribedDrugsToNotify()
+        {
+            return prescribedDrugsToNotify;
+        }
+        public void SetPrescribedDrugsToNotify()
+        {
+            int hoursBeforeIntake = 1;
+            foreach (var item in prescribedDrugs)
+            {
+                if (item.GetDrugStartDate().Date <= DateTime.Today &&
+                    item.GetDrugEndDate().Date >= DateTime.Today &&
+                    item.GetDrugIntakeTime().Hour <= item.GetDrugIntakeTime().Hour + hoursBeforeIntake)
+                {
+                    prescribedDrugsToNotify.Add(item.GetDrugName().ToString());
+                }
+            }
+        }
         public List<DrugPrescription> GetPrescribedDrugs()
         {
             return prescribedDrugs;
@@ -34,7 +49,7 @@ namespace VisualZorgApp
         }
         public bool FetchProfileById(int id)
         {
-            using (MySqlCommand qry = ExecuteSql($"SELECT *, role.id AS role_id ,role.name AS role_name FROM profile JOIN role ON profile.roleId = role.id  WHERE profile.id = { id}"))
+            using (MySqlCommand qry = ExecuteSql($"SELECT *, role.id AS role_id ,role.name AS role_name FROM profile JOIN role ON profile.roleId = role.id  WHERE profile.id = {id}"))
             {
 
                 try

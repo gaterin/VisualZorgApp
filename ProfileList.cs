@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using MySql.Data.MySqlClient;
 
@@ -57,14 +54,6 @@ namespace VisualZorgApp
                 }
 
                 
-                //MySqlCommand qry = ExecuteSql("SELECT * FROM profile");
-                //db.con.Open();
-                //MySqlDataReader reader = qry.ExecuteReader();
-
-
-
-
-                //}
             }
             db.con.Close();
         }

@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace VisualZorgApp
 {
 
     class DrugPrescription
     {
         private string drugName;
-        private string drugIntakeTime;
-        private string drugStartDate;
-        private string drugEndDate;
+        private DateTime drugIntakeTime;
+        private DateTime drugStartDate;
+        private DateTime drugEndDate;
 
         public DrugPrescription(string drugName, string drugIntakeTime, string drugStartDate, string drugEndDate)
         {
@@ -25,15 +20,15 @@ namespace VisualZorgApp
         {
             return drugName;
         }
-        public string GetDrugIntakeTime()
+        public DateTime GetDrugIntakeTime()
         {
             return drugIntakeTime;
         }
-        public string GetDrugStartDate()
+        public DateTime GetDrugStartDate()
         {
             return drugStartDate;
         }
-        public string GetDrugEndDate()
+        public DateTime GetDrugEndDate()
         {
             return drugEndDate;
         }
@@ -44,15 +39,18 @@ namespace VisualZorgApp
         }
         public void SetDrugIntakeTime(string drugIntakeTime)
         {
-            this.drugIntakeTime = drugIntakeTime;
+           DateTime intakeTime = DateTime.Parse(drugIntakeTime);
+            this.drugIntakeTime = intakeTime;
         }
         public void SetDrugStartDate(string drugStartDate)
         {
-            this.drugStartDate = drugStartDate;
+            DateTime startDate = DateTime.Parse(drugStartDate);
+            this.drugStartDate = startDate;
         }
         public void SetDrugEndDate(string drugEndDate)
         {
-            this.drugEndDate = drugEndDate;
+            DateTime endDate = DateTime.Parse(drugEndDate);
+            this.drugEndDate = endDate;
         }
     }
 }
