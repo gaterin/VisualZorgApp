@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2020 at 06:35 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Generation Time: Mar 05, 2020 at 11:48 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -63,7 +63,8 @@ CREATE TABLE `drugprescription` (
 --
 
 INSERT INTO `drugprescription` (`drugId`, `profileId`, `startDate`, `endDate`, `intakeTime`) VALUES
-(1, 1, '2020-02-26', '2020-02-29', '15:00:00'),
+(1, 1, '2020-02-26', '2020-03-06', '23:00:00'),
+(2, 1, '2020-02-27', '2020-03-06', '23:00:00'),
 (2, 2, '2020-02-27', '2020-02-28', '12:00:00');
 
 -- --------------------------------------------------------
@@ -111,6 +112,28 @@ INSERT INTO `role` (`id`, `name`) VALUES
 (1, 'zorgverlener'),
 (2, 'patient');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `weightregistration`
+--
+
+CREATE TABLE `weightregistration` (
+  `id` int(9) NOT NULL,
+  `profileId` int(9) NOT NULL,
+  `date` date NOT NULL,
+  `weight` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `weightregistration`
+--
+
+INSERT INTO `weightregistration` (`id`, `profileId`, `date`, `weight`) VALUES
+(1, 1, '2020-03-05', 95.6),
+(2, 1, '2020-03-04', 95.3),
+(3, 2, '2020-03-05', 87.3);
+
 --
 -- Indexes for dumped tables
 --
@@ -142,6 +165,13 @@ ALTER TABLE `role`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `weightregistration`
+--
+ALTER TABLE `weightregistration`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `weightregistrationProfileId` (`profileId`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -164,6 +194,12 @@ ALTER TABLE `role`
   MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `weightregistration`
+--
+ALTER TABLE `weightregistration`
+  MODIFY `id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -179,6 +215,12 @@ ALTER TABLE `drugprescription`
 --
 ALTER TABLE `profile`
   ADD CONSTRAINT `roleId` FOREIGN KEY (`roleId`) REFERENCES `role` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `weightregistration`
+--
+ALTER TABLE `weightregistration`
+  ADD CONSTRAINT `weightregistrationProfileId` FOREIGN KEY (`profileId`) REFERENCES `profile` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

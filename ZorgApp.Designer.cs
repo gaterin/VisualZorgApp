@@ -65,6 +65,10 @@
             this.drugDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drugType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drugDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.myProfileWeightRegistrationGroupBox = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.registeredWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registeredWeightDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabs.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.myProfilePrescribedDrugsGroupBox.SuspendLayout();
@@ -74,6 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProfileGridView)).BeginInit();
             this.DrugList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DrugGridView)).BeginInit();
+            this.myProfileWeightRegistrationGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabs
@@ -81,22 +87,21 @@
             this.tabs.Controls.Add(this.tabPage2);
             this.tabs.Controls.Add(this.tabPage1);
             this.tabs.Controls.Add(this.DrugList);
-            this.tabs.Location = new System.Drawing.Point(16, 15);
-            this.tabs.Margin = new System.Windows.Forms.Padding(4);
+            this.tabs.Location = new System.Drawing.Point(12, 12);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(1035, 524);
+            this.tabs.Size = new System.Drawing.Size(1119, 582);
             this.tabs.TabIndex = 1;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.myProfileWeightRegistrationGroupBox);
             this.tabPage2.Controls.Add(this.myProfilePrescribedDrugsGroupBox);
             this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1027, 495);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Size = new System.Drawing.Size(1111, 556);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "MyProfile";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -104,11 +109,11 @@
             // myProfilePrescribedDrugsGroupBox
             // 
             this.myProfilePrescribedDrugsGroupBox.Controls.Add(this.PrescribedDrugsGridView);
-            this.myProfilePrescribedDrugsGroupBox.Location = new System.Drawing.Point(281, 7);
-            this.myProfilePrescribedDrugsGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.myProfilePrescribedDrugsGroupBox.Location = new System.Drawing.Point(211, 6);
+            this.myProfilePrescribedDrugsGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.myProfilePrescribedDrugsGroupBox.Name = "myProfilePrescribedDrugsGroupBox";
-            this.myProfilePrescribedDrugsGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.myProfilePrescribedDrugsGroupBox.Size = new System.Drawing.Size(739, 481);
+            this.myProfilePrescribedDrugsGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.myProfilePrescribedDrugsGroupBox.Size = new System.Drawing.Size(517, 554);
             this.myProfilePrescribedDrugsGroupBox.TabIndex = 1;
             this.myProfilePrescribedDrugsGroupBox.TabStop = false;
             this.myProfilePrescribedDrugsGroupBox.Text = "Prescribed Drugs";
@@ -124,12 +129,11 @@
             this.prescribedDrugIntakeTime,
             this.prescribedDrugStartDate,
             this.prescribedDrugEndDate});
-            this.PrescribedDrugsGridView.Location = new System.Drawing.Point(7, 22);
-            this.PrescribedDrugsGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.PrescribedDrugsGridView.Location = new System.Drawing.Point(5, 18);
             this.PrescribedDrugsGridView.Name = "PrescribedDrugsGridView";
             this.PrescribedDrugsGridView.ReadOnly = true;
             this.PrescribedDrugsGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.PrescribedDrugsGridView.Size = new System.Drawing.Size(725, 453);
+            this.PrescribedDrugsGridView.Size = new System.Drawing.Size(509, 526);
             this.PrescribedDrugsGridView.TabIndex = 0;
             this.PrescribedDrugsGridView.TabStop = false;
             // 
@@ -169,11 +173,11 @@
             this.groupBox1.Controls.Add(this.myProfileAgeLabel);
             this.groupBox1.Controls.Add(this.myProfileSurnameLabel);
             this.groupBox1.Controls.Add(this.myProfileNameLabel);
-            this.groupBox1.Location = new System.Drawing.Point(7, 7);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(5, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(269, 481);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(202, 391);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Your Details";
@@ -181,91 +185,99 @@
             // myProfileRoleNameLabel
             // 
             this.myProfileRoleNameLabel.AutoSize = true;
-            this.myProfileRoleNameLabel.Location = new System.Drawing.Point(6, 307);
-            this.myProfileRoleNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.myProfileRoleNameLabel.Location = new System.Drawing.Point(4, 249);
             this.myProfileRoleNameLabel.Name = "myProfileRoleNameLabel";
-            this.myProfileRoleNameLabel.Size = new System.Drawing.Size(86, 16);
+            this.myProfileRoleNameLabel.Size = new System.Drawing.Size(69, 13);
             this.myProfileRoleNameLabel.TabIndex = 20;
             this.myProfileRoleNameLabel.Text = "Role Name : ";
             // 
             // myProfileIdLabel
             // 
             this.myProfileIdLabel.AutoSize = true;
-            this.myProfileIdLabel.Location = new System.Drawing.Point(6, 39);
+            this.myProfileIdLabel.Location = new System.Drawing.Point(4, 32);
+            this.myProfileIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileIdLabel.Name = "myProfileIdLabel";
-            this.myProfileIdLabel.Size = new System.Drawing.Size(27, 16);
+            this.myProfileIdLabel.Size = new System.Drawing.Size(24, 13);
             this.myProfileIdLabel.TabIndex = 18;
             this.myProfileIdLabel.Text = "ID :";
             // 
             // myProfileRoleIdLabel
             // 
             this.myProfileRoleIdLabel.AutoSize = true;
-            this.myProfileRoleIdLabel.Location = new System.Drawing.Point(6, 275);
+            this.myProfileRoleIdLabel.Location = new System.Drawing.Point(4, 223);
+            this.myProfileRoleIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileRoleIdLabel.Name = "myProfileRoleIdLabel";
-            this.myProfileRoleIdLabel.Size = new System.Drawing.Size(62, 16);
+            this.myProfileRoleIdLabel.Size = new System.Drawing.Size(52, 13);
             this.myProfileRoleIdLabel.TabIndex = 14;
             this.myProfileRoleIdLabel.Text = "Role ID : ";
             // 
             // myProfileBmiLabel
             // 
             this.myProfileBmiLabel.AutoSize = true;
-            this.myProfileBmiLabel.Location = new System.Drawing.Point(6, 241);
+            this.myProfileBmiLabel.Location = new System.Drawing.Point(4, 196);
+            this.myProfileBmiLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileBmiLabel.Name = "myProfileBmiLabel";
-            this.myProfileBmiLabel.Size = new System.Drawing.Size(40, 16);
+            this.myProfileBmiLabel.Size = new System.Drawing.Size(35, 13);
             this.myProfileBmiLabel.TabIndex = 12;
             this.myProfileBmiLabel.Text = "BMI : ";
             // 
             // myProfileLengthLabel
             // 
             this.myProfileLengthLabel.AutoSize = true;
-            this.myProfileLengthLabel.Location = new System.Drawing.Point(6, 208);
+            this.myProfileLengthLabel.Location = new System.Drawing.Point(4, 169);
+            this.myProfileLengthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileLengthLabel.Name = "myProfileLengthLabel";
-            this.myProfileLengthLabel.Size = new System.Drawing.Size(57, 16);
+            this.myProfileLengthLabel.Size = new System.Drawing.Size(49, 13);
             this.myProfileLengthLabel.TabIndex = 10;
             this.myProfileLengthLabel.Text = "Length : ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 208);
+            this.label8.Location = new System.Drawing.Point(4, 169);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 16);
+            this.label8.Size = new System.Drawing.Size(44, 13);
             this.label8.TabIndex = 9;
             this.label8.Text = "Name : ";
             // 
             // myProfileWeightLabel
             // 
             this.myProfileWeightLabel.AutoSize = true;
-            this.myProfileWeightLabel.Location = new System.Drawing.Point(6, 173);
+            this.myProfileWeightLabel.Location = new System.Drawing.Point(4, 141);
+            this.myProfileWeightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileWeightLabel.Name = "myProfileWeightLabel";
-            this.myProfileWeightLabel.Size = new System.Drawing.Size(59, 16);
+            this.myProfileWeightLabel.Size = new System.Drawing.Size(50, 13);
             this.myProfileWeightLabel.TabIndex = 7;
             this.myProfileWeightLabel.Text = "Weight : ";
             // 
             // myProfileAgeLabel
             // 
             this.myProfileAgeLabel.AutoSize = true;
-            this.myProfileAgeLabel.Location = new System.Drawing.Point(6, 141);
+            this.myProfileAgeLabel.Location = new System.Drawing.Point(4, 115);
+            this.myProfileAgeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileAgeLabel.Name = "myProfileAgeLabel";
-            this.myProfileAgeLabel.Size = new System.Drawing.Size(42, 16);
+            this.myProfileAgeLabel.Size = new System.Drawing.Size(35, 13);
             this.myProfileAgeLabel.TabIndex = 5;
             this.myProfileAgeLabel.Text = "Age : ";
             // 
             // myProfileSurnameLabel
             // 
             this.myProfileSurnameLabel.AutoSize = true;
-            this.myProfileSurnameLabel.Location = new System.Drawing.Point(6, 107);
+            this.myProfileSurnameLabel.Location = new System.Drawing.Point(4, 87);
+            this.myProfileSurnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileSurnameLabel.Name = "myProfileSurnameLabel";
-            this.myProfileSurnameLabel.Size = new System.Drawing.Size(86, 16);
+            this.myProfileSurnameLabel.Size = new System.Drawing.Size(69, 13);
             this.myProfileSurnameLabel.TabIndex = 2;
             this.myProfileSurnameLabel.Text = "Surname(s) : ";
             // 
             // myProfileNameLabel
             // 
             this.myProfileNameLabel.AutoSize = true;
-            this.myProfileNameLabel.Location = new System.Drawing.Point(6, 73);
+            this.myProfileNameLabel.Location = new System.Drawing.Point(4, 59);
+            this.myProfileNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileNameLabel.Name = "myProfileNameLabel";
-            this.myProfileNameLabel.Size = new System.Drawing.Size(54, 16);
+            this.myProfileNameLabel.Size = new System.Drawing.Size(44, 13);
             this.myProfileNameLabel.TabIndex = 0;
             this.myProfileNameLabel.Text = "Name : ";
             // 
@@ -273,21 +285,19 @@
             // 
             this.tabPage1.Controls.Add(this.SaveProfileListButton);
             this.tabPage1.Controls.Add(this.ProfileGridView);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1027, 495);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Size = new System.Drawing.Size(768, 400);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ProfileList";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // SaveProfileListButton
             // 
-            this.SaveProfileListButton.Location = new System.Drawing.Point(8, 457);
-            this.SaveProfileListButton.Margin = new System.Windows.Forms.Padding(4);
+            this.SaveProfileListButton.Location = new System.Drawing.Point(6, 371);
             this.SaveProfileListButton.Name = "SaveProfileListButton";
-            this.SaveProfileListButton.Size = new System.Drawing.Size(129, 28);
+            this.SaveProfileListButton.Size = new System.Drawing.Size(97, 23);
             this.SaveProfileListButton.TabIndex = 2;
             this.SaveProfileListButton.Text = "Save to JSON";
             this.SaveProfileListButton.UseVisualStyleBackColor = true;
@@ -305,11 +315,10 @@
             this.weight,
             this.length,
             this.bmi});
-            this.ProfileGridView.Location = new System.Drawing.Point(4, 4);
-            this.ProfileGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.ProfileGridView.Location = new System.Drawing.Point(3, 3);
             this.ProfileGridView.Name = "ProfileGridView";
             this.ProfileGridView.RowHeadersWidth = 51;
-            this.ProfileGridView.Size = new System.Drawing.Size(1011, 446);
+            this.ProfileGridView.Size = new System.Drawing.Size(758, 362);
             this.ProfileGridView.TabIndex = 1;
             this.ProfileGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProfileGridView_CellContentClick);
             // 
@@ -365,10 +374,10 @@
             // DrugList
             // 
             this.DrugList.Controls.Add(this.DrugGridView);
-            this.DrugList.Location = new System.Drawing.Point(4, 25);
-            this.DrugList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DrugList.Location = new System.Drawing.Point(4, 22);
+            this.DrugList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DrugList.Name = "DrugList";
-            this.DrugList.Size = new System.Drawing.Size(1027, 495);
+            this.DrugList.Size = new System.Drawing.Size(768, 400);
             this.DrugList.TabIndex = 2;
             this.DrugList.Text = "DrugList";
             this.DrugList.UseVisualStyleBackColor = true;
@@ -383,12 +392,11 @@
             this.drugDescription,
             this.drugType,
             this.drugDosage});
-            this.DrugGridView.Location = new System.Drawing.Point(4, 4);
-            this.DrugGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.DrugGridView.Location = new System.Drawing.Point(3, 3);
             this.DrugGridView.Name = "DrugGridView";
             this.DrugGridView.RowHeadersWidth = 51;
             this.DrugGridView.RowTemplate.Height = 24;
-            this.DrugGridView.Size = new System.Drawing.Size(1011, 485);
+            this.DrugGridView.Size = new System.Drawing.Size(758, 394);
             this.DrugGridView.TabIndex = 1;
             // 
             // drugId
@@ -421,15 +429,51 @@
             this.drugDosage.MinimumWidth = 6;
             this.drugDosage.Name = "drugDosage";
             // 
+            // myProfileWeightRegistrationGroupBox
+            // 
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.dataGridView1);
+            this.myProfileWeightRegistrationGroupBox.Location = new System.Drawing.Point(733, 6);
+            this.myProfileWeightRegistrationGroupBox.Name = "myProfileWeightRegistrationGroupBox";
+            this.myProfileWeightRegistrationGroupBox.Size = new System.Drawing.Size(372, 554);
+            this.myProfileWeightRegistrationGroupBox.TabIndex = 2;
+            this.myProfileWeightRegistrationGroupBox.TabStop = false;
+            this.myProfileWeightRegistrationGroupBox.Text = "Weight history";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.registeredWeight,
+            this.registeredWeightDate});
+            this.dataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(363, 528);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // registeredWeight
+            // 
+            this.registeredWeight.HeaderText = "Weight (KG)";
+            this.registeredWeight.Name = "registeredWeight";
+            this.registeredWeight.ReadOnly = true;
+            // 
+            // registeredWeightDate
+            // 
+            this.registeredWeightDate.HeaderText = "Registered on:";
+            this.registeredWeightDate.Name = "registeredWeightDate";
+            this.registeredWeightDate.ReadOnly = true;
+            // 
             // ZorgApp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(1143, 606);
             this.Controls.Add(this.tabs);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ZorgApp";
             this.Text = "VisualZorgApp";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -443,6 +487,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ProfileGridView)).EndInit();
             this.DrugList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DrugGridView)).EndInit();
+            this.myProfileWeightRegistrationGroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -484,6 +530,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugIntakeTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugStartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugEndDate;
+        private System.Windows.Forms.GroupBox myProfileWeightRegistrationGroupBox;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightDate;
     }
 }
 
