@@ -87,6 +87,7 @@ namespace VisualZorgApp
         {
             return roleName;
         }
+
         private void SetUsername(string username)
         {
             this.username = username;

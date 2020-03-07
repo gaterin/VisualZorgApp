@@ -15,7 +15,7 @@ namespace VisualZorgApp
     {
         ProfileList profileList = new ProfileList();
         DrugList drugList = new DrugList();
-        MyProfile myProfile = new MyProfile(1);
+        MyProfile myProfile = new MyProfile(2);
 
         
         public ZorgApp()
@@ -38,10 +38,11 @@ namespace VisualZorgApp
         }
         private void NotifyPrescribedDrugs()
         {
+            string drugsToTakeIn = "";
             
             if (myProfile.GetPrescribedDrugsToNotify().Any())
             {
-                string drugsToTakeIn = "";
+                
                 foreach (var item in myProfile.GetPrescribedDrugsToNotify())
                 {
                     drugsToTakeIn += item.ToString() + System.Environment.NewLine;
@@ -177,6 +178,6 @@ namespace VisualZorgApp
 
         }
 
-        
+      
     }
 }
