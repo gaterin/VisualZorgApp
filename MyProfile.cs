@@ -14,13 +14,59 @@ namespace VisualZorgApp
 
         private DBConnection db = new DBConnection();
         private List<DrugPrescription> prescribedDrugs = new List<DrugPrescription>();
+        private List<WeightRegistration> registeredWeights = new List<WeightRegistration>();
         private List<string> prescribedDrugsToNotify = new List<string>();
 
         public MyProfile(int id)
         {
             FetchProfileById(id);
             FetchPrescribedDrugsForMyProfile(id);
+            FetchRegisteredWeightsForMyProfile(id);
             SetPrescribedDrugsToNotify();
+        }
+        public List<WeightRegistration> GetWeightRegistrations()
+        {
+            return this.registeredWeights;
+        }
+        public bool FetchRegisteredWeightsForMyProfile(int id)
+        {
+            using (MySqlCommand qry = ExecuteSql($"SELECT date, time, weight FROM weightregistration WHERE profileId = {id}"))
+            {
+
+                try
+                {
+                    db.con.Open();
+                    using (MySqlDataReader reader = qry.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+
+                            AddRegisteredWeight
+                             (
+                                new WeightRegistration(
+                                reader["date"].ToString(),
+                                reader["time"].ToString(),
+                                (double)reader["weight"]
+                                )
+                            );
+
+                        }
+                    }
+                    db.con.Close();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    return false;
+                }
+
+            }
+        }
+
+        public void AddRegisteredWeight(WeightRegistration weightRegistration)
+        {
+            registeredWeights.Add(weightRegistration);
         }
         public List<string> GetPrescribedDrugsToNotify()
         {
