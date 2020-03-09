@@ -31,7 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZorgApp));
             this.tabs = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button12 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
             this.myProfileWeightRegistrationGroupBox = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.textBox13 = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
@@ -53,10 +63,6 @@
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.PrescribedDrugGridView = new System.Windows.Forms.DataGridView();
-            this.prescribedDrugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescribedDrugIntakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescribedDrugStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescribedDrugEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.myProfileRoleNameLabel = new System.Windows.Forms.Label();
             this.myProfileIdLabel = new System.Windows.Forms.Label();
@@ -77,10 +83,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.ProfileAddButton = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ProfileLengthInput = new System.Windows.Forms.TextBox();
+            this.ProfileWeightInput = new System.Windows.Forms.TextBox();
+            this.ProfileAgeInput = new System.Windows.Forms.TextBox();
+            this.ProfileSurnameInput = new System.Windows.Forms.TextBox();
             this.ProfileNameInput = new System.Windows.Forms.TextBox();
             this.ProfileGridView = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -108,11 +114,18 @@
             this.drugDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drugType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drugDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugIntakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registeredWeightDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registeredWeightTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registeredWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProfileRoleIdInput = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.tabs.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.myProfileWeightRegistrationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RegisteredWeightGridView)).BeginInit();
             this.myProfilePrescribedDrugsGroupBox.SuspendLayout();
@@ -137,6 +150,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.myProfileWeightRegistrationGroupBox);
             this.tabPage2.Controls.Add(this.myProfilePrescribedDrugsGroupBox);
             this.tabPage2.Controls.Add(this.groupBox1);
@@ -148,8 +162,83 @@
             this.tabPage2.Text = "MyProfile";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button12);
+            this.groupBox2.Controls.Add(this.label20);
+            this.groupBox2.Controls.Add(this.textBox18);
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.textBox17);
+            this.groupBox2.Controls.Add(this.label16);
+            this.groupBox2.Controls.Add(this.textBox14);
+            this.groupBox2.Location = new System.Drawing.Point(6, 297);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(201, 253);
+            this.groupBox2.TabIndex = 3;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Change Password";
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(44, 176);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(113, 23);
+            this.button12.TabIndex = 53;
+            this.button12.Text = "Change Password";
+            this.button12.UseVisualStyleBackColor = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(6, 123);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(113, 13);
+            this.label20.TabIndex = 40;
+            this.label20.Text = "Repeat new password";
+            // 
+            // textBox18
+            // 
+            this.textBox18.Location = new System.Drawing.Point(6, 139);
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(189, 20);
+            this.textBox18.TabIndex = 39;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(6, 74);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(78, 13);
+            this.label19.TabIndex = 38;
+            this.label19.Text = "New Password";
+            // 
+            // textBox17
+            // 
+            this.textBox17.Location = new System.Drawing.Point(6, 90);
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(189, 20);
+            this.textBox17.TabIndex = 37;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 26);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(72, 13);
+            this.label16.TabIndex = 36;
+            this.label16.Text = "Old Password";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(6, 42);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(189, 20);
+            this.textBox14.TabIndex = 35;
+            // 
             // myProfileWeightRegistrationGroupBox
             // 
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.label15);
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.textBox13);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.button9);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.button10);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.button11);
@@ -165,29 +254,45 @@
             this.myProfileWeightRegistrationGroupBox.TabStop = false;
             this.myProfileWeightRegistrationGroupBox.Text = "Weight history";
             // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(215, 16);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(94, 13);
+            this.label15.TabIndex = 51;
+            this.label15.Text = "Weight in kilogram";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(218, 32);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(100, 20);
+            this.textBox13.TabIndex = 50;
+            // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(6, 60);
+            this.button9.Location = new System.Drawing.Point(150, 57);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(63, 21);
+            this.button9.Size = new System.Drawing.Size(63, 22);
             this.button9.TabIndex = 49;
             this.button9.Text = "Delete";
             this.button9.UseVisualStyleBackColor = true;
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(150, 59);
+            this.button10.Location = new System.Drawing.Point(78, 57);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(63, 21);
+            this.button10.Size = new System.Drawing.Size(63, 22);
             this.button10.TabIndex = 48;
             this.button10.Text = "Update";
             this.button10.UseVisualStyleBackColor = true;
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(78, 60);
+            this.button11.Location = new System.Drawing.Point(6, 57);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(63, 21);
+            this.button11.Size = new System.Drawing.Size(63, 22);
             this.button11.TabIndex = 47;
             this.button11.Text = "Create";
             this.button11.UseVisualStyleBackColor = true;
@@ -221,9 +326,9 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(109, 16);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(49, 13);
+            this.label17.Size = new System.Drawing.Size(98, 13);
             this.label17.TabIndex = 46;
-            this.label17.Text = "Surname";
+            this.label17.Text = "Time of checkpoint";
             // 
             // textBox15
             // 
@@ -237,9 +342,9 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(6, 16);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(35, 13);
+            this.label18.Size = new System.Drawing.Size(98, 13);
             this.label18.TabIndex = 45;
-            this.label18.Text = "Name";
+            this.label18.Text = "Date of checkpoint";
             // 
             // myProfilePrescribedDrugsGroupBox
             // 
@@ -266,7 +371,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(5, 60);
+            this.button6.Location = new System.Drawing.Point(148, 60);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(63, 21);
             this.button6.TabIndex = 52;
@@ -275,7 +380,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(149, 59);
+            this.button7.Location = new System.Drawing.Point(76, 60);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(63, 21);
             this.button7.TabIndex = 51;
@@ -284,7 +389,7 @@
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(77, 60);
+            this.button8.Location = new System.Drawing.Point(5, 60);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(63, 21);
             this.button8.TabIndex = 50;
@@ -296,36 +401,36 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(320, 15);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 13);
+            this.label6.Size = new System.Drawing.Size(107, 13);
             this.label6.TabIndex = 37;
-            this.label6.Text = "Weight (KG)";
+            this.label6.Text = "Prescription end date";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(214, 15);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(26, 13);
+            this.label12.Size = new System.Drawing.Size(109, 13);
             this.label12.TabIndex = 36;
-            this.label12.Text = "Age";
+            this.label12.Text = "Prescription start date";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(108, 15);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(49, 13);
+            this.label13.Size = new System.Drawing.Size(95, 13);
             this.label13.TabIndex = 35;
-            this.label13.Text = "Surname";
+            this.label13.Text = "Intake time of drug";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(5, 15);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(35, 13);
+            this.label14.Size = new System.Drawing.Size(71, 13);
             this.label14.TabIndex = 34;
-            this.label14.Text = "Name";
+            this.label14.Text = "Name of drug";
             // 
             // textBox5
             // 
@@ -375,30 +480,6 @@
             this.PrescribedDrugGridView.TabIndex = 0;
             this.PrescribedDrugGridView.TabStop = false;
             // 
-            // prescribedDrugName
-            // 
-            this.prescribedDrugName.HeaderText = "Drug Name";
-            this.prescribedDrugName.Name = "prescribedDrugName";
-            this.prescribedDrugName.ReadOnly = true;
-            // 
-            // prescribedDrugIntakeTime
-            // 
-            this.prescribedDrugIntakeTime.HeaderText = "Intake Time";
-            this.prescribedDrugIntakeTime.Name = "prescribedDrugIntakeTime";
-            this.prescribedDrugIntakeTime.ReadOnly = true;
-            // 
-            // prescribedDrugStartDate
-            // 
-            this.prescribedDrugStartDate.HeaderText = "Prescription Start";
-            this.prescribedDrugStartDate.Name = "prescribedDrugStartDate";
-            this.prescribedDrugStartDate.ReadOnly = true;
-            // 
-            // prescribedDrugEndDate
-            // 
-            this.prescribedDrugEndDate.HeaderText = "Prescription Ends";
-            this.prescribedDrugEndDate.Name = "prescribedDrugEndDate";
-            this.prescribedDrugEndDate.ReadOnly = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.myProfileRoleNameLabel);
@@ -415,7 +496,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(202, 545);
+            this.groupBox1.Size = new System.Drawing.Size(202, 286);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Your Details";
@@ -521,6 +602,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label21);
+            this.tabPage1.Controls.Add(this.ProfileRoleIdInput);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
@@ -529,10 +612,10 @@
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.ProfileAddButton);
-            this.tabPage1.Controls.Add(this.textBox4);
-            this.tabPage1.Controls.Add(this.textBox3);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.ProfileLengthInput);
+            this.tabPage1.Controls.Add(this.ProfileWeightInput);
+            this.tabPage1.Controls.Add(this.ProfileAgeInput);
+            this.tabPage1.Controls.Add(this.ProfileSurnameInput);
             this.tabPage1.Controls.Add(this.ProfileNameInput);
             this.tabPage1.Controls.Add(this.ProfileGridView);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -550,7 +633,7 @@
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(76, 13);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Lenght (Meter)";
+            this.label5.Text = "Length (Meter)";
             // 
             // label4
             // 
@@ -590,7 +673,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(698, 19);
+            this.button2.Location = new System.Drawing.Point(804, 21);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 21);
             this.button2.TabIndex = 9;
@@ -599,7 +682,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(617, 19);
+            this.button1.Location = new System.Drawing.Point(723, 21);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 21);
             this.button1.TabIndex = 8;
@@ -608,40 +691,41 @@
             // 
             // ProfileAddButton
             // 
-            this.ProfileAddButton.Location = new System.Drawing.Point(536, 18);
+            this.ProfileAddButton.Location = new System.Drawing.Point(642, 20);
             this.ProfileAddButton.Name = "ProfileAddButton";
             this.ProfileAddButton.Size = new System.Drawing.Size(75, 21);
             this.ProfileAddButton.TabIndex = 7;
             this.ProfileAddButton.Text = "Create";
             this.ProfileAddButton.UseVisualStyleBackColor = true;
+            this.ProfileAddButton.Click += new System.EventHandler(this.ProfileAddButton_Click);
             // 
-            // textBox4
+            // ProfileLengthInput
             // 
-            this.textBox4.Location = new System.Drawing.Point(430, 19);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 6;
+            this.ProfileLengthInput.Location = new System.Drawing.Point(430, 19);
+            this.ProfileLengthInput.Name = "ProfileLengthInput";
+            this.ProfileLengthInput.Size = new System.Drawing.Size(100, 20);
+            this.ProfileLengthInput.TabIndex = 6;
             // 
-            // textBox3
+            // ProfileWeightInput
             // 
-            this.textBox3.Location = new System.Drawing.Point(324, 19);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 5;
+            this.ProfileWeightInput.Location = new System.Drawing.Point(324, 19);
+            this.ProfileWeightInput.Name = "ProfileWeightInput";
+            this.ProfileWeightInput.Size = new System.Drawing.Size(100, 20);
+            this.ProfileWeightInput.TabIndex = 5;
             // 
-            // textBox2
+            // ProfileAgeInput
             // 
-            this.textBox2.Location = new System.Drawing.Point(218, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
+            this.ProfileAgeInput.Location = new System.Drawing.Point(218, 19);
+            this.ProfileAgeInput.Name = "ProfileAgeInput";
+            this.ProfileAgeInput.Size = new System.Drawing.Size(100, 20);
+            this.ProfileAgeInput.TabIndex = 4;
             // 
-            // textBox1
+            // ProfileSurnameInput
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
+            this.ProfileSurnameInput.Location = new System.Drawing.Point(112, 19);
+            this.ProfileSurnameInput.Name = "ProfileSurnameInput";
+            this.ProfileSurnameInput.Size = new System.Drawing.Size(100, 20);
+            this.ProfileSurnameInput.TabIndex = 3;
             // 
             // ProfileNameInput
             // 
@@ -898,23 +982,70 @@
             this.drugDosage.Name = "drugDosage";
             this.drugDosage.ReadOnly = true;
             // 
+            // prescribedDrugName
+            // 
+            this.prescribedDrugName.FillWeight = 92.7242F;
+            this.prescribedDrugName.HeaderText = "Drug Name";
+            this.prescribedDrugName.Name = "prescribedDrugName";
+            this.prescribedDrugName.ReadOnly = true;
+            // 
+            // prescribedDrugIntakeTime
+            // 
+            this.prescribedDrugIntakeTime.FillWeight = 30F;
+            this.prescribedDrugIntakeTime.HeaderText = "Time";
+            this.prescribedDrugIntakeTime.Name = "prescribedDrugIntakeTime";
+            this.prescribedDrugIntakeTime.ReadOnly = true;
+            // 
+            // prescribedDrugStartDate
+            // 
+            this.prescribedDrugStartDate.FillWeight = 92.7242F;
+            this.prescribedDrugStartDate.HeaderText = "Prescription Start";
+            this.prescribedDrugStartDate.Name = "prescribedDrugStartDate";
+            this.prescribedDrugStartDate.ReadOnly = true;
+            // 
+            // prescribedDrugEndDate
+            // 
+            this.prescribedDrugEndDate.FillWeight = 92.7242F;
+            this.prescribedDrugEndDate.HeaderText = "Prescription Ends";
+            this.prescribedDrugEndDate.Name = "prescribedDrugEndDate";
+            this.prescribedDrugEndDate.ReadOnly = true;
+            // 
             // registeredWeightDate
             // 
+            this.registeredWeightDate.FillWeight = 104.3147F;
             this.registeredWeightDate.HeaderText = "Date";
             this.registeredWeightDate.Name = "registeredWeightDate";
             this.registeredWeightDate.ReadOnly = true;
             // 
             // registeredWeightTime
             // 
+            this.registeredWeightTime.FillWeight = 34F;
             this.registeredWeightTime.HeaderText = "Time";
             this.registeredWeightTime.Name = "registeredWeightTime";
             this.registeredWeightTime.ReadOnly = true;
             // 
             // registeredWeight
             // 
+            this.registeredWeight.FillWeight = 104.3147F;
             this.registeredWeight.HeaderText = "Weight (KG)";
             this.registeredWeight.Name = "registeredWeight";
             this.registeredWeight.ReadOnly = true;
+            // 
+            // ProfileRoleIdInput
+            // 
+            this.ProfileRoleIdInput.Location = new System.Drawing.Point(536, 20);
+            this.ProfileRoleIdInput.Name = "ProfileRoleIdInput";
+            this.ProfileRoleIdInput.Size = new System.Drawing.Size(100, 20);
+            this.ProfileRoleIdInput.TabIndex = 15;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(533, 3);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(43, 13);
+            this.label21.TabIndex = 16;
+            this.label21.Text = "Role ID";
             // 
             // ZorgApp
             // 
@@ -929,6 +1060,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabs.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.myProfileWeightRegistrationGroupBox.ResumeLayout(false);
             this.myProfileWeightRegistrationGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RegisteredWeightGridView)).EndInit();
@@ -979,10 +1112,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn drugDosage;
         private System.Windows.Forms.Label myProfileRoleNameLabel;
         private System.Windows.Forms.DataGridView PrescribedDrugGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugIntakeTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugStartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugEndDate;
         private System.Windows.Forms.GroupBox myProfileWeightRegistrationGroupBox;
         private System.Windows.Forms.DataGridView RegisteredWeightGridView;
         private System.Windows.Forms.TextBox ProfileNameInput;
@@ -991,10 +1120,10 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ProfileLengthInput;
+        private System.Windows.Forms.TextBox ProfileWeightInput;
+        private System.Windows.Forms.TextBox ProfileAgeInput;
+        private System.Windows.Forms.TextBox ProfileSurnameInput;
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox textBox15;
@@ -1027,9 +1156,25 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button ProfileAddButton;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugIntakeTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugStartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugEndDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeight;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox ProfileRoleIdInput;
     }
 }
 

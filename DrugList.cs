@@ -41,6 +41,7 @@ namespace VisualZorgApp
                 }
                 catch (Exception e)
                 {
+                    string errorMsg = e.Message.ToString();
                     return false;
                 }
 

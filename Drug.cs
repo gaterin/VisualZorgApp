@@ -29,7 +29,7 @@ namespace VisualZorgApp
         {
             return description;
         }
-        public string GetType()
+        public string GetTypeOfDrug()
         {
             return type;
         }

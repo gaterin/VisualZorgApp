@@ -7,7 +7,7 @@ namespace VisualZorgApp
    
     class MyProfile : Profile
     {
-
+        private int id;
         private string username;
         private string password;
         private string roleName;
@@ -19,6 +19,7 @@ namespace VisualZorgApp
 
         public MyProfile(int id)
         {
+            SetId(id);
             FetchProfileById(id);
             FetchPrescribedDrugsForMyProfile(id);
             FetchRegisteredWeightsForMyProfile(id);
@@ -58,6 +59,7 @@ namespace VisualZorgApp
                 }
                 catch (Exception e)
                 {
+                    string errorMsg = e.Message.ToString();
                     return false;
                 }
 
@@ -118,13 +120,20 @@ namespace VisualZorgApp
                 }
                 catch (Exception e)
                 {
+                    string errorMsg = e.Message.ToString();
                     return false;
                 }
 
             }
         }
-
-
+        public void SetId(int id)
+        {
+            this.id = id;
+        }
+        public int GetId()
+        {
+            return id;
+        }
         public void SetRoleName(string roleName)
         {
             this.roleName = roleName;
@@ -133,7 +142,10 @@ namespace VisualZorgApp
         {
             return roleName;
         }
-
+        public string GetUsername()
+        {
+            return username;
+        }
         private void SetUsername(string username)
         {
             this.username = username;
@@ -175,6 +187,7 @@ namespace VisualZorgApp
                 }
                 catch (Exception e)
                 {
+                    string errorMsg = e.Message.ToString();
                     return false;
                 }
 

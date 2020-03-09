@@ -13,9 +13,9 @@ namespace VisualZorgApp
 {
     public partial class ZorgApp : Form
     {
-        ProfileList profileList = new ProfileList();
-        DrugList drugList = new DrugList();
-        MyProfile myProfile = new MyProfile(2);
+         ProfileList profileList = new ProfileList();
+         DrugList drugList = new DrugList();
+         MyProfile myProfile = new MyProfile(1);
 
         
         public ZorgApp()
@@ -56,10 +56,11 @@ namespace VisualZorgApp
         }
         private void RenderMyProfileRegisteredWeights()
         {
+            RegisteredWeightGridView.Refresh();
             foreach (var item in myProfile.GetWeightRegistrations())
             {
                 int n = RegisteredWeightGridView.Rows.Add();
-                RegisteredWeightGridView.Rows[n].Cells[0].Value = item.GetDate().ToShortDateString();
+                RegisteredWeightGridView.Rows[n].Cells[0].Value = item.GetDate().ToLongDateString();
                 RegisteredWeightGridView.Rows[n].Cells[1].Value = item.GetTime().TimeOfDay.ToString();
                 RegisteredWeightGridView.Rows[n].Cells[2].Value = item.GetWeight().ToString();
                 
@@ -67,13 +68,14 @@ namespace VisualZorgApp
         }
         private void RenderMyProfilePrescribedDrugs()
         {
+            PrescribedDrugGridView.Refresh();
             foreach (var item in myProfile.GetPrescribedDrugs())
             {
                 int n = PrescribedDrugGridView.Rows.Add();
                 PrescribedDrugGridView.Rows[n].Cells[0].Value = item.GetDrugName().ToString();
-                PrescribedDrugGridView.Rows[n].Cells[1].Value = item.GetDrugIntakeTime().ToString();
-                PrescribedDrugGridView.Rows[n].Cells[2].Value = item.GetDrugStartDate().ToString();
-                PrescribedDrugGridView.Rows[n].Cells[3].Value = item.GetDrugEndDate().ToString();
+                PrescribedDrugGridView.Rows[n].Cells[1].Value = item.GetDrugIntakeTime().TimeOfDay.ToString();
+                PrescribedDrugGridView.Rows[n].Cells[2].Value = item.GetDrugStartDate().ToLongDateString();
+                PrescribedDrugGridView.Rows[n].Cells[3].Value = item.GetDrugEndDate().ToLongDateString();
             }
         }
         private void RenderMyProfile()
@@ -112,7 +114,7 @@ namespace VisualZorgApp
                 DrugGridView.Rows[n].Cells[0].Value = item.GetId().ToString();
                 DrugGridView.Rows[n].Cells[1].Value = item.GetName().ToString();
                 DrugGridView.Rows[n].Cells[2].Value = item.GetDescription().ToString();
-                DrugGridView.Rows[n].Cells[3].Value = item.GetType().ToString();
+                DrugGridView.Rows[n].Cells[3].Value = item.GetTypeOfDrug().ToString();
                 DrugGridView.Rows[n].Cells[4].Value = item.GetDosage().ToString();
             }
         }
@@ -158,7 +160,7 @@ namespace VisualZorgApp
                     double length = Convert.ToDouble(row.Cells[5].Value);
                     int roleId = 2;
 
-                    profilesLocal.AddProfile(new Profile( id = id, name = name, surname = surname, age = age, weight = weight, length = length, roleId = roleId));
+                    profilesLocal.AddProfile(new Profile( id, name, surname, age,  weight, length, roleId));
                 
             }
             profilesLocal.GetProfileList().RemoveAt(profilesLocal.GetProfileList().Count - 1);
@@ -196,5 +198,30 @@ namespace VisualZorgApp
 
         }
 
+        private void ProfileAddButton_Click(object sender, EventArgs e)
+        {
+
+            if ( !string.IsNullOrWhiteSpace(ProfileNameInput.Text) &&
+                 !string.IsNullOrWhiteSpace(ProfileSurnameInput.Text) &&
+                 !string.IsNullOrWhiteSpace(ProfileAgeInput.Text) &&
+                 !string.IsNullOrWhiteSpace(ProfileWeightInput.Text) &&
+                 !string.IsNullOrWhiteSpace(ProfileLengthInput.Text) &&
+                 !string.IsNullOrWhiteSpace(ProfileRoleIdInput.Text) 
+                )
+            {
+                profileList.SqlCreateProfile(
+                                ProfileNameInput.Text.ToString(),
+                                ProfileSurnameInput.Text.ToString(),
+                                Convert.ToInt32(ProfileAgeInput.Text),
+                                Convert.ToDouble(ProfileWeightInput.Text),
+                                Convert.ToDouble(ProfileLengthInput.Text),
+                                Convert.ToInt32(ProfileRoleIdInput.Text)
+                                );
+            }
+
+            profileList.SqlAllProfilesToList();
+            RenderProfiles();
+            
+        }
     }
 }
