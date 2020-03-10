@@ -46,6 +46,9 @@
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.RegisteredWeightGridView = new System.Windows.Forms.DataGridView();
+            this.registeredWeightDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registeredWeightTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.registeredWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.textBox15 = new System.Windows.Forms.TextBox();
@@ -63,6 +66,10 @@
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.PrescribedDrugGridView = new System.Windows.Forms.DataGridView();
+            this.prescribedDrugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugIntakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.myProfileRoleNameLabel = new System.Windows.Forms.Label();
             this.myProfileIdLabel = new System.Windows.Forms.Label();
@@ -75,27 +82,22 @@
             this.myProfileSurnameLabel = new System.Windows.Forms.Label();
             this.myProfileNameLabel = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.ProfileRoleIdInput = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ProfileAddButton = new System.Windows.Forms.Button();
+            this.ProfileDeleteButton = new System.Windows.Forms.Button();
+            this.ProfileUpdateButton = new System.Windows.Forms.Button();
+            this.ProfileCreateButton = new System.Windows.Forms.Button();
             this.ProfileLengthInput = new System.Windows.Forms.TextBox();
             this.ProfileWeightInput = new System.Windows.Forms.TextBox();
             this.ProfileAgeInput = new System.Windows.Forms.TextBox();
             this.ProfileSurnameInput = new System.Windows.Forms.TextBox();
             this.ProfileNameInput = new System.Windows.Forms.TextBox();
             this.ProfileGridView = new System.Windows.Forms.DataGridView();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.age = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.length = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bmi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DrugList = new System.Windows.Forms.TabPage();
             this.label7 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -114,15 +116,14 @@
             this.drugDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drugType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drugDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescribedDrugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescribedDrugIntakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescribedDrugStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescribedDrugEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registeredWeightDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registeredWeightTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.registeredWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProfileRoleIdInput = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
+            this.profileId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profileSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profileAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profileWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profileLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profileRoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.profileBmi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabs.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -314,6 +315,27 @@
             this.RegisteredWeightGridView.Size = new System.Drawing.Size(363, 457);
             this.RegisteredWeightGridView.TabIndex = 0;
             // 
+            // registeredWeightDate
+            // 
+            this.registeredWeightDate.FillWeight = 104.3147F;
+            this.registeredWeightDate.HeaderText = "Date";
+            this.registeredWeightDate.Name = "registeredWeightDate";
+            this.registeredWeightDate.ReadOnly = true;
+            // 
+            // registeredWeightTime
+            // 
+            this.registeredWeightTime.FillWeight = 34F;
+            this.registeredWeightTime.HeaderText = "Time";
+            this.registeredWeightTime.Name = "registeredWeightTime";
+            this.registeredWeightTime.ReadOnly = true;
+            // 
+            // registeredWeight
+            // 
+            this.registeredWeight.FillWeight = 104.3147F;
+            this.registeredWeight.HeaderText = "Weight (KG)";
+            this.registeredWeight.Name = "registeredWeight";
+            this.registeredWeight.ReadOnly = true;
+            // 
             // textBox16
             // 
             this.textBox16.Location = new System.Drawing.Point(6, 32);
@@ -480,6 +502,34 @@
             this.PrescribedDrugGridView.TabIndex = 0;
             this.PrescribedDrugGridView.TabStop = false;
             // 
+            // prescribedDrugName
+            // 
+            this.prescribedDrugName.FillWeight = 92.7242F;
+            this.prescribedDrugName.HeaderText = "Drug Name";
+            this.prescribedDrugName.Name = "prescribedDrugName";
+            this.prescribedDrugName.ReadOnly = true;
+            // 
+            // prescribedDrugIntakeTime
+            // 
+            this.prescribedDrugIntakeTime.FillWeight = 30F;
+            this.prescribedDrugIntakeTime.HeaderText = "Time";
+            this.prescribedDrugIntakeTime.Name = "prescribedDrugIntakeTime";
+            this.prescribedDrugIntakeTime.ReadOnly = true;
+            // 
+            // prescribedDrugStartDate
+            // 
+            this.prescribedDrugStartDate.FillWeight = 92.7242F;
+            this.prescribedDrugStartDate.HeaderText = "Prescription Start";
+            this.prescribedDrugStartDate.Name = "prescribedDrugStartDate";
+            this.prescribedDrugStartDate.ReadOnly = true;
+            // 
+            // prescribedDrugEndDate
+            // 
+            this.prescribedDrugEndDate.FillWeight = 92.7242F;
+            this.prescribedDrugEndDate.HeaderText = "Prescription Ends";
+            this.prescribedDrugEndDate.Name = "prescribedDrugEndDate";
+            this.prescribedDrugEndDate.ReadOnly = true;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.myProfileRoleNameLabel);
@@ -609,9 +659,9 @@
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.ProfileAddButton);
+            this.tabPage1.Controls.Add(this.ProfileDeleteButton);
+            this.tabPage1.Controls.Add(this.ProfileUpdateButton);
+            this.tabPage1.Controls.Add(this.ProfileCreateButton);
             this.tabPage1.Controls.Add(this.ProfileLengthInput);
             this.tabPage1.Controls.Add(this.ProfileWeightInput);
             this.tabPage1.Controls.Add(this.ProfileAgeInput);
@@ -625,6 +675,22 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ProfileList";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(533, 3);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(43, 13);
+            this.label21.TabIndex = 16;
+            this.label21.Text = "Role ID";
+            // 
+            // ProfileRoleIdInput
+            // 
+            this.ProfileRoleIdInput.Location = new System.Drawing.Point(536, 20);
+            this.ProfileRoleIdInput.Name = "ProfileRoleIdInput";
+            this.ProfileRoleIdInput.Size = new System.Drawing.Size(100, 20);
+            this.ProfileRoleIdInput.TabIndex = 15;
             // 
             // label5
             // 
@@ -671,33 +737,35 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "Name";
             // 
-            // button2
+            // ProfileDeleteButton
             // 
-            this.button2.Location = new System.Drawing.Point(804, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 21);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = true;
+            this.ProfileDeleteButton.Location = new System.Drawing.Point(804, 21);
+            this.ProfileDeleteButton.Name = "ProfileDeleteButton";
+            this.ProfileDeleteButton.Size = new System.Drawing.Size(75, 21);
+            this.ProfileDeleteButton.TabIndex = 9;
+            this.ProfileDeleteButton.Text = "Delete";
+            this.ProfileDeleteButton.UseVisualStyleBackColor = true;
+            this.ProfileDeleteButton.Click += new System.EventHandler(this.ProfileDeleteButton_Click);
             // 
-            // button1
+            // ProfileUpdateButton
             // 
-            this.button1.Location = new System.Drawing.Point(723, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 21);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ProfileUpdateButton.Location = new System.Drawing.Point(723, 21);
+            this.ProfileUpdateButton.Name = "ProfileUpdateButton";
+            this.ProfileUpdateButton.Size = new System.Drawing.Size(75, 21);
+            this.ProfileUpdateButton.TabIndex = 8;
+            this.ProfileUpdateButton.Text = "Update";
+            this.ProfileUpdateButton.UseVisualStyleBackColor = true;
+            this.ProfileUpdateButton.Click += new System.EventHandler(this.ProfileUpdateButton_Click);
             // 
-            // ProfileAddButton
+            // ProfileCreateButton
             // 
-            this.ProfileAddButton.Location = new System.Drawing.Point(642, 20);
-            this.ProfileAddButton.Name = "ProfileAddButton";
-            this.ProfileAddButton.Size = new System.Drawing.Size(75, 21);
-            this.ProfileAddButton.TabIndex = 7;
-            this.ProfileAddButton.Text = "Create";
-            this.ProfileAddButton.UseVisualStyleBackColor = true;
-            this.ProfileAddButton.Click += new System.EventHandler(this.ProfileAddButton_Click);
+            this.ProfileCreateButton.Location = new System.Drawing.Point(642, 20);
+            this.ProfileCreateButton.Name = "ProfileCreateButton";
+            this.ProfileCreateButton.Size = new System.Drawing.Size(75, 21);
+            this.ProfileCreateButton.TabIndex = 7;
+            this.ProfileCreateButton.Text = "Create";
+            this.ProfileCreateButton.UseVisualStyleBackColor = true;
+            this.ProfileCreateButton.Click += new System.EventHandler(this.ProfileCreateButton_Click);
             // 
             // ProfileLengthInput
             // 
@@ -741,13 +809,14 @@
             this.ProfileGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ProfileGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ProfileGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.name,
-            this.surname,
-            this.age,
-            this.weight,
-            this.length,
-            this.bmi});
+            this.profileId,
+            this.profileName,
+            this.profileSurname,
+            this.profileAge,
+            this.profileWeight,
+            this.profileLength,
+            this.profileRoleId,
+            this.profileBmi});
             this.ProfileGridView.Location = new System.Drawing.Point(6, 46);
             this.ProfileGridView.Name = "ProfileGridView";
             this.ProfileGridView.ReadOnly = true;
@@ -755,63 +824,7 @@
             this.ProfileGridView.RowHeadersWidth = 51;
             this.ProfileGridView.Size = new System.Drawing.Size(1099, 504);
             this.ProfileGridView.TabIndex = 1;
-            this.ProfileGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProfileGridView_CellContentClick);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "id";
-            this.id.HeaderText = "ID";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            // 
-            // name
-            // 
-            this.name.DataPropertyName = "name";
-            this.name.HeaderText = "Name";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            // 
-            // surname
-            // 
-            this.surname.DataPropertyName = "surname";
-            this.surname.HeaderText = "Surname";
-            this.surname.MinimumWidth = 6;
-            this.surname.Name = "surname";
-            this.surname.ReadOnly = true;
-            // 
-            // age
-            // 
-            this.age.DataPropertyName = "age";
-            this.age.HeaderText = "Age";
-            this.age.MinimumWidth = 6;
-            this.age.Name = "age";
-            this.age.ReadOnly = true;
-            // 
-            // weight
-            // 
-            this.weight.DataPropertyName = "weight";
-            this.weight.HeaderText = "Weight";
-            this.weight.MinimumWidth = 6;
-            this.weight.Name = "weight";
-            this.weight.ReadOnly = true;
-            // 
-            // length
-            // 
-            this.length.DataPropertyName = "length";
-            this.length.HeaderText = "Length";
-            this.length.MinimumWidth = 6;
-            this.length.Name = "length";
-            this.length.ReadOnly = true;
-            // 
-            // bmi
-            // 
-            this.bmi.DataPropertyName = "bmi";
-            this.bmi.HeaderText = "BMI";
-            this.bmi.MinimumWidth = 6;
-            this.bmi.Name = "bmi";
-            this.bmi.ReadOnly = true;
+            this.ProfileGridView.Click += new System.EventHandler(this.ProfileGridView_Click);
             // 
             // DrugList
             // 
@@ -982,70 +995,67 @@
             this.drugDosage.Name = "drugDosage";
             this.drugDosage.ReadOnly = true;
             // 
-            // prescribedDrugName
+            // profileId
             // 
-            this.prescribedDrugName.FillWeight = 92.7242F;
-            this.prescribedDrugName.HeaderText = "Drug Name";
-            this.prescribedDrugName.Name = "prescribedDrugName";
-            this.prescribedDrugName.ReadOnly = true;
+            this.profileId.DataPropertyName = "id";
+            this.profileId.HeaderText = "ID";
+            this.profileId.MinimumWidth = 6;
+            this.profileId.Name = "profileId";
+            this.profileId.ReadOnly = true;
             // 
-            // prescribedDrugIntakeTime
+            // profileName
             // 
-            this.prescribedDrugIntakeTime.FillWeight = 30F;
-            this.prescribedDrugIntakeTime.HeaderText = "Time";
-            this.prescribedDrugIntakeTime.Name = "prescribedDrugIntakeTime";
-            this.prescribedDrugIntakeTime.ReadOnly = true;
+            this.profileName.DataPropertyName = "name";
+            this.profileName.HeaderText = "Name";
+            this.profileName.MinimumWidth = 6;
+            this.profileName.Name = "profileName";
+            this.profileName.ReadOnly = true;
             // 
-            // prescribedDrugStartDate
+            // profileSurname
             // 
-            this.prescribedDrugStartDate.FillWeight = 92.7242F;
-            this.prescribedDrugStartDate.HeaderText = "Prescription Start";
-            this.prescribedDrugStartDate.Name = "prescribedDrugStartDate";
-            this.prescribedDrugStartDate.ReadOnly = true;
+            this.profileSurname.DataPropertyName = "surname";
+            this.profileSurname.HeaderText = "Surname";
+            this.profileSurname.MinimumWidth = 6;
+            this.profileSurname.Name = "profileSurname";
+            this.profileSurname.ReadOnly = true;
             // 
-            // prescribedDrugEndDate
+            // profileAge
             // 
-            this.prescribedDrugEndDate.FillWeight = 92.7242F;
-            this.prescribedDrugEndDate.HeaderText = "Prescription Ends";
-            this.prescribedDrugEndDate.Name = "prescribedDrugEndDate";
-            this.prescribedDrugEndDate.ReadOnly = true;
+            this.profileAge.DataPropertyName = "age";
+            this.profileAge.HeaderText = "Age";
+            this.profileAge.MinimumWidth = 6;
+            this.profileAge.Name = "profileAge";
+            this.profileAge.ReadOnly = true;
             // 
-            // registeredWeightDate
+            // profileWeight
             // 
-            this.registeredWeightDate.FillWeight = 104.3147F;
-            this.registeredWeightDate.HeaderText = "Date";
-            this.registeredWeightDate.Name = "registeredWeightDate";
-            this.registeredWeightDate.ReadOnly = true;
+            this.profileWeight.DataPropertyName = "weight";
+            this.profileWeight.HeaderText = "Weight";
+            this.profileWeight.MinimumWidth = 6;
+            this.profileWeight.Name = "profileWeight";
+            this.profileWeight.ReadOnly = true;
             // 
-            // registeredWeightTime
+            // profileLength
             // 
-            this.registeredWeightTime.FillWeight = 34F;
-            this.registeredWeightTime.HeaderText = "Time";
-            this.registeredWeightTime.Name = "registeredWeightTime";
-            this.registeredWeightTime.ReadOnly = true;
+            this.profileLength.DataPropertyName = "length";
+            this.profileLength.HeaderText = "Length";
+            this.profileLength.MinimumWidth = 6;
+            this.profileLength.Name = "profileLength";
+            this.profileLength.ReadOnly = true;
             // 
-            // registeredWeight
+            // profileRoleId
             // 
-            this.registeredWeight.FillWeight = 104.3147F;
-            this.registeredWeight.HeaderText = "Weight (KG)";
-            this.registeredWeight.Name = "registeredWeight";
-            this.registeredWeight.ReadOnly = true;
+            this.profileRoleId.HeaderText = "Role ID ";
+            this.profileRoleId.Name = "profileRoleId";
+            this.profileRoleId.ReadOnly = true;
             // 
-            // ProfileRoleIdInput
+            // profileBmi
             // 
-            this.ProfileRoleIdInput.Location = new System.Drawing.Point(536, 20);
-            this.ProfileRoleIdInput.Name = "ProfileRoleIdInput";
-            this.ProfileRoleIdInput.Size = new System.Drawing.Size(100, 20);
-            this.ProfileRoleIdInput.TabIndex = 15;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(533, 3);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(43, 13);
-            this.label21.TabIndex = 16;
-            this.label21.Text = "Role ID";
+            this.profileBmi.DataPropertyName = "bmi";
+            this.profileBmi.HeaderText = "BMI";
+            this.profileBmi.MinimumWidth = 6;
+            this.profileBmi.Name = "profileBmi";
+            this.profileBmi.ReadOnly = true;
             // 
             // ZorgApp
             // 
@@ -1085,13 +1095,6 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView ProfileGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn surname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn age;
-        private System.Windows.Forms.DataGridViewTextBoxColumn weight;
-        private System.Windows.Forms.DataGridViewTextBoxColumn length;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bmi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label myProfileNameLabel;
         private System.Windows.Forms.Label myProfileAgeLabel;
@@ -1153,9 +1156,9 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button ProfileAddButton;
+        private System.Windows.Forms.Button ProfileDeleteButton;
+        private System.Windows.Forms.Button ProfileUpdateButton;
+        private System.Windows.Forms.Button ProfileCreateButton;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label20;
@@ -1175,6 +1178,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeight;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox ProfileRoleIdInput;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profileId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profileSurname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profileAge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profileWeight;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profileLength;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profileRoleId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn profileBmi;
     }
 }
 

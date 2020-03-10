@@ -60,10 +60,9 @@ namespace VisualZorgApp
             foreach (var item in myProfile.GetWeightRegistrations())
             {
                 int n = RegisteredWeightGridView.Rows.Add();
-                RegisteredWeightGridView.Rows[n].Cells[0].Value = item.GetDate().ToLongDateString();
-                RegisteredWeightGridView.Rows[n].Cells[1].Value = item.GetTime().TimeOfDay.ToString();
-                RegisteredWeightGridView.Rows[n].Cells[2].Value = item.GetWeight().ToString();
-                
+                RegisteredWeightGridView.Rows[n].Cells["registeredWeightDate"].Value = item.GetDate().ToLongDateString();
+                RegisteredWeightGridView.Rows[n].Cells["registeredWeightTime"].Value = item.GetTime().TimeOfDay.ToString();
+                RegisteredWeightGridView.Rows[n].Cells["registeredWeight"].Value = item.GetWeight().ToString();
             }
         }
         private void RenderMyProfilePrescribedDrugs()
@@ -72,10 +71,10 @@ namespace VisualZorgApp
             foreach (var item in myProfile.GetPrescribedDrugs())
             {
                 int n = PrescribedDrugGridView.Rows.Add();
-                PrescribedDrugGridView.Rows[n].Cells[0].Value = item.GetDrugName().ToString();
-                PrescribedDrugGridView.Rows[n].Cells[1].Value = item.GetDrugIntakeTime().TimeOfDay.ToString();
-                PrescribedDrugGridView.Rows[n].Cells[2].Value = item.GetDrugStartDate().ToLongDateString();
-                PrescribedDrugGridView.Rows[n].Cells[3].Value = item.GetDrugEndDate().ToLongDateString();
+                PrescribedDrugGridView.Rows[n].Cells["prescribedDrugName"].Value = item.GetDrugName().ToString();
+                PrescribedDrugGridView.Rows[n].Cells["prescribedDrugIntakeTime"].Value = item.GetDrugIntakeTime().TimeOfDay.ToString();
+                PrescribedDrugGridView.Rows[n].Cells["prescribedDrugStartDate"].Value = item.GetDrugStartDate().ToLongDateString();
+                PrescribedDrugGridView.Rows[n].Cells["prescribedDrugEndDate"].Value = item.GetDrugEndDate().ToLongDateString();
             }
         }
         private void RenderMyProfile()
@@ -111,11 +110,11 @@ namespace VisualZorgApp
                 }
 
                 int n = DrugGridView.Rows.Add();
-                DrugGridView.Rows[n].Cells[0].Value = item.GetId().ToString();
-                DrugGridView.Rows[n].Cells[1].Value = item.GetName().ToString();
-                DrugGridView.Rows[n].Cells[2].Value = item.GetDescription().ToString();
-                DrugGridView.Rows[n].Cells[3].Value = item.GetTypeOfDrug().ToString();
-                DrugGridView.Rows[n].Cells[4].Value = item.GetDosage().ToString();
+                DrugGridView.Rows[n].Cells["drugId"].Value = item.GetId().ToString();
+                DrugGridView.Rows[n].Cells["drugName"].Value = item.GetName().ToString();
+                DrugGridView.Rows[n].Cells["drugDescription"].Value = item.GetDescription().ToString();
+                DrugGridView.Rows[n].Cells["drugType"].Value = item.GetTypeOfDrug().ToString();
+                DrugGridView.Rows[n].Cells["drugDosage"].Value = item.GetDosage().ToString();
             }
         }
         private void RenderProfiles()
@@ -134,13 +133,14 @@ namespace VisualZorgApp
                 }
 
                 int n = ProfileGridView.Rows.Add();
-                ProfileGridView.Rows[n].Cells[0].Value = item.GetId().ToString();
-                ProfileGridView.Rows[n].Cells[1].Value = item.GetName().ToString();
-                ProfileGridView.Rows[n].Cells[2].Value = item.GetSurname().ToString();
-                ProfileGridView.Rows[n].Cells[3].Value = item.GetAge().ToString();
-                ProfileGridView.Rows[n].Cells[4].Value = item.GetWeight().ToString();
-                ProfileGridView.Rows[n].Cells[5].Value = item.GetLength().ToString();
-                ProfileGridView.Rows[n].Cells[6].Value = item.GetBmi().ToString();
+                ProfileGridView.Rows[n].Cells["profileId"].Value = item.GetId().ToString();
+                ProfileGridView.Rows[n].Cells["profileName"].Value = item.GetName().ToString();
+                ProfileGridView.Rows[n].Cells["profileSurname"].Value = item.GetSurname().ToString();
+                ProfileGridView.Rows[n].Cells["profileAge"].Value = item.GetAge().ToString();
+                ProfileGridView.Rows[n].Cells["profileWeight"].Value = item.GetWeight().ToString();
+                ProfileGridView.Rows[n].Cells["profileLength"].Value = item.GetLength().ToString();
+                ProfileGridView.Rows[n].Cells["profileRoleId"].Value = item.GetRoleId().ToString();
+                ProfileGridView.Rows[n].Cells["profileBmi"].Value = item.GetBmi().ToString();
 
             }
         }
@@ -183,10 +183,7 @@ namespace VisualZorgApp
             RenderProfiles();
         }
 
-        private void ProfileGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+       
 
         private void SaveProfileListButton_Click(object sender, EventArgs e)
         {
@@ -198,15 +195,32 @@ namespace VisualZorgApp
 
         }
 
-        private void ProfileAddButton_Click(object sender, EventArgs e)
+        private void ProfileGridView_Click(object sender, EventArgs e)
+        {
+            
+            string currentRowName = ProfileGridView.CurrentRow.Cells["profileName"].Value.ToString();
+            string currentRowSurname = ProfileGridView.CurrentRow.Cells["profileSurname"].Value.ToString();
+            string currentRowAge = ProfileGridView.CurrentRow.Cells["profileAge"].Value.ToString();
+            string currentRowWeight = ProfileGridView.CurrentRow.Cells["profileWeight"].Value.ToString();
+            string currentRowLength = ProfileGridView.CurrentRow.Cells["profileLength"].Value.ToString();
+            string currentRowRoleId= ProfileGridView.CurrentRow.Cells["profileRoleId"].Value.ToString();
+
+            ProfileNameInput.Text = currentRowName;
+            ProfileSurnameInput.Text = currentRowSurname;
+            ProfileAgeInput.Text = currentRowAge;
+            ProfileWeightInput.Text = currentRowWeight;
+            ProfileLengthInput.Text = currentRowLength;
+            ProfileRoleIdInput.Text = currentRowRoleId;
+        }
+        private void ProfileCreateButton_Click(object sender, EventArgs e)
         {
 
-            if ( !string.IsNullOrWhiteSpace(ProfileNameInput.Text) &&
+            if (!string.IsNullOrWhiteSpace(ProfileNameInput.Text) &&
                  !string.IsNullOrWhiteSpace(ProfileSurnameInput.Text) &&
                  !string.IsNullOrWhiteSpace(ProfileAgeInput.Text) &&
                  !string.IsNullOrWhiteSpace(ProfileWeightInput.Text) &&
                  !string.IsNullOrWhiteSpace(ProfileLengthInput.Text) &&
-                 !string.IsNullOrWhiteSpace(ProfileRoleIdInput.Text) 
+                 !string.IsNullOrWhiteSpace(ProfileRoleIdInput.Text)
                 )
             {
                 profileList.SqlCreateProfile(
@@ -221,7 +235,32 @@ namespace VisualZorgApp
 
             profileList.SqlAllProfilesToList();
             RenderProfiles();
-            
+
         }
+        private void ProfileDeleteButton_Click(object sender, EventArgs e)
+        {
+            int currentRowId = Convert.ToInt32(ProfileGridView.CurrentRow.Cells["profileId"].Value);
+            profileList.SqlDeleteProfile(currentRowId);
+            profileList.SqlAllProfilesToList();
+            RenderProfiles();
+        }
+        private void ProfileUpdateButton_Click(object sender, EventArgs e)
+        {
+            int currentRowId = Convert.ToInt32(ProfileGridView.CurrentRow.Cells["profileId"].Value);
+            profileList.SqlUpdateProfile
+                            (
+                                currentRowId,
+                                ProfileNameInput.Text.ToString(),
+                                ProfileSurnameInput.Text.ToString(),
+                                Convert.ToInt32(ProfileAgeInput.Text),
+                                Convert.ToDouble(ProfileWeightInput.Text),
+                                Convert.ToDouble(ProfileLengthInput.Text),
+                                Convert.ToInt32(ProfileRoleIdInput.Text)
+                                );
+            profileList.SqlAllProfilesToList();
+            RenderProfiles();
+        }
+
+       
     }
 }

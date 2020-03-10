@@ -30,7 +30,7 @@ namespace VisualZorgApp
             SetId(id);
             SetName(name);
             SetSurname(surname);
-            SetAge(id);
+            SetAge(age);
             SetWeight(weight);
             SetLength(length);
             SetRoleId(roleId);

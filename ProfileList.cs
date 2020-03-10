@@ -21,6 +21,50 @@ namespace VisualZorgApp
             /*SqlAllUsersToProfiles();*/
 
         }
+        public bool SqlDeleteProfile(int id)
+        {
+            using (MySqlCommand qry = ExecuteSql($"DELETE FROM `profile` WHERE `id`= {id}"))
+            {
+                try
+                {
+                    db.con.Open();
+                    qry.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    string errorMsg = e.Message.ToString();
+                    return false;
+                }
+
+
+            }
+
+            SqlAllProfilesToList();
+            db.con.Close();
+            return true;
+        }
+        public bool SqlUpdateProfile(int id, string name, string surname, int age, double weight, double length, int roleId)
+        {
+            using (MySqlCommand qry = ExecuteSql($"UPDATE profile SET name = '{name}',surname = '{surname}',age = '{age}', weight = '{weight}', length = '{length}', roleId = '{roleId}' WHERE id = {id}; "))
+            {
+                try
+                {
+                    db.con.Open();
+                    qry.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    string errorMsg = e.Message.ToString();
+                    return false;
+                }
+
+
+            }
+
+            SqlAllProfilesToList();
+            db.con.Close();
+            return true;
+        }
         public bool SqlCreateProfile(string name, string surname, int age, double weight, double length, int roleId)
         {
             using (MySqlCommand qry = ExecuteSql($"INSERT INTO `profile` (`id`, `name`, `surname`, `age`, `weight`, `length`, `roleId`, `username`, `password`) VALUES (NULL, '{name}', '{surname}', '{age}', '{weight}', '{length}', '{roleId}', '', '');"))
