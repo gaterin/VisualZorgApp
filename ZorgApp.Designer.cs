@@ -98,24 +98,6 @@
             this.ProfileSurnameInput = new System.Windows.Forms.TextBox();
             this.ProfileNameInput = new System.Windows.Forms.TextBox();
             this.ProfileGridView = new System.Windows.Forms.DataGridView();
-            this.DrugList = new System.Windows.Forms.TabPage();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.DrugGridView = new System.Windows.Forms.DataGridView();
-            this.drugId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drugDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drugType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drugDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profileId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profileSurname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -124,6 +106,24 @@
             this.profileLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profileRoleId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.profileBmi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DrugList = new System.Windows.Forms.TabPage();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.DrugDeleteButton = new System.Windows.Forms.Button();
+            this.DrugUpdateButton = new System.Windows.Forms.Button();
+            this.DrugCreateButton = new System.Windows.Forms.Button();
+            this.DrugDosageInput = new System.Windows.Forms.TextBox();
+            this.DrugTypeInput = new System.Windows.Forms.TextBox();
+            this.DrugDescriptionInput = new System.Windows.Forms.TextBox();
+            this.DrugNameInput = new System.Windows.Forms.TextBox();
+            this.DrugGridView = new System.Windows.Forms.DataGridView();
+            this.drugId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drugDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drugType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drugDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabs.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -826,175 +826,6 @@
             this.ProfileGridView.TabIndex = 1;
             this.ProfileGridView.Click += new System.EventHandler(this.ProfileGridView_Click);
             // 
-            // DrugList
-            // 
-            this.DrugList.Controls.Add(this.label7);
-            this.DrugList.Controls.Add(this.label9);
-            this.DrugList.Controls.Add(this.label10);
-            this.DrugList.Controls.Add(this.label11);
-            this.DrugList.Controls.Add(this.button3);
-            this.DrugList.Controls.Add(this.button4);
-            this.DrugList.Controls.Add(this.button5);
-            this.DrugList.Controls.Add(this.textBox6);
-            this.DrugList.Controls.Add(this.textBox7);
-            this.DrugList.Controls.Add(this.textBox8);
-            this.DrugList.Controls.Add(this.textBox9);
-            this.DrugList.Controls.Add(this.DrugGridView);
-            this.DrugList.Location = new System.Drawing.Point(4, 22);
-            this.DrugList.Name = "DrugList";
-            this.DrugList.Padding = new System.Windows.Forms.Padding(3);
-            this.DrugList.Size = new System.Drawing.Size(1111, 556);
-            this.DrugList.TabIndex = 2;
-            this.DrugList.Text = "DrugList";
-            this.DrugList.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(321, 3);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(65, 13);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Weight (KG)";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(215, 3);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(26, 13);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Age";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(109, 3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
-            this.label10.TabIndex = 24;
-            this.label10.Text = "Surname";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(35, 13);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "Name";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(592, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 21);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "Delete";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(511, 19);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 21);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Update";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(430, 18);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 21);
-            this.button5.TabIndex = 20;
-            this.button5.Text = "Create";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(324, 19);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 18;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Location = new System.Drawing.Point(218, 19);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 17;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Location = new System.Drawing.Point(112, 19);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 16;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(6, 19);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 15;
-            // 
-            // DrugGridView
-            // 
-            this.DrugGridView.AllowUserToAddRows = false;
-            this.DrugGridView.AllowUserToDeleteRows = false;
-            this.DrugGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DrugGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DrugGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.drugId,
-            this.drugName,
-            this.drugDescription,
-            this.drugType,
-            this.drugDosage});
-            this.DrugGridView.Location = new System.Drawing.Point(6, 46);
-            this.DrugGridView.Name = "DrugGridView";
-            this.DrugGridView.ReadOnly = true;
-            this.DrugGridView.RowHeadersVisible = false;
-            this.DrugGridView.RowHeadersWidth = 51;
-            this.DrugGridView.RowTemplate.Height = 24;
-            this.DrugGridView.Size = new System.Drawing.Size(1099, 504);
-            this.DrugGridView.TabIndex = 1;
-            // 
-            // drugId
-            // 
-            this.drugId.HeaderText = "Drug ID";
-            this.drugId.MinimumWidth = 6;
-            this.drugId.Name = "drugId";
-            this.drugId.ReadOnly = true;
-            // 
-            // drugName
-            // 
-            this.drugName.HeaderText = "Drug name";
-            this.drugName.MinimumWidth = 6;
-            this.drugName.Name = "drugName";
-            this.drugName.ReadOnly = true;
-            // 
-            // drugDescription
-            // 
-            this.drugDescription.HeaderText = "Drug Description";
-            this.drugDescription.MinimumWidth = 6;
-            this.drugDescription.Name = "drugDescription";
-            this.drugDescription.ReadOnly = true;
-            // 
-            // drugType
-            // 
-            this.drugType.HeaderText = "Drug type";
-            this.drugType.MinimumWidth = 6;
-            this.drugType.Name = "drugType";
-            this.drugType.ReadOnly = true;
-            // 
-            // drugDosage
-            // 
-            this.drugDosage.HeaderText = "Drug Dosage";
-            this.drugDosage.MinimumWidth = 6;
-            this.drugDosage.Name = "drugDosage";
-            this.drugDosage.ReadOnly = true;
-            // 
             // profileId
             // 
             this.profileId.DataPropertyName = "id";
@@ -1056,6 +887,177 @@
             this.profileBmi.MinimumWidth = 6;
             this.profileBmi.Name = "profileBmi";
             this.profileBmi.ReadOnly = true;
+            // 
+            // DrugList
+            // 
+            this.DrugList.Controls.Add(this.label7);
+            this.DrugList.Controls.Add(this.label9);
+            this.DrugList.Controls.Add(this.label10);
+            this.DrugList.Controls.Add(this.label11);
+            this.DrugList.Controls.Add(this.DrugDeleteButton);
+            this.DrugList.Controls.Add(this.DrugUpdateButton);
+            this.DrugList.Controls.Add(this.DrugCreateButton);
+            this.DrugList.Controls.Add(this.DrugDosageInput);
+            this.DrugList.Controls.Add(this.DrugTypeInput);
+            this.DrugList.Controls.Add(this.DrugDescriptionInput);
+            this.DrugList.Controls.Add(this.DrugNameInput);
+            this.DrugList.Controls.Add(this.DrugGridView);
+            this.DrugList.Location = new System.Drawing.Point(4, 22);
+            this.DrugList.Name = "DrugList";
+            this.DrugList.Padding = new System.Windows.Forms.Padding(3);
+            this.DrugList.Size = new System.Drawing.Size(1111, 556);
+            this.DrugList.TabIndex = 2;
+            this.DrugList.Text = "DrugList";
+            this.DrugList.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(321, 3);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 13);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Drug Dosage";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(215, 3);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 13);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "Drug type";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(109, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(86, 13);
+            this.label10.TabIndex = 24;
+            this.label10.Text = "Drug Description";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 13);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Drug name ";
+            // 
+            // DrugDeleteButton
+            // 
+            this.DrugDeleteButton.Location = new System.Drawing.Point(592, 19);
+            this.DrugDeleteButton.Name = "DrugDeleteButton";
+            this.DrugDeleteButton.Size = new System.Drawing.Size(75, 21);
+            this.DrugDeleteButton.TabIndex = 22;
+            this.DrugDeleteButton.Text = "Delete";
+            this.DrugDeleteButton.UseVisualStyleBackColor = true;
+            // 
+            // DrugUpdateButton
+            // 
+            this.DrugUpdateButton.Location = new System.Drawing.Point(511, 19);
+            this.DrugUpdateButton.Name = "DrugUpdateButton";
+            this.DrugUpdateButton.Size = new System.Drawing.Size(75, 21);
+            this.DrugUpdateButton.TabIndex = 21;
+            this.DrugUpdateButton.Text = "Update";
+            this.DrugUpdateButton.UseVisualStyleBackColor = true;
+            // 
+            // DrugCreateButton
+            // 
+            this.DrugCreateButton.Location = new System.Drawing.Point(430, 18);
+            this.DrugCreateButton.Name = "DrugCreateButton";
+            this.DrugCreateButton.Size = new System.Drawing.Size(75, 21);
+            this.DrugCreateButton.TabIndex = 20;
+            this.DrugCreateButton.Text = "Create";
+            this.DrugCreateButton.UseVisualStyleBackColor = true;
+            this.DrugCreateButton.Click += new System.EventHandler(this.DrugCreateButton_Click);
+            // 
+            // DrugDosageInput
+            // 
+            this.DrugDosageInput.Location = new System.Drawing.Point(324, 19);
+            this.DrugDosageInput.Name = "DrugDosageInput";
+            this.DrugDosageInput.Size = new System.Drawing.Size(100, 20);
+            this.DrugDosageInput.TabIndex = 18;
+            // 
+            // DrugTypeInput
+            // 
+            this.DrugTypeInput.Location = new System.Drawing.Point(218, 19);
+            this.DrugTypeInput.Name = "DrugTypeInput";
+            this.DrugTypeInput.Size = new System.Drawing.Size(100, 20);
+            this.DrugTypeInput.TabIndex = 17;
+            // 
+            // DrugDescriptionInput
+            // 
+            this.DrugDescriptionInput.Location = new System.Drawing.Point(112, 19);
+            this.DrugDescriptionInput.Name = "DrugDescriptionInput";
+            this.DrugDescriptionInput.Size = new System.Drawing.Size(100, 20);
+            this.DrugDescriptionInput.TabIndex = 16;
+            // 
+            // DrugNameInput
+            // 
+            this.DrugNameInput.Location = new System.Drawing.Point(6, 19);
+            this.DrugNameInput.Name = "DrugNameInput";
+            this.DrugNameInput.Size = new System.Drawing.Size(100, 20);
+            this.DrugNameInput.TabIndex = 15;
+            // 
+            // DrugGridView
+            // 
+            this.DrugGridView.AllowUserToAddRows = false;
+            this.DrugGridView.AllowUserToDeleteRows = false;
+            this.DrugGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DrugGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DrugGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.drugId,
+            this.drugName,
+            this.drugDescription,
+            this.drugType,
+            this.drugDosage});
+            this.DrugGridView.Location = new System.Drawing.Point(6, 46);
+            this.DrugGridView.Name = "DrugGridView";
+            this.DrugGridView.ReadOnly = true;
+            this.DrugGridView.RowHeadersVisible = false;
+            this.DrugGridView.RowHeadersWidth = 51;
+            this.DrugGridView.RowTemplate.Height = 24;
+            this.DrugGridView.Size = new System.Drawing.Size(1099, 504);
+            this.DrugGridView.TabIndex = 1;
+            this.DrugGridView.Click += new System.EventHandler(this.DrugGridView_Click);
+            // 
+            // drugId
+            // 
+            this.drugId.HeaderText = "Drug ID";
+            this.drugId.MinimumWidth = 6;
+            this.drugId.Name = "drugId";
+            this.drugId.ReadOnly = true;
+            // 
+            // drugName
+            // 
+            this.drugName.HeaderText = "Drug name";
+            this.drugName.MinimumWidth = 6;
+            this.drugName.Name = "drugName";
+            this.drugName.ReadOnly = true;
+            // 
+            // drugDescription
+            // 
+            this.drugDescription.HeaderText = "Drug Description";
+            this.drugDescription.MinimumWidth = 6;
+            this.drugDescription.Name = "drugDescription";
+            this.drugDescription.ReadOnly = true;
+            // 
+            // drugType
+            // 
+            this.drugType.HeaderText = "Drug type";
+            this.drugType.MinimumWidth = 6;
+            this.drugType.Name = "drugType";
+            this.drugType.ReadOnly = true;
+            // 
+            // drugDosage
+            // 
+            this.drugDosage.HeaderText = "Drug Dosage";
+            this.drugDosage.MinimumWidth = 6;
+            this.drugDosage.Name = "drugDosage";
+            this.drugDosage.ReadOnly = true;
             // 
             // ZorgApp
             // 
@@ -1143,13 +1145,13 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Button DrugDeleteButton;
+        private System.Windows.Forms.Button DrugUpdateButton;
+        private System.Windows.Forms.Button DrugCreateButton;
+        private System.Windows.Forms.TextBox DrugDosageInput;
+        private System.Windows.Forms.TextBox DrugTypeInput;
+        private System.Windows.Forms.TextBox DrugDescriptionInput;
+        private System.Windows.Forms.TextBox DrugNameInput;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;

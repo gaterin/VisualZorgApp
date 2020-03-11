@@ -198,19 +198,12 @@ namespace VisualZorgApp
         private void ProfileGridView_Click(object sender, EventArgs e)
         {
             
-            string currentRowName = ProfileGridView.CurrentRow.Cells["profileName"].Value.ToString();
-            string currentRowSurname = ProfileGridView.CurrentRow.Cells["profileSurname"].Value.ToString();
-            string currentRowAge = ProfileGridView.CurrentRow.Cells["profileAge"].Value.ToString();
-            string currentRowWeight = ProfileGridView.CurrentRow.Cells["profileWeight"].Value.ToString();
-            string currentRowLength = ProfileGridView.CurrentRow.Cells["profileLength"].Value.ToString();
-            string currentRowRoleId= ProfileGridView.CurrentRow.Cells["profileRoleId"].Value.ToString();
-
-            ProfileNameInput.Text = currentRowName;
-            ProfileSurnameInput.Text = currentRowSurname;
-            ProfileAgeInput.Text = currentRowAge;
-            ProfileWeightInput.Text = currentRowWeight;
-            ProfileLengthInput.Text = currentRowLength;
-            ProfileRoleIdInput.Text = currentRowRoleId;
+            ProfileNameInput.Text = ProfileGridView.CurrentRow.Cells["profileName"].Value.ToString();
+            ProfileSurnameInput.Text = ProfileGridView.CurrentRow.Cells["profileSurname"].Value.ToString();
+            ProfileAgeInput.Text = ProfileGridView.CurrentRow.Cells["profileAge"].Value.ToString();
+            ProfileWeightInput.Text = ProfileGridView.CurrentRow.Cells["profileWeight"].Value.ToString();
+            ProfileLengthInput.Text = ProfileGridView.CurrentRow.Cells["profileLength"].Value.ToString();
+            ProfileRoleIdInput.Text = ProfileGridView.CurrentRow.Cells["profileRoleId"].Value.ToString();
         }
         private void ProfileCreateButton_Click(object sender, EventArgs e)
         {
@@ -261,6 +254,36 @@ namespace VisualZorgApp
             RenderProfiles();
         }
 
-       
+      
+
+        private void DrugGridView_Click(object sender, EventArgs e)
+        {
+            DrugNameInput.Text = DrugGridView.CurrentRow.Cells["drugName"].Value.ToString();
+            DrugDescriptionInput.Text = DrugGridView.CurrentRow.Cells["drugDescription"].Value.ToString();
+            DrugTypeInput.Text = DrugGridView.CurrentRow.Cells["drugType"].Value.ToString();
+            DrugDosageInput.Text = DrugGridView.CurrentRow.Cells["drugDosage"].Value.ToString();
+
+        }
+
+        private void DrugCreateButton_Click(object sender, EventArgs e)
+        {
+           
+            if (!string.IsNullOrWhiteSpace(DrugNameInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugDescriptionInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugTypeInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugDosageInput.Text)
+                )
+            {
+                drugList.SqlCreateDrug(
+                                DrugNameInput.Text.ToString(),
+                                DrugDescriptionInput.Text.ToString(),
+                                DrugTypeInput.Text.ToString(),
+                                DrugDosageInput.Text.ToString()
+                                );
+            }
+
+            drugList.SqlAllDrugsToList();
+            RenderDrugs();
+        }
     }
 }
