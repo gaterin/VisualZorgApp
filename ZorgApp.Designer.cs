@@ -148,6 +148,7 @@
             this.tabs.SelectedIndex = 0;
             this.tabs.Size = new System.Drawing.Size(1119, 582);
             this.tabs.TabIndex = 1;
+            this.tabs.Click += new System.EventHandler(this.tabs_Click);
             // 
             // tabPage2
             // 
@@ -954,6 +955,7 @@
             this.DrugDeleteButton.TabIndex = 22;
             this.DrugDeleteButton.Text = "Delete";
             this.DrugDeleteButton.UseVisualStyleBackColor = true;
+            this.DrugDeleteButton.Click += new System.EventHandler(this.DrugDeleteButton_Click);
             // 
             // DrugUpdateButton
             // 
@@ -963,6 +965,7 @@
             this.DrugUpdateButton.TabIndex = 21;
             this.DrugUpdateButton.Text = "Update";
             this.DrugUpdateButton.UseVisualStyleBackColor = true;
+            this.DrugUpdateButton.Click += new System.EventHandler(this.DrugUpdateButton_Click);
             // 
             // DrugCreateButton
             // 

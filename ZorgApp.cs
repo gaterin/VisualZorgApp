@@ -56,6 +56,7 @@ namespace VisualZorgApp
         }
         private void RenderMyProfileRegisteredWeights()
         {
+            RegisteredWeightGridView.Rows.Clear();
             RegisteredWeightGridView.Refresh();
             foreach (var item in myProfile.GetWeightRegistrations())
             {
@@ -67,6 +68,7 @@ namespace VisualZorgApp
         }
         private void RenderMyProfilePrescribedDrugs()
         {
+            PrescribedDrugGridView.Rows.Clear();
             PrescribedDrugGridView.Refresh();
             foreach (var item in myProfile.GetPrescribedDrugs())
             {
@@ -79,15 +81,15 @@ namespace VisualZorgApp
         }
         private void RenderMyProfile()
         {
-            myProfileIdLabel.Text += myProfile.GetId().ToString();
-            myProfileNameLabel.Text += myProfile.GetName().ToString();
-            myProfileSurnameLabel.Text += myProfile.GetSurname().ToString();
-            myProfileAgeLabel.Text += myProfile.GetAge().ToString();
-            myProfileWeightLabel.Text += myProfile.GetWeight().ToString();
-            myProfileLengthLabel.Text += myProfile.GetLength().ToString();
-            myProfileBmiLabel.Text += myProfile.GetBmi().ToString();
-            myProfileRoleIdLabel.Text += myProfile.GetRoleId().ToString();
-            myProfileRoleNameLabel.Text += myProfile.GetRoleName().ToString();
+            myProfileIdLabel.Text = "ID : " + myProfile.GetId().ToString();
+            myProfileNameLabel.Text = "Name : " + myProfile.GetName().ToString();
+            myProfileSurnameLabel.Text = "Surname : " + myProfile.GetSurname().ToString();
+            myProfileAgeLabel.Text = "Age : " + myProfile.GetAge().ToString();
+            myProfileWeightLabel.Text = "Weight : " + myProfile.GetWeight().ToString();
+            myProfileLengthLabel.Text = "Length : " + myProfile.GetLength().ToString();
+            myProfileBmiLabel.Text = "BMI : " + myProfile.GetBmi().ToString();
+            myProfileRoleIdLabel.Text = "Role ID : " + myProfile.GetRoleId().ToString();
+            myProfileRoleNameLabel.Text = "Role : " + myProfile.GetRoleName().ToString();
 
             PrescribedDrugGridView.Rows.Clear();
             PrescribedDrugGridView.Refresh();
@@ -284,6 +286,44 @@ namespace VisualZorgApp
 
             drugList.SqlAllDrugsToList();
             RenderDrugs();
+        }
+
+        private void DrugDeleteButton_Click(object sender, EventArgs e)
+        {
+            int currentRowId = Convert.ToInt32(DrugGridView.CurrentRow.Cells["drugId"].Value);
+            drugList.SqlDeleteDrug(currentRowId);
+            drugList.SqlAllDrugsToList();
+            RenderDrugs();
+        }
+
+        private void DrugUpdateButton_Click(object sender, EventArgs e)
+        {
+            int currentRowId = Convert.ToInt32(DrugGridView.CurrentRow.Cells["drugId"].Value);
+            if (!string.IsNullOrWhiteSpace(DrugNameInput.Text) &&
+                  !string.IsNullOrWhiteSpace(DrugDescriptionInput.Text) &&
+                  !string.IsNullOrWhiteSpace(DrugTypeInput.Text) &&
+                  !string.IsNullOrWhiteSpace(DrugDosageInput.Text)
+                 )
+            {
+                drugList.SqlUpdateDrug(
+                                currentRowId,
+                                DrugNameInput.Text.ToString(),
+                                DrugDescriptionInput.Text.ToString(),
+                                DrugTypeInput.Text.ToString(),
+                                DrugDosageInput.Text.ToString()
+                                );
+            }
+            drugList.SqlAllDrugsToList();
+            RenderDrugs();
+        }
+
+        private void tabs_Click(object sender, EventArgs e)
+        {
+            /*int id = myProfile.GetId();
+            myProfile = new MyProfile(id);*/
+            RenderMyProfile();
+            RenderMyProfilePrescribedDrugs();
+            RenderMyProfileRegisteredWeights();
         }
     }
 }

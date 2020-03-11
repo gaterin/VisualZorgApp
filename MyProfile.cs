@@ -25,6 +25,7 @@ namespace VisualZorgApp
             FetchRegisteredWeightsForMyProfile(id);
             SetPrescribedDrugsToNotify();
         }
+        
         public List<WeightRegistration> GetWeightRegistrations()
         {
             return this.registeredWeights;
@@ -97,6 +98,7 @@ namespace VisualZorgApp
         }
         public bool FetchProfileById(int id)
         {
+
             using (MySqlCommand qry = ExecuteSql($"SELECT *, role.id AS role_id ,role.name AS role_name FROM profile JOIN role ON profile.roleId = role.id  WHERE profile.id = {id}"))
             {
 
