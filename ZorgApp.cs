@@ -319,8 +319,8 @@ namespace VisualZorgApp
 
         private void tabs_Click(object sender, EventArgs e)
         {
-            /*int id = myProfile.GetId();
-            myProfile = new MyProfile(id);*/
+            int id = myProfile.GetId();
+            myProfile = new MyProfile(id);
             RenderMyProfile();
             RenderMyProfilePrescribedDrugs();
             RenderMyProfileRegisteredWeights();
