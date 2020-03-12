@@ -34,7 +34,7 @@ namespace VisualZorgApp
         {
             using (MySqlCommand qry = ExecuteSql($"SELECT date, time, weight FROM weightregistration WHERE profileId = {id}"))
             {
-
+            
                 try
                 {
                     db.con.Open();
@@ -78,6 +78,7 @@ namespace VisualZorgApp
         public void SetPrescribedDrugsToNotify()
         {
             int hoursBeforeIntake = 1;
+
             foreach (var item in prescribedDrugs)
             {
                 if (item.GetDrugStartDate().Date <= DateTime.Today &&
@@ -199,8 +200,10 @@ namespace VisualZorgApp
         public MySqlCommand ExecuteSql(string sql)
         {
 
-            MySqlCommand cmd = new MySqlCommand(sql, db.con);
-            return cmd;
+            using (MySqlCommand cmd = new MySqlCommand(sql, db.con))
+            {
+                return cmd;
+            }
         }
         public bool CheckUserPass(string username, string password)
         {

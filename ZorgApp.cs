@@ -124,7 +124,15 @@ namespace VisualZorgApp
 
             ProfileGridView.Rows.Clear();
             ProfileGridView.Refresh();
+            //populate role dropdown
+            ProfileRoleIdInput.DataSource = profileList.GetRoleList();
+            ProfileRoleIdInput.DisplayMember = "name";
 
+            foreach (var item in profileList.GetRoleList())
+            {
+                
+            }
+            //populate profile view
             foreach (var item in profileList.GetProfileList())
             {
 
@@ -168,28 +176,6 @@ namespace VisualZorgApp
             profilesLocal.GetProfileList().RemoveAt(profilesLocal.GetProfileList().Count - 1);
              
             return profilesLocal;
-        }
-
-        private void SaveAll()
-        {
-            ProfileList gridData = GetGridData();
-            gridData.SaveJsonToFile(gridData.SerializeProfileListToJson());
-            profileList.DeserializeJsonToProfileList();
-            RenderProfiles();
-        }
-
-
-        private void RenderAllButton_Click(object sender, EventArgs e)
-        {
-            profileList.DeserializeJsonToProfileList();
-            RenderProfiles();
-        }
-
-       
-
-        private void SaveProfileListButton_Click(object sender, EventArgs e)
-        {
-            SaveAll();
         }
 
         private void DrugList_Click(object sender, EventArgs e)

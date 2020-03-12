@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using MySql.Data.MySqlClient;
 
 namespace VisualZorgApp
@@ -9,6 +8,7 @@ namespace VisualZorgApp
     {
 
         private List<Profile> profileList = new List<Profile>();
+        private List<Role> roleList = new List<Role>();
         private DBConnection db = new DBConnection();
         public ProfileList()
         {
@@ -20,6 +20,41 @@ namespace VisualZorgApp
 */
             /*SqlAllUsersToProfiles();*/
 
+        }
+
+        public bool SqlAllRolesToList()
+        {
+            roleList.Clear();
+            using (MySqlCommand qry = ExecuteSql("SELECT * FROM role"))
+            {
+                try
+                {
+                    db.con.Open();
+                    using (MySqlDataReader reader = qry.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            roleList.Add(new Role
+                            (
+                                (int)reader["id"],
+                                (string)reader["name"]
+                            ));
+
+                        }
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    string errorMsg = e.Message.ToString();
+                    return false;
+                }
+
+
+            }
+
+            db.con.Close();
+            return true;
         }
         public bool SqlDeleteProfile(int id)
         {
@@ -128,28 +163,14 @@ namespace VisualZorgApp
         }
         public MySqlCommand ExecuteSql(string sql)
         {
-        
-            MySqlCommand cmd = new MySqlCommand(sql, db.con );
+
+            using (MySqlCommand cmd = new MySqlCommand(sql, db.con)) 
+            { 
             return cmd;
-        }
-        public string SerializeProfileListToJson()
-        {
-            return JsonConvert.SerializeObject(profileList, Formatting.Indented);
-        }
+            }
 
-        public void SaveJsonToFile(string jsonString)
-        {
-            System.IO.File.Delete(Const.jsonPath);
-            System.IO.File.WriteAllText(Const.jsonPath, jsonString);
         }
-        public void DeserializeJsonToProfileList()
-        {
-            string json = System.IO.File.ReadAllText(Const.jsonPath);
-            var jsonDeserialize = JsonConvert.DeserializeObject<List<Profile>>(json);
-            profileList = jsonDeserialize;
-
-            
-        }
+        
         public void AddProfile(Profile profile)
         {
             profileList.Add(profile);
@@ -158,7 +179,11 @@ namespace VisualZorgApp
         {
             return profileList;
         }
+        public List<Role> GetRoleList()
+        {
+            return roleList;
+        }
 
-       
+
     }
 }
