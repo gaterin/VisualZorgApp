@@ -55,10 +55,6 @@
             this.label18 = new System.Windows.Forms.Label();
             this.myProfilePrescribedDrugsGroupBox = new System.Windows.Forms.GroupBox();
             this.PrescribedDrugGridView = new System.Windows.Forms.DataGridView();
-            this.prescribedDrugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescribedDrugIntakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescribedDrugStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prescribedDrugEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.myProfileRoleNameLabel = new System.Windows.Forms.Label();
             this.myProfileIdLabel = new System.Windows.Forms.Label();
@@ -71,6 +67,7 @@
             this.myProfileSurnameLabel = new System.Windows.Forms.Label();
             this.myProfileNameLabel = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ProfileRoleIdInput = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -113,6 +110,7 @@
             this.drugType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drugDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DrugPrescriptionList = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button6 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
@@ -124,12 +122,20 @@
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.textBox12 = new System.Windows.Forms.TextBox();
-            this.ProfileRoleIdInput = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.DrugIdInput = new System.Windows.Forms.TextBox();
+            this.ProfileIdInput = new System.Windows.Forms.TextBox();
+            this.myProfilePrescribedDrugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.myProfilePrescribedDrugIntakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.myProfilePrescribedDrugStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.myProfilePrescribedDrugEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugProfileId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugIntakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prescribedDrugEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabs.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -397,10 +403,10 @@
             this.PrescribedDrugGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PrescribedDrugGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PrescribedDrugGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.prescribedDrugName,
-            this.prescribedDrugIntakeTime,
-            this.prescribedDrugStartDate,
-            this.prescribedDrugEndDate});
+            this.myProfilePrescribedDrugName,
+            this.myProfilePrescribedDrugIntakeTime,
+            this.myProfilePrescribedDrugStartDate,
+            this.myProfilePrescribedDrugEndDate});
             this.PrescribedDrugGridView.Location = new System.Drawing.Point(5, 18);
             this.PrescribedDrugGridView.Name = "PrescribedDrugGridView";
             this.PrescribedDrugGridView.ReadOnly = true;
@@ -409,34 +415,6 @@
             this.PrescribedDrugGridView.Size = new System.Drawing.Size(509, 526);
             this.PrescribedDrugGridView.TabIndex = 0;
             this.PrescribedDrugGridView.TabStop = false;
-            // 
-            // prescribedDrugName
-            // 
-            this.prescribedDrugName.FillWeight = 92.7242F;
-            this.prescribedDrugName.HeaderText = "Drug Name";
-            this.prescribedDrugName.Name = "prescribedDrugName";
-            this.prescribedDrugName.ReadOnly = true;
-            // 
-            // prescribedDrugIntakeTime
-            // 
-            this.prescribedDrugIntakeTime.FillWeight = 30F;
-            this.prescribedDrugIntakeTime.HeaderText = "Time";
-            this.prescribedDrugIntakeTime.Name = "prescribedDrugIntakeTime";
-            this.prescribedDrugIntakeTime.ReadOnly = true;
-            // 
-            // prescribedDrugStartDate
-            // 
-            this.prescribedDrugStartDate.FillWeight = 92.7242F;
-            this.prescribedDrugStartDate.HeaderText = "Prescription Start";
-            this.prescribedDrugStartDate.Name = "prescribedDrugStartDate";
-            this.prescribedDrugStartDate.ReadOnly = true;
-            // 
-            // prescribedDrugEndDate
-            // 
-            this.prescribedDrugEndDate.FillWeight = 92.7242F;
-            this.prescribedDrugEndDate.HeaderText = "Prescription Ends";
-            this.prescribedDrugEndDate.Name = "prescribedDrugEndDate";
-            this.prescribedDrugEndDate.ReadOnly = true;
             // 
             // groupBox1
             // 
@@ -583,6 +561,14 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ProfileList";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ProfileRoleIdInput
+            // 
+            this.ProfileRoleIdInput.FormattingEnabled = true;
+            this.ProfileRoleIdInput.Location = new System.Drawing.Point(536, 18);
+            this.ProfileRoleIdInput.Name = "ProfileRoleIdInput";
+            this.ProfileRoleIdInput.Size = new System.Drawing.Size(100, 21);
+            this.ProfileRoleIdInput.TabIndex = 17;
             // 
             // label21
             // 
@@ -964,6 +950,10 @@
             // 
             // DrugPrescriptionList
             // 
+            this.DrugPrescriptionList.Controls.Add(this.label22);
+            this.DrugPrescriptionList.Controls.Add(this.label23);
+            this.DrugPrescriptionList.Controls.Add(this.DrugIdInput);
+            this.DrugPrescriptionList.Controls.Add(this.ProfileIdInput);
             this.DrugPrescriptionList.Controls.Add(this.dataGridView1);
             this.DrugPrescriptionList.Controls.Add(this.button6);
             this.DrugPrescriptionList.Controls.Add(this.button7);
@@ -984,105 +974,6 @@
             this.DrugPrescriptionList.Text = "DrugPrescriptionList";
             this.DrugPrescriptionList.UseVisualStyleBackColor = true;
             // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(583, 19);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(63, 21);
-            this.button6.TabIndex = 63;
-            this.button6.Text = "Delete";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(511, 19);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(63, 21);
-            this.button7.TabIndex = 62;
-            this.button7.Text = "Update";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(440, 19);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(63, 21);
-            this.button8.TabIndex = 61;
-            this.button8.Text = "Create";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(321, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(107, 13);
-            this.label6.TabIndex = 60;
-            this.label6.Text = "Prescription end date";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(215, 3);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(109, 13);
-            this.label12.TabIndex = 59;
-            this.label12.Text = "Prescription start date";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(109, 3);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(95, 13);
-            this.label13.TabIndex = 58;
-            this.label13.Text = "Intake time of drug";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(6, 3);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(71, 13);
-            this.label14.TabIndex = 57;
-            this.label14.Text = "Name of drug";
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(324, 19);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 56;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Location = new System.Drawing.Point(218, 19);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 55;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(112, 19);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 54;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(6, 19);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 53;
-            // 
-            // ProfileRoleIdInput
-            // 
-            this.ProfileRoleIdInput.FormattingEnabled = true;
-            this.ProfileRoleIdInput.Location = new System.Drawing.Point(536, 18);
-            this.ProfileRoleIdInput.Name = "ProfileRoleIdInput";
-            this.ProfileRoleIdInput.Size = new System.Drawing.Size(100, 21);
-            this.ProfileRoleIdInput.TabIndex = 17;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -1090,10 +981,12 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.prescribedDrugProfileId,
+            this.prescribedDrugId,
+            this.prescribedDrugName,
+            this.prescribedDrugIntakeTime,
+            this.prescribedDrugStartDate,
+            this.prescribedDrugEndDate});
             this.dataGridView1.Location = new System.Drawing.Point(6, 46);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -1103,33 +996,196 @@
             this.dataGridView1.TabIndex = 64;
             this.dataGridView1.TabStop = false;
             // 
-            // dataGridViewTextBoxColumn1
+            // button6
             // 
-            this.dataGridViewTextBoxColumn1.FillWeight = 92.7242F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Drug Name";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.button6.Location = new System.Drawing.Point(795, 19);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(63, 21);
+            this.button6.TabIndex = 63;
+            this.button6.Text = "Delete";
+            this.button6.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn2
+            // button7
             // 
-            this.dataGridViewTextBoxColumn2.FillWeight = 30F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Time";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.button7.Location = new System.Drawing.Point(723, 19);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(63, 21);
+            this.button7.TabIndex = 62;
+            this.button7.Text = "Update";
+            this.button7.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn3
+            // button8
             // 
-            this.dataGridViewTextBoxColumn3.FillWeight = 92.7242F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Prescription Start";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.button8.Location = new System.Drawing.Point(652, 19);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(63, 21);
+            this.button8.TabIndex = 61;
+            this.button8.Text = "Create";
+            this.button8.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewTextBoxColumn4
+            // label6
             // 
-            this.dataGridViewTextBoxColumn4.FillWeight = 92.7242F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Prescription Ends";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(533, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 13);
+            this.label6.TabIndex = 60;
+            this.label6.Text = "Prescription end date";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(427, 3);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(109, 13);
+            this.label12.TabIndex = 59;
+            this.label12.Text = "Prescription start date";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(321, 3);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(95, 13);
+            this.label13.TabIndex = 58;
+            this.label13.Text = "Intake time of drug";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(218, 3);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(71, 13);
+            this.label14.TabIndex = 57;
+            this.label14.Text = "Name of drug";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(536, 19);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.TabIndex = 56;
+            // 
+            // textBox10
+            // 
+            this.textBox10.Location = new System.Drawing.Point(430, 19);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.TabIndex = 55;
+            // 
+            // textBox11
+            // 
+            this.textBox11.Location = new System.Drawing.Point(324, 19);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(100, 20);
+            this.textBox11.TabIndex = 54;
+            // 
+            // textBox12
+            // 
+            this.textBox12.Location = new System.Drawing.Point(218, 19);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(100, 20);
+            this.textBox12.TabIndex = 53;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(109, 3);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(44, 13);
+            this.label22.TabIndex = 68;
+            this.label22.Text = "Drug ID";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 3);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(50, 13);
+            this.label23.TabIndex = 67;
+            this.label23.Text = "Profile ID";
+            // 
+            // DrugIdInput
+            // 
+            this.DrugIdInput.Location = new System.Drawing.Point(112, 19);
+            this.DrugIdInput.Name = "DrugIdInput";
+            this.DrugIdInput.Size = new System.Drawing.Size(100, 20);
+            this.DrugIdInput.TabIndex = 66;
+            // 
+            // ProfileIdInput
+            // 
+            this.ProfileIdInput.Location = new System.Drawing.Point(6, 19);
+            this.ProfileIdInput.Name = "ProfileIdInput";
+            this.ProfileIdInput.Size = new System.Drawing.Size(100, 20);
+            this.ProfileIdInput.TabIndex = 65;
+            // 
+            // myProfilePrescribedDrugName
+            // 
+            this.myProfilePrescribedDrugName.FillWeight = 92.7242F;
+            this.myProfilePrescribedDrugName.HeaderText = "Drug Name";
+            this.myProfilePrescribedDrugName.Name = "myProfilePrescribedDrugName";
+            this.myProfilePrescribedDrugName.ReadOnly = true;
+            // 
+            // myProfilePrescribedDrugIntakeTime
+            // 
+            this.myProfilePrescribedDrugIntakeTime.FillWeight = 30F;
+            this.myProfilePrescribedDrugIntakeTime.HeaderText = "Time";
+            this.myProfilePrescribedDrugIntakeTime.Name = "myProfilePrescribedDrugIntakeTime";
+            this.myProfilePrescribedDrugIntakeTime.ReadOnly = true;
+            // 
+            // myProfilePrescribedDrugStartDate
+            // 
+            this.myProfilePrescribedDrugStartDate.FillWeight = 92.7242F;
+            this.myProfilePrescribedDrugStartDate.HeaderText = "Prescription Start";
+            this.myProfilePrescribedDrugStartDate.Name = "myProfilePrescribedDrugStartDate";
+            this.myProfilePrescribedDrugStartDate.ReadOnly = true;
+            // 
+            // myProfilePrescribedDrugEndDate
+            // 
+            this.myProfilePrescribedDrugEndDate.FillWeight = 92.7242F;
+            this.myProfilePrescribedDrugEndDate.HeaderText = "Prescription Ends";
+            this.myProfilePrescribedDrugEndDate.Name = "myProfilePrescribedDrugEndDate";
+            this.myProfilePrescribedDrugEndDate.ReadOnly = true;
+            // 
+            // prescribedDrugProfileId
+            // 
+            this.prescribedDrugProfileId.HeaderText = "Profile ID";
+            this.prescribedDrugProfileId.Name = "prescribedDrugProfileId";
+            this.prescribedDrugProfileId.ReadOnly = true;
+            // 
+            // prescribedDrugId
+            // 
+            this.prescribedDrugId.HeaderText = "Drug ID";
+            this.prescribedDrugId.Name = "prescribedDrugId";
+            this.prescribedDrugId.ReadOnly = true;
+            // 
+            // prescribedDrugName
+            // 
+            this.prescribedDrugName.FillWeight = 92.7242F;
+            this.prescribedDrugName.HeaderText = "Drug Name";
+            this.prescribedDrugName.Name = "prescribedDrugName";
+            this.prescribedDrugName.ReadOnly = true;
+            // 
+            // prescribedDrugIntakeTime
+            // 
+            this.prescribedDrugIntakeTime.FillWeight = 30F;
+            this.prescribedDrugIntakeTime.HeaderText = "Time";
+            this.prescribedDrugIntakeTime.Name = "prescribedDrugIntakeTime";
+            this.prescribedDrugIntakeTime.ReadOnly = true;
+            // 
+            // prescribedDrugStartDate
+            // 
+            this.prescribedDrugStartDate.FillWeight = 92.7242F;
+            this.prescribedDrugStartDate.HeaderText = "Prescription Start";
+            this.prescribedDrugStartDate.Name = "prescribedDrugStartDate";
+            this.prescribedDrugStartDate.ReadOnly = true;
+            // 
+            // prescribedDrugEndDate
+            // 
+            this.prescribedDrugEndDate.FillWeight = 92.7242F;
+            this.prescribedDrugEndDate.HeaderText = "Prescription Ends";
+            this.prescribedDrugEndDate.Name = "prescribedDrugEndDate";
+            this.prescribedDrugEndDate.ReadOnly = true;
             // 
             // ZorgApp
             // 
@@ -1234,10 +1290,6 @@
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugIntakeTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugStartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugEndDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeight;
@@ -1264,10 +1316,20 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.ComboBox ProfileRoleIdInput;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox DrugIdInput;
+        private System.Windows.Forms.TextBox ProfileIdInput;
+        private System.Windows.Forms.DataGridViewTextBoxColumn myProfilePrescribedDrugName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn myProfilePrescribedDrugIntakeTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn myProfilePrescribedDrugStartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn myProfilePrescribedDrugEndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugProfileId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugIntakeTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugStartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugEndDate;
     }
 }
 

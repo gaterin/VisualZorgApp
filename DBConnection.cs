@@ -25,5 +25,13 @@ namespace VisualZorgApp
             
 
         }
+        public MySqlCommand ExecuteSql(string sql)
+        {
+
+            using (MySqlCommand cmd = new MySqlCommand(sql, con))
+            {
+                return cmd;
+            }
+        }
     }
 }

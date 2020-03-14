@@ -82,6 +82,7 @@
     <Compile Include="Drug.cs" />
     <Compile Include="DrugList.cs" />
     <Compile Include="DrugPrescription.cs" />
+    <Compile Include="DrugPrescriptionList.cs" />
     <Compile Include="MyProfile.cs" />
     <Compile Include="Notification.cs">
       <SubType>Component</SubType>

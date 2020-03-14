@@ -4,6 +4,8 @@ namespace VisualZorgApp
 
     class DrugPrescription
     {
+        private int drugId;
+        private int profileId;
         private string drugName;
         private DateTime drugIntakeTime;
         private DateTime drugStartDate;
@@ -15,6 +17,23 @@ namespace VisualZorgApp
             SetDrugIntakeTime(drugIntakeTime);
             SetDrugStartDate(drugStartDate);
             SetDrugEndDate(drugEndDate);
+        }
+        public DrugPrescription(int drugId, int profileId, string drugName, string drugIntakeTime, string drugStartDate, string drugEndDate)
+        {
+            SetDrugId(drugId);
+            SetProfileId(profileId);
+            SetDrugName(drugName);
+            SetDrugIntakeTime(drugIntakeTime);
+            SetDrugStartDate(drugStartDate);
+            SetDrugEndDate(drugEndDate);
+        }
+        public int GetDrugId()
+        {
+            return drugId;
+        }
+        public int GetProfileId()
+        {
+            return profileId;
         }
         public string GetDrugName()
         {
@@ -33,6 +52,14 @@ namespace VisualZorgApp
             return drugEndDate;
         }
 
+        public void SetDrugId(int drugId)
+        {
+            this.drugId = drugId;
+        }
+        public void SetProfileId(int profileId)
+        {
+            this.profileId = profileId;
+        }
         public void SetDrugName(string drugName)
         {
             this.drugName = drugName;

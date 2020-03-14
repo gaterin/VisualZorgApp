@@ -73,10 +73,10 @@ namespace VisualZorgApp
             foreach (var item in myProfile.GetPrescribedDrugs())
             {
                 int n = PrescribedDrugGridView.Rows.Add();
-                PrescribedDrugGridView.Rows[n].Cells["prescribedDrugName"].Value = item.GetDrugName().ToString();
-                PrescribedDrugGridView.Rows[n].Cells["prescribedDrugIntakeTime"].Value = item.GetDrugIntakeTime().TimeOfDay.ToString();
-                PrescribedDrugGridView.Rows[n].Cells["prescribedDrugStartDate"].Value = item.GetDrugStartDate().ToLongDateString();
-                PrescribedDrugGridView.Rows[n].Cells["prescribedDrugEndDate"].Value = item.GetDrugEndDate().ToLongDateString();
+                PrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugName"].Value = item.GetDrugName().ToString();
+                PrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugIntakeTime"].Value = item.GetDrugIntakeTime().TimeOfDay.ToString();
+                PrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugStartDate"].Value = item.GetDrugStartDate().ToLongDateString();
+                PrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugEndDate"].Value = item.GetDrugEndDate().ToLongDateString();
             }
         }
         private void RenderMyProfile()

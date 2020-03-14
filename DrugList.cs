@@ -10,7 +10,7 @@ namespace VisualZorgApp
         private DBConnection db = new DBConnection();
         public bool SqlDeleteDrug(int id)
         {
-            using (MySqlCommand qry = ExecuteSql($"DELETE FROM `drug` WHERE `id`= {id}"))
+            using (MySqlCommand qry = db.ExecuteSql($"DELETE FROM `drug` WHERE `id`= {id}"))
             {
                 try
                 {
@@ -32,7 +32,7 @@ namespace VisualZorgApp
         }
         public bool SqlUpdateDrug(int id, string name, string description, string type, string dosage)
         {
-            using (MySqlCommand qry = ExecuteSql($"UPDATE `drug` SET name = '{name}',description = '{description}',type = '{type}', dosage = '{dosage}' WHERE id = {id}; "))
+            using (MySqlCommand qry = db.ExecuteSql($"UPDATE `drug` SET name = '{name}',description = '{description}',type = '{type}', dosage = '{dosage}' WHERE id = {id}; "))
             {
                 try
                 {
@@ -54,7 +54,7 @@ namespace VisualZorgApp
         }
         public bool SqlCreateDrug(string name, string description, string type, string dosage)
         {
-            using (MySqlCommand qry = ExecuteSql($"INSERT INTO `drug` (`id`, `name`, `description`, `type`, `dosage`) VALUES (NULL, '{name}', '{description}', '{type}', '{dosage}');"))
+            using (MySqlCommand qry = db.ExecuteSql($"INSERT INTO `drug` (`id`, `name`, `description`, `type`, `dosage`) VALUES (NULL, '{name}', '{description}', '{type}', '{dosage}');"))
             {
                 try
                 {
@@ -81,7 +81,7 @@ namespace VisualZorgApp
         public bool SqlAllDrugsToList()
         {
             drugList.Clear();
-            using (MySqlCommand qry = ExecuteSql("SELECT * FROM drug"))
+            using (MySqlCommand qry = db.ExecuteSql("SELECT * FROM drug"))
             {
 
                 try
@@ -132,14 +132,7 @@ namespace VisualZorgApp
         {
             drugList.Add(drug);
         }
-        public MySqlCommand ExecuteSql(string sql)
-        {
-
-            using (MySqlCommand cmd = new MySqlCommand(sql, db.con))
-            {
-                return cmd;
-            }
-        }
+        
     }
 
 }

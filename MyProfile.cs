@@ -32,7 +32,7 @@ namespace VisualZorgApp
         }
         public bool FetchRegisteredWeightsForMyProfile(int id)
         {
-            using (MySqlCommand qry = ExecuteSql($"SELECT date, time, weight FROM weightregistration WHERE profileId = {id}"))
+            using (MySqlCommand qry = db.ExecuteSql($"SELECT date, time, weight FROM weightregistration WHERE profileId = {id}"))
             {
             
                 try
@@ -100,7 +100,7 @@ namespace VisualZorgApp
         public bool FetchProfileById(int id)
         {
 
-            using (MySqlCommand qry = ExecuteSql($"SELECT *, role.id AS role_id ,role.name AS role_name FROM profile JOIN role ON profile.roleId = role.id  WHERE profile.id = {id}"))
+            using (MySqlCommand qry = db.ExecuteSql($"SELECT *, role.id AS role_id ,role.name AS role_name FROM profile JOIN role ON profile.roleId = role.id  WHERE profile.id = {id}"))
             {
 
                 try
@@ -161,7 +161,7 @@ namespace VisualZorgApp
 
         public bool FetchPrescribedDrugsForMyProfile(int id)
         {
-            using (MySqlCommand qry = ExecuteSql($"SELECT startDate, endDate, intakeTime, name FROM drugprescription JOIN drug ON drugprescription.drugId = drug.id WHERE profileId = {id}"))
+            using (MySqlCommand qry = db. ExecuteSql($"SELECT startDate, endDate, intakeTime, name FROM drugprescription JOIN drug ON drugprescription.drugId = drug.id WHERE profileId = {id}"))
             {
 
                 try
@@ -196,14 +196,6 @@ namespace VisualZorgApp
 
             }
 
-        }
-        public MySqlCommand ExecuteSql(string sql)
-        {
-
-            using (MySqlCommand cmd = new MySqlCommand(sql, db.con))
-            {
-                return cmd;
-            }
         }
         public bool CheckUserPass(string username, string password)
         {

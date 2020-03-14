@@ -25,7 +25,7 @@ namespace VisualZorgApp
         public bool SqlAllRolesToList()
         {
             roleList.Clear();
-            using (MySqlCommand qry = ExecuteSql("SELECT * FROM role"))
+            using (MySqlCommand qry = db.ExecuteSql("SELECT * FROM role"))
             {
                 try
                 {
@@ -58,7 +58,7 @@ namespace VisualZorgApp
         }
         public bool SqlDeleteProfile(int id)
         {
-            using (MySqlCommand qry = ExecuteSql($"DELETE FROM `profile` WHERE `id`= {id}"))
+            using (MySqlCommand qry = db.ExecuteSql($"DELETE FROM `profile` WHERE `id`= {id}"))
             {
                 try
                 {
@@ -80,7 +80,7 @@ namespace VisualZorgApp
         }
         public bool SqlUpdateProfile(int id, string name, string surname, int age, double weight, double length, int roleId)
         {
-            using (MySqlCommand qry = ExecuteSql($"UPDATE profile SET name = '{name}',surname = '{surname}',age = '{age}', weight = '{weight}', length = '{length}', roleId = '{roleId}' WHERE id = {id}; "))
+            using (MySqlCommand qry = db.ExecuteSql($"UPDATE profile SET name = '{name}',surname = '{surname}',age = '{age}', weight = '{weight}', length = '{length}', roleId = '{roleId}' WHERE id = {id}; "))
             {
                 try
                 {
@@ -102,7 +102,7 @@ namespace VisualZorgApp
         }
         public bool SqlCreateProfile(string name, string surname, int age, double weight, double length, int roleId)
         {
-            using (MySqlCommand qry = ExecuteSql($"INSERT INTO `profile` (`id`, `name`, `surname`, `age`, `weight`, `length`, `roleId`, `username`, `password`) VALUES (NULL, '{name}', '{surname}', '{age}', '{weight}', '{length}', '{roleId}', '', '');"))
+            using (MySqlCommand qry = db.ExecuteSql($"INSERT INTO `profile` (`id`, `name`, `surname`, `age`, `weight`, `length`, `roleId`, `username`, `password`) VALUES (NULL, '{name}', '{surname}', '{age}', '{weight}', '{length}', '{roleId}', '', '');"))
             {
                 try
                 {
@@ -125,7 +125,7 @@ namespace VisualZorgApp
         public bool SqlAllProfilesToList()
         {
             profileList.Clear();
-            using (MySqlCommand qry = ExecuteSql("SELECT * FROM profile"))
+            using (MySqlCommand qry = db.ExecuteSql("SELECT * FROM profile"))
             {
                 try
                 {
@@ -161,15 +161,7 @@ namespace VisualZorgApp
             db.con.Close();
             return true;
         }
-        public MySqlCommand ExecuteSql(string sql)
-        {
-
-            using (MySqlCommand cmd = new MySqlCommand(sql, db.con)) 
-            { 
-            return cmd;
-            }
-
-        }
+        
         
         public void AddProfile(Profile profile)
         {
