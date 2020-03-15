@@ -13,9 +13,11 @@ namespace VisualZorgApp
 {
     public partial class ZorgApp : Form
     {
-         ProfileList profileList = new ProfileList();
-         DrugList drugList = new DrugList();
-         MyProfile myProfile = new MyProfile(1);
+        ProfileList profileList = new ProfileList();
+        DrugList drugList = new DrugList();
+        DrugPrescriptionList drugPrescriptionList = new DrugPrescriptionList();
+        MyProfile myProfile = new MyProfile(1);
+         
 
         
         public ZorgApp()
@@ -28,17 +30,34 @@ namespace VisualZorgApp
 
             profileList.SqlAllProfilesToList();
             drugList.SqlAllDrugsToList();
+            drugPrescriptionList.SqlAllDrugPrescriptionsToList();
             RenderMyProfile();
             RenderMyProfilePrescribedDrugs();
             RenderMyProfileRegisteredWeights();
             RenderProfiles();
             RenderDrugs();
+            RenderPrescribedDrugs();
             NotifyPrescribedDrugs();
-            /*string msg = profileList.SqlAllUsersToProfiles();
-            MessageBox.Show(msg);*//**/
+           
+            /*MessageBox.Show(msg);*/
 
         }
-
+        private void RenderPrescribedDrugs()
+        {
+            DrugPrescriptionGridView.Rows.Clear();
+            DrugPrescriptionGridView.Refresh();
+            foreach (var item in drugPrescriptionList.GetDrugPrescriptionList())
+            {
+                int n = DrugPrescriptionGridView.Rows.Add();
+                DrugPrescriptionGridView.Rows[n].Cells["prescribedDrugProfileId"].Value = item.GetProfileId().ToString();
+                DrugPrescriptionGridView.Rows[n].Cells["prescribedDrugProfileName"].Value = item.GetProfileName().ToString();
+                DrugPrescriptionGridView.Rows[n].Cells["prescribedDrugId"].Value = item.GetDrugId().ToString();
+                DrugPrescriptionGridView.Rows[n].Cells["prescribedDrugName"].Value = item.GetDrugName().ToString();
+                DrugPrescriptionGridView.Rows[n].Cells["prescribedDrugIntakeTime"].Value = item.GetDrugIntakeTime().TimeOfDay.ToString();
+                DrugPrescriptionGridView.Rows[n].Cells["prescribedDrugStartDate"].Value = item.GetDrugStartDate().ToLongDateString();
+                DrugPrescriptionGridView.Rows[n].Cells["prescribedDrugEndDate"].Value = item.GetDrugEndDate().ToLongDateString();     
+            }
+        }
         private void NotifyPrescribedDrugs()
         {
             string drugsToTakeIn = "";
@@ -68,15 +87,15 @@ namespace VisualZorgApp
         }
         private void RenderMyProfilePrescribedDrugs()
         {
-            PrescribedDrugGridView.Rows.Clear();
-            PrescribedDrugGridView.Refresh();
+            MyProfilePrescribedDrugGridView.Rows.Clear();
+            MyProfilePrescribedDrugGridView.Refresh();
             foreach (var item in myProfile.GetPrescribedDrugs())
             {
-                int n = PrescribedDrugGridView.Rows.Add();
-                PrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugName"].Value = item.GetDrugName().ToString();
-                PrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugIntakeTime"].Value = item.GetDrugIntakeTime().TimeOfDay.ToString();
-                PrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugStartDate"].Value = item.GetDrugStartDate().ToLongDateString();
-                PrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugEndDate"].Value = item.GetDrugEndDate().ToLongDateString();
+                int n = MyProfilePrescribedDrugGridView.Rows.Add();
+                MyProfilePrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugName"].Value = item.GetDrugName().ToString();
+                MyProfilePrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugIntakeTime"].Value = item.GetDrugIntakeTime().TimeOfDay.ToString();
+                MyProfilePrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugStartDate"].Value = item.GetDrugStartDate().ToLongDateString();
+                MyProfilePrescribedDrugGridView.Rows[n].Cells["myProfilePrescribedDrugEndDate"].Value = item.GetDrugEndDate().ToLongDateString();
             }
         }
         private void RenderMyProfile()
@@ -91,8 +110,8 @@ namespace VisualZorgApp
             myProfileRoleIdLabel.Text = "Role ID : " + myProfile.GetRoleId().ToString();
             myProfileRoleNameLabel.Text = "Role : " + myProfile.GetRoleName().ToString();
 
-            PrescribedDrugGridView.Rows.Clear();
-            PrescribedDrugGridView.Refresh();
+            MyProfilePrescribedDrugGridView.Rows.Clear();
+            MyProfilePrescribedDrugGridView.Refresh();
 
             
 
@@ -311,5 +330,17 @@ namespace VisualZorgApp
             RenderMyProfilePrescribedDrugs();
             RenderMyProfileRegisteredWeights();
         }
+
+        private void DrugPrescriptionGridView_Click(object sender, EventArgs e)
+        {
+            ProfileIdInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugProfileId"].Value.ToString();
+            DrugIdInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugId"].Value.ToString();
+            DrugIntakeTimeInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugIntakeTime"].Value.ToString();
+            DrugStartDateInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugStartDate"].Value.ToString();
+            DrugEndDateInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugEndDate"].Value.ToString();
+
+        }
+
+        
     }
 }

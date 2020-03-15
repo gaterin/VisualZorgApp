@@ -13,10 +13,10 @@ namespace VisualZorgApp
         private List<DrugPrescription> drugPrescriptionList = new List<DrugPrescription>();
         private DBConnection db = new DBConnection();
 
-        public bool SqlAllDrugsToList()
+        public bool SqlAllDrugPrescriptionsToList()
         {
             drugPrescriptionList.Clear();
-            using (MySqlCommand qry = db.ExecuteSql("SELECT * FROM drug"))
+            using (MySqlCommand qry = db.ExecuteSql("SELECT intakeTime,startDate,endDate, profile.id AS profile_id , profile.name AS profile_name, drug.id AS drug_id, drug.name AS drug_name FROM drugprescription JOIN profile ON profileId = profile.id JOIN drug ON drugId = drug.id"))
             {
 
                 try
@@ -36,10 +36,13 @@ namespace VisualZorgApp
 
                             AddDrugPrescription(new DrugPrescription
                             (
-                                (string)reader["id"],
-                                (string)reader["name"],
-                                (string)reader["description"],
-                                (string)reader["type"]
+                                (int)reader["drug_id"],
+                                (int)reader["profile_id"],
+                                reader["drug_name"].ToString(),
+                                reader["profile_name"].ToString(),
+                                reader["intakeTime"].ToString(),
+                                reader["startDate"].ToString(),
+                                reader["endDate"].ToString()
                                 )
                             );
                             
