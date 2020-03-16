@@ -119,15 +119,6 @@
             this.DrugIdInput = new System.Windows.Forms.TextBox();
             this.ProfileIdInput = new System.Windows.Forms.TextBox();
             this.DrugPrescriptionGridView = new System.Windows.Forms.DataGridView();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.DrugEndDateInput = new System.Windows.Forms.TextBox();
-            this.DrugStartDateInput = new System.Windows.Forms.TextBox();
-            this.DrugIntakeTimeInput = new System.Windows.Forms.TextBox();
             this.prescribedDrugProfileId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prescribedDrugProfileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prescribedDrugId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -135,6 +126,15 @@
             this.prescribedDrugIntakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prescribedDrugStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prescribedDrugEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DrugPrescriptionDeleteButton = new System.Windows.Forms.Button();
+            this.DrugPrescriptionUpdateButton = new System.Windows.Forms.Button();
+            this.DrugPrescriptionCreateButton = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.DrugEndDateInput = new System.Windows.Forms.TextBox();
+            this.DrugStartDateInput = new System.Windows.Forms.TextBox();
+            this.DrugIntakeTimeInput = new System.Windows.Forms.TextBox();
             this.tabs.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -982,9 +982,9 @@
             this.DrugPrescriptionList.Controls.Add(this.DrugIdInput);
             this.DrugPrescriptionList.Controls.Add(this.ProfileIdInput);
             this.DrugPrescriptionList.Controls.Add(this.DrugPrescriptionGridView);
-            this.DrugPrescriptionList.Controls.Add(this.button6);
-            this.DrugPrescriptionList.Controls.Add(this.button7);
-            this.DrugPrescriptionList.Controls.Add(this.button8);
+            this.DrugPrescriptionList.Controls.Add(this.DrugPrescriptionDeleteButton);
+            this.DrugPrescriptionList.Controls.Add(this.DrugPrescriptionUpdateButton);
+            this.DrugPrescriptionList.Controls.Add(this.DrugPrescriptionCreateButton);
             this.DrugPrescriptionList.Controls.Add(this.label6);
             this.DrugPrescriptionList.Controls.Add(this.label12);
             this.DrugPrescriptionList.Controls.Add(this.label13);
@@ -1055,32 +1055,79 @@
             this.DrugPrescriptionGridView.TabStop = false;
             this.DrugPrescriptionGridView.Click += new System.EventHandler(this.DrugPrescriptionGridView_Click);
             // 
-            // button6
+            // prescribedDrugProfileId
             // 
-            this.button6.Location = new System.Drawing.Point(689, 19);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(63, 21);
-            this.button6.TabIndex = 63;
-            this.button6.Text = "Delete";
-            this.button6.UseVisualStyleBackColor = true;
+            this.prescribedDrugProfileId.HeaderText = "Profile ID";
+            this.prescribedDrugProfileId.Name = "prescribedDrugProfileId";
+            this.prescribedDrugProfileId.ReadOnly = true;
             // 
-            // button7
+            // prescribedDrugProfileName
             // 
-            this.button7.Location = new System.Drawing.Point(617, 19);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(63, 21);
-            this.button7.TabIndex = 62;
-            this.button7.Text = "Update";
-            this.button7.UseVisualStyleBackColor = true;
+            this.prescribedDrugProfileName.HeaderText = "Profile Name";
+            this.prescribedDrugProfileName.Name = "prescribedDrugProfileName";
+            this.prescribedDrugProfileName.ReadOnly = true;
             // 
-            // button8
+            // prescribedDrugId
             // 
-            this.button8.Location = new System.Drawing.Point(546, 19);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(63, 21);
-            this.button8.TabIndex = 61;
-            this.button8.Text = "Create";
-            this.button8.UseVisualStyleBackColor = true;
+            this.prescribedDrugId.HeaderText = "Drug ID";
+            this.prescribedDrugId.Name = "prescribedDrugId";
+            this.prescribedDrugId.ReadOnly = true;
+            // 
+            // prescribedDrugName
+            // 
+            this.prescribedDrugName.FillWeight = 92.7242F;
+            this.prescribedDrugName.HeaderText = "Drug Name";
+            this.prescribedDrugName.Name = "prescribedDrugName";
+            this.prescribedDrugName.ReadOnly = true;
+            // 
+            // prescribedDrugIntakeTime
+            // 
+            this.prescribedDrugIntakeTime.FillWeight = 30F;
+            this.prescribedDrugIntakeTime.HeaderText = "Time";
+            this.prescribedDrugIntakeTime.Name = "prescribedDrugIntakeTime";
+            this.prescribedDrugIntakeTime.ReadOnly = true;
+            // 
+            // prescribedDrugStartDate
+            // 
+            this.prescribedDrugStartDate.FillWeight = 92.7242F;
+            this.prescribedDrugStartDate.HeaderText = "Prescription Start";
+            this.prescribedDrugStartDate.Name = "prescribedDrugStartDate";
+            this.prescribedDrugStartDate.ReadOnly = true;
+            // 
+            // prescribedDrugEndDate
+            // 
+            this.prescribedDrugEndDate.FillWeight = 92.7242F;
+            this.prescribedDrugEndDate.HeaderText = "Prescription Ends";
+            this.prescribedDrugEndDate.Name = "prescribedDrugEndDate";
+            this.prescribedDrugEndDate.ReadOnly = true;
+            // 
+            // DrugPrescriptionDeleteButton
+            // 
+            this.DrugPrescriptionDeleteButton.Location = new System.Drawing.Point(674, 18);
+            this.DrugPrescriptionDeleteButton.Name = "DrugPrescriptionDeleteButton";
+            this.DrugPrescriptionDeleteButton.Size = new System.Drawing.Size(63, 22);
+            this.DrugPrescriptionDeleteButton.TabIndex = 63;
+            this.DrugPrescriptionDeleteButton.Text = "Delete";
+            this.DrugPrescriptionDeleteButton.UseVisualStyleBackColor = true;
+            // 
+            // DrugPrescriptionUpdateButton
+            // 
+            this.DrugPrescriptionUpdateButton.Location = new System.Drawing.Point(605, 18);
+            this.DrugPrescriptionUpdateButton.Name = "DrugPrescriptionUpdateButton";
+            this.DrugPrescriptionUpdateButton.Size = new System.Drawing.Size(63, 22);
+            this.DrugPrescriptionUpdateButton.TabIndex = 62;
+            this.DrugPrescriptionUpdateButton.Text = "Update";
+            this.DrugPrescriptionUpdateButton.UseVisualStyleBackColor = true;
+            // 
+            // DrugPrescriptionCreateButton
+            // 
+            this.DrugPrescriptionCreateButton.Location = new System.Drawing.Point(536, 18);
+            this.DrugPrescriptionCreateButton.Name = "DrugPrescriptionCreateButton";
+            this.DrugPrescriptionCreateButton.Size = new System.Drawing.Size(63, 22);
+            this.DrugPrescriptionCreateButton.TabIndex = 61;
+            this.DrugPrescriptionCreateButton.Text = "Create";
+            this.DrugPrescriptionCreateButton.UseVisualStyleBackColor = true;
+            this.DrugPrescriptionCreateButton.Click += new System.EventHandler(this.DrugPrescriptionCreateButton_Click);
             // 
             // label6
             // 
@@ -1129,52 +1176,6 @@
             this.DrugIntakeTimeInput.Name = "DrugIntakeTimeInput";
             this.DrugIntakeTimeInput.Size = new System.Drawing.Size(100, 20);
             this.DrugIntakeTimeInput.TabIndex = 54;
-            // 
-            // prescribedDrugProfileId
-            // 
-            this.prescribedDrugProfileId.HeaderText = "Profile ID";
-            this.prescribedDrugProfileId.Name = "prescribedDrugProfileId";
-            this.prescribedDrugProfileId.ReadOnly = true;
-            // 
-            // prescribedDrugProfileName
-            // 
-            this.prescribedDrugProfileName.HeaderText = "Profile Name";
-            this.prescribedDrugProfileName.Name = "prescribedDrugProfileName";
-            this.prescribedDrugProfileName.ReadOnly = true;
-            // 
-            // prescribedDrugId
-            // 
-            this.prescribedDrugId.HeaderText = "Drug ID";
-            this.prescribedDrugId.Name = "prescribedDrugId";
-            this.prescribedDrugId.ReadOnly = true;
-            // 
-            // prescribedDrugName
-            // 
-            this.prescribedDrugName.FillWeight = 92.7242F;
-            this.prescribedDrugName.HeaderText = "Drug Name";
-            this.prescribedDrugName.Name = "prescribedDrugName";
-            this.prescribedDrugName.ReadOnly = true;
-            // 
-            // prescribedDrugIntakeTime
-            // 
-            this.prescribedDrugIntakeTime.FillWeight = 30F;
-            this.prescribedDrugIntakeTime.HeaderText = "Time";
-            this.prescribedDrugIntakeTime.Name = "prescribedDrugIntakeTime";
-            this.prescribedDrugIntakeTime.ReadOnly = true;
-            // 
-            // prescribedDrugStartDate
-            // 
-            this.prescribedDrugStartDate.FillWeight = 92.7242F;
-            this.prescribedDrugStartDate.HeaderText = "Prescription Start";
-            this.prescribedDrugStartDate.Name = "prescribedDrugStartDate";
-            this.prescribedDrugStartDate.ReadOnly = true;
-            // 
-            // prescribedDrugEndDate
-            // 
-            this.prescribedDrugEndDate.FillWeight = 92.7242F;
-            this.prescribedDrugEndDate.HeaderText = "Prescription Ends";
-            this.prescribedDrugEndDate.Name = "prescribedDrugEndDate";
-            this.prescribedDrugEndDate.ReadOnly = true;
             // 
             // ZorgApp
             // 
@@ -1292,9 +1293,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn profileRoleId;
         private System.Windows.Forms.DataGridViewTextBoxColumn profileBmi;
         private System.Windows.Forms.TabPage DrugPrescriptionList;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button DrugPrescriptionDeleteButton;
+        private System.Windows.Forms.Button DrugPrescriptionUpdateButton;
+        private System.Windows.Forms.Button DrugPrescriptionCreateButton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;

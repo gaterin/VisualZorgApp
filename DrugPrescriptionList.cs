@@ -61,6 +61,30 @@ namespace VisualZorgApp
             }
 
         }
+        public bool SqlCreateDrugPrescription(int profileId, int drugId, string intakeTime, string startDate, string endDate)
+        {
+
+            using (MySqlCommand qry = db.ExecuteSql($"INSERT INTO `drugprescription` (`profileId`, `drugId`, `intakeTime`, `startDate`, `endDate`) VALUES ('{profileId}', '{drugId}', '{intakeTime}', '{startDate}', '{endDate}');"))
+            {
+                try
+                {
+                    db.con.Open();
+                    qry.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    string errorMsg = e.Message.ToString();
+                    return false;
+                }
+
+
+            }
+
+            SqlAllDrugPrescriptionsToList();
+            db.con.Close();
+            return true;
+        }
+
         public void AddDrugPrescription(DrugPrescription drugPrescription)
         {
             drugPrescriptionList.Add(drugPrescription);

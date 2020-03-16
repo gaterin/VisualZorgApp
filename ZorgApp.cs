@@ -329,18 +329,41 @@ namespace VisualZorgApp
             RenderMyProfile();
             RenderMyProfilePrescribedDrugs();
             RenderMyProfileRegisteredWeights();
+            RenderPrescribedDrugs();
         }
 
         private void DrugPrescriptionGridView_Click(object sender, EventArgs e)
         {
             ProfileIdInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugProfileId"].Value.ToString();
             DrugIdInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugId"].Value.ToString();
-            DrugIntakeTimeInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugIntakeTime"].Value.ToString();
-            DrugStartDateInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugStartDate"].Value.ToString();
-            DrugEndDateInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugEndDate"].Value.ToString();
+            //Converted from long string to short string
+            //easier for user to edit
+            DrugIntakeTimeInput.Text = Convert.ToDateTime(DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugIntakeTime"].Value).ToString("HH:mm:ss");
+            DrugStartDateInput.Text = Convert.ToDateTime(DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugStartDate"].Value).ToString("yyyy-MM-dd");
+            DrugEndDateInput.Text = Convert.ToDateTime(DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugEndDate"].Value).ToString("yyyy-MM-dd");
 
         }
 
-        
+        private void DrugPrescriptionCreateButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(ProfileIdInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugIdInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugIntakeTimeInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugStartDateInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugEndDateInput.Text)
+                )
+            {
+                drugPrescriptionList.SqlCreateDrugPrescription(
+                                Convert.ToInt32(ProfileIdInput.Text),
+                                Convert.ToInt32(DrugIdInput.Text),
+                                DrugIntakeTimeInput.Text.ToString(),
+                                DrugStartDateInput.Text.ToString(),
+                                DrugEndDateInput.Text.ToString()
+                                );
+            }
+
+            drugPrescriptionList.SqlAllDrugPrescriptionsToList();
+            RenderPrescribedDrugs();
+        }
     }
 }
