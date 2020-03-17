@@ -10,6 +10,8 @@ namespace VisualZorgApp
 {
     class DrugPrescriptionList
     {
+        public int selectedRowDrugId;
+        public int selectedRowProfileId;
         private List<DrugPrescription> drugPrescriptionList = new List<DrugPrescription>();
         private DBConnection db = new DBConnection();
 
@@ -65,6 +67,50 @@ namespace VisualZorgApp
         {
 
             using (MySqlCommand qry = db.ExecuteSql($"INSERT INTO `drugprescription` (`profileId`, `drugId`, `intakeTime`, `startDate`, `endDate`) VALUES ('{profileId}', '{drugId}', '{intakeTime}', '{startDate}', '{endDate}');"))
+            {
+                try
+                {
+                    db.con.Open();
+                    qry.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    string errorMsg = e.Message.ToString();
+                    return false;
+                }
+
+
+            }
+
+            SqlAllDrugPrescriptionsToList();
+            db.con.Close();
+            return true;
+        }
+        public bool SqlUpdateDrugPrescription(int profileId, int drugId, string intakeTime, string startDate, string endDate)
+        {
+            using (MySqlCommand qry = db.ExecuteSql($"UPDATE `drugprescription` SET profileId = '{profileId}',drugId = '{drugId}',intakeTime = '{intakeTime}', startDate = '{startDate}',endDate = '{endDate}'  WHERE `drugprescription`.profileId = '{selectedRowProfileId}' AND `drugprescription`.drugId = '{selectedRowDrugId}'; "))
+            {
+                try
+                {
+                    db.con.Open();
+                    qry.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    string errorMsg = e.Message.ToString();
+                    return false;
+                }
+
+
+            }
+
+            SqlAllDrugPrescriptionsToList();
+            db.con.Close();
+            return true;
+        }
+        public bool SqlDeleteDrugPrescription(int profileId, int drugId)
+        {
+            using (MySqlCommand qry = db.ExecuteSql($"DELETE FROM `drugprescription` WHERE profileId = {profileId} AND drugId = {drugId} ;"))
             {
                 try
                 {

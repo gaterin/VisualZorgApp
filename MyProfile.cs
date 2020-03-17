@@ -12,6 +12,8 @@ namespace VisualZorgApp
         private string password;
         private string roleName;
 
+        private int selectedRowWeightRegistrationId;
+
         private DBConnection db = new DBConnection();
         private List<DrugPrescription> prescribedDrugs = new List<DrugPrescription>();
         private List<WeightRegistration> registeredWeights = new List<WeightRegistration>();
@@ -30,9 +32,79 @@ namespace VisualZorgApp
         {
             return this.registeredWeights;
         }
+        public bool SqlCreateWeightRegistration(string date, string time, double weight)
+        {
+
+            using (MySqlCommand qry = db.ExecuteSql($"INSERT INTO `weightregistration` (`id`,`profileId`, `date`, `time`, `weight`) VALUES ( null, '{this.id}', '{date}', '{time}', '{weight}');"))
+            {
+                try
+                {
+                    db.con.Open();
+                    qry.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    string errorMsg = e.Message.ToString();
+                    return false;
+                }
+
+
+            }
+
+           
+            db.con.Close();
+            return true;
+        }
+        public bool SqlDeleteWeightRegistration()
+        {
+
+            using (MySqlCommand qry = db.ExecuteSql($"DELETE FROM `weightregistration` WHERE profileId = '{id}' AND id = '{selectedRowWeightRegistrationId}'; "))
+            {
+                try
+                {
+                    db.con.Open();
+                    qry.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    string errorMsg = e.Message.ToString();
+                    return false;
+                }
+
+
+            }
+
+
+            db.con.Close();
+            return true;
+        }
+        public bool SqlUpdateWeightRegistration(string date, string time, double weight)
+        {
+
+            using (MySqlCommand qry = db.ExecuteSql($"UPDATE `weightregistration` SET date = '{date}', time = '{time}',weight = '{weight}'  WHERE profileId = '{id}' AND id = '{selectedRowWeightRegistrationId}';"))
+            {
+                try
+                {
+                    db.con.Open();
+                    qry.ExecuteNonQuery();
+                }
+                catch (Exception e)
+                {
+                    string errorMsg = e.Message.ToString();
+                    return false;
+                }
+
+
+            }
+
+
+            db.con.Close();
+            return true;
+        }
         public bool FetchRegisteredWeightsForMyProfile(int id)
         {
-            using (MySqlCommand qry = db.ExecuteSql($"SELECT date, time, weight FROM weightregistration WHERE profileId = {id}"))
+            registeredWeights.Clear();
+            using (MySqlCommand qry = db.ExecuteSql($"SELECT id, date, time, weight FROM weightregistration WHERE profileId = {id}"))
             {
             
                 try
@@ -47,6 +119,7 @@ namespace VisualZorgApp
                             AddRegisteredWeight
                              (
                                 new WeightRegistration(
+                                (int)reader["id"],
                                 reader["date"].ToString(),
                                 reader["time"].ToString(),
                                 (double)reader["weight"]
@@ -128,6 +201,14 @@ namespace VisualZorgApp
                 }
 
             }
+        }
+        public void SetSelectedRowWeightRegistrationId(int selectedRowWeightRegistrationId)
+        {
+            this.selectedRowWeightRegistrationId = selectedRowWeightRegistrationId;
+        }
+        public int GetSelectedRowWeightRegistrationId()
+        {
+            return selectedRowWeightRegistrationId;
         }
         public void SetId(int id)
         {

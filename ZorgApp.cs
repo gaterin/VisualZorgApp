@@ -31,6 +31,7 @@ namespace VisualZorgApp
             profileList.SqlAllProfilesToList();
             drugList.SqlAllDrugsToList();
             drugPrescriptionList.SqlAllDrugPrescriptionsToList();
+
             RenderMyProfile();
             RenderMyProfilePrescribedDrugs();
             RenderMyProfileRegisteredWeights();
@@ -77,9 +78,11 @@ namespace VisualZorgApp
         {
             RegisteredWeightGridView.Rows.Clear();
             RegisteredWeightGridView.Refresh();
+
             foreach (var item in myProfile.GetWeightRegistrations())
             {
                 int n = RegisteredWeightGridView.Rows.Add();
+                RegisteredWeightGridView.Rows[n].Cells["registeredWeightId"].Value = item.GetId().ToString();
                 RegisteredWeightGridView.Rows[n].Cells["registeredWeightDate"].Value = item.GetDate().ToLongDateString();
                 RegisteredWeightGridView.Rows[n].Cells["registeredWeightTime"].Value = item.GetTime().TimeOfDay.ToString();
                 RegisteredWeightGridView.Rows[n].Cells["registeredWeight"].Value = item.GetWeight().ToString();
@@ -334,6 +337,11 @@ namespace VisualZorgApp
 
         private void DrugPrescriptionGridView_Click(object sender, EventArgs e)
         {
+            //separate id initialization
+            //used so you can update the drug id and profile id without getting the bug where it edits itself
+            drugPrescriptionList.selectedRowProfileId =  Convert.ToInt32(DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugProfileId"].Value);
+            drugPrescriptionList.selectedRowDrugId = Convert.ToInt32(DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugId"].Value);
+            
             ProfileIdInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugProfileId"].Value.ToString();
             DrugIdInput.Text = DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugId"].Value.ToString();
             //Converted from long string to short string
@@ -364,6 +372,90 @@ namespace VisualZorgApp
 
             drugPrescriptionList.SqlAllDrugPrescriptionsToList();
             RenderPrescribedDrugs();
+        }
+
+        private void DrugPrescriptionUpdateButton_Click(object sender, EventArgs e)
+        {
+            
+            if (!string.IsNullOrWhiteSpace(ProfileIdInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugIdInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugIntakeTimeInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugStartDateInput.Text) &&
+                 !string.IsNullOrWhiteSpace(DrugEndDateInput.Text)
+                )
+            {
+                drugPrescriptionList.SqlUpdateDrugPrescription(
+                                  Convert.ToInt32(ProfileIdInput.Text),
+                                  Convert.ToInt32(DrugIdInput.Text),
+                                  DrugIntakeTimeInput.Text.ToString(),
+                                  DrugStartDateInput.Text.ToString(),
+                                  DrugEndDateInput.Text.ToString()
+                                  );
+            }
+
+            drugPrescriptionList.SqlAllDrugPrescriptionsToList();
+            RenderPrescribedDrugs();
+        }
+
+        private void DrugPrescriptionDeleteButton_Click(object sender, EventArgs e)
+        {
+            int currentRowProfileId = Convert.ToInt32(DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugProfileId"].Value);
+            int currentRowDrugId = Convert.ToInt32(DrugPrescriptionGridView.CurrentRow.Cells["prescribedDrugId"].Value);
+            drugPrescriptionList.SqlDeleteDrugPrescription(currentRowProfileId, currentRowDrugId);
+            drugPrescriptionList.SqlAllDrugPrescriptionsToList();
+            RenderPrescribedDrugs();
+        }
+
+        private void RegisteredWeightGridView_Click(object sender, EventArgs e)
+        {
+            myProfile.SetSelectedRowWeightRegistrationId(Convert.ToInt32(RegisteredWeightGridView.CurrentRow.Cells["registeredWeightId"].Value));
+
+            WeightRegistrationDateInput.Text = Convert.ToDateTime(RegisteredWeightGridView.CurrentRow.Cells["registeredWeightDate"].Value).ToString("yyyy-MM-dd");
+            WeightRegistrationTimeInput.Text = Convert.ToDateTime(RegisteredWeightGridView.CurrentRow.Cells["registeredWeightTime"].Value).ToString("HH:mm:ss");
+            WeightRegistrationWeightInput.Text = RegisteredWeightGridView.CurrentRow.Cells["registeredWeight"].Value.ToString();
+        }
+
+        private void WeightRegistrationCreateButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(WeightRegistrationDateInput.Text) &&
+                 !string.IsNullOrWhiteSpace(WeightRegistrationTimeInput.Text) &&
+                 !string.IsNullOrWhiteSpace(WeightRegistrationWeightInput.Text) 
+                )
+            {
+                myProfile.SqlCreateWeightRegistration(
+                                WeightRegistrationDateInput.Text,
+                                WeightRegistrationTimeInput.Text,
+                               Convert.ToDouble(WeightRegistrationWeightInput.Text)
+                                );
+            }
+
+            myProfile.FetchRegisteredWeightsForMyProfile(myProfile.GetId());
+            RenderMyProfileRegisteredWeights();
+        }
+
+        private void WeightRegistrationUpdateButton_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(WeightRegistrationDateInput.Text) &&
+                 !string.IsNullOrWhiteSpace(WeightRegistrationTimeInput.Text) &&
+                 !string.IsNullOrWhiteSpace(WeightRegistrationWeightInput.Text)
+                )
+            {
+                myProfile.SqlUpdateWeightRegistration(
+                                WeightRegistrationDateInput.Text,
+                                WeightRegistrationTimeInput.Text,
+                               Convert.ToDouble(WeightRegistrationWeightInput.Text)
+                                );
+            }
+
+            myProfile.FetchRegisteredWeightsForMyProfile(myProfile.GetId());
+            RenderMyProfileRegisteredWeights();
+        }
+
+        private void WeightRegistrationDeleteButton_Click(object sender, EventArgs e)
+        {
+            myProfile.SqlDeleteWeightRegistration();
+            myProfile.FetchRegisteredWeightsForMyProfile(myProfile.GetId());
+            RenderMyProfileRegisteredWeights();
         }
     }
 }

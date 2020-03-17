@@ -41,17 +41,18 @@
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.myProfileWeightRegistrationGroupBox = new System.Windows.Forms.GroupBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.WeightRegistrationWeightInput = new System.Windows.Forms.TextBox();
+            this.WeightRegistrationDeleteButton = new System.Windows.Forms.Button();
+            this.WeightRegistrationUpdateButton = new System.Windows.Forms.Button();
+            this.WeightRegistrationCreateButton = new System.Windows.Forms.Button();
             this.RegisteredWeightGridView = new System.Windows.Forms.DataGridView();
+            this.registeredWeightId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registeredWeightDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registeredWeightTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registeredWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.WeightRegistrationDateInput = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.WeightRegistrationTimeInput = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.myProfilePrescribedDrugsGroupBox = new System.Windows.Forms.GroupBox();
             this.MyProfilePrescribedDrugGridView = new System.Windows.Forms.DataGridView();
@@ -254,14 +255,14 @@
             // myProfileWeightRegistrationGroupBox
             // 
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.label15);
-            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.textBox13);
-            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.button9);
-            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.button10);
-            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.button11);
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationWeightInput);
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationDeleteButton);
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationUpdateButton);
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationCreateButton);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.RegisteredWeightGridView);
-            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.textBox16);
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationDateInput);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.label17);
-            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.textBox15);
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationTimeInput);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.label18);
             this.myProfileWeightRegistrationGroupBox.Location = new System.Drawing.Point(731, 6);
             this.myProfileWeightRegistrationGroupBox.Name = "myProfileWeightRegistrationGroupBox";
@@ -279,39 +280,42 @@
             this.label15.TabIndex = 51;
             this.label15.Text = "Weight in kilogram";
             // 
-            // textBox13
+            // WeightRegistrationWeightInput
             // 
-            this.textBox13.Location = new System.Drawing.Point(218, 32);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 50;
+            this.WeightRegistrationWeightInput.Location = new System.Drawing.Point(218, 32);
+            this.WeightRegistrationWeightInput.Name = "WeightRegistrationWeightInput";
+            this.WeightRegistrationWeightInput.Size = new System.Drawing.Size(100, 20);
+            this.WeightRegistrationWeightInput.TabIndex = 50;
             // 
-            // button9
+            // WeightRegistrationDeleteButton
             // 
-            this.button9.Location = new System.Drawing.Point(150, 57);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(63, 22);
-            this.button9.TabIndex = 49;
-            this.button9.Text = "Delete";
-            this.button9.UseVisualStyleBackColor = true;
+            this.WeightRegistrationDeleteButton.Location = new System.Drawing.Point(150, 57);
+            this.WeightRegistrationDeleteButton.Name = "WeightRegistrationDeleteButton";
+            this.WeightRegistrationDeleteButton.Size = new System.Drawing.Size(63, 22);
+            this.WeightRegistrationDeleteButton.TabIndex = 49;
+            this.WeightRegistrationDeleteButton.Text = "Delete";
+            this.WeightRegistrationDeleteButton.UseVisualStyleBackColor = true;
+            this.WeightRegistrationDeleteButton.Click += new System.EventHandler(this.WeightRegistrationDeleteButton_Click);
             // 
-            // button10
+            // WeightRegistrationUpdateButton
             // 
-            this.button10.Location = new System.Drawing.Point(78, 57);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(63, 22);
-            this.button10.TabIndex = 48;
-            this.button10.Text = "Update";
-            this.button10.UseVisualStyleBackColor = true;
+            this.WeightRegistrationUpdateButton.Location = new System.Drawing.Point(78, 57);
+            this.WeightRegistrationUpdateButton.Name = "WeightRegistrationUpdateButton";
+            this.WeightRegistrationUpdateButton.Size = new System.Drawing.Size(63, 22);
+            this.WeightRegistrationUpdateButton.TabIndex = 48;
+            this.WeightRegistrationUpdateButton.Text = "Update";
+            this.WeightRegistrationUpdateButton.UseVisualStyleBackColor = true;
+            this.WeightRegistrationUpdateButton.Click += new System.EventHandler(this.WeightRegistrationUpdateButton_Click);
             // 
-            // button11
+            // WeightRegistrationCreateButton
             // 
-            this.button11.Location = new System.Drawing.Point(6, 57);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(63, 22);
-            this.button11.TabIndex = 47;
-            this.button11.Text = "Create";
-            this.button11.UseVisualStyleBackColor = true;
+            this.WeightRegistrationCreateButton.Location = new System.Drawing.Point(6, 57);
+            this.WeightRegistrationCreateButton.Name = "WeightRegistrationCreateButton";
+            this.WeightRegistrationCreateButton.Size = new System.Drawing.Size(63, 22);
+            this.WeightRegistrationCreateButton.TabIndex = 47;
+            this.WeightRegistrationCreateButton.Text = "Create";
+            this.WeightRegistrationCreateButton.UseVisualStyleBackColor = true;
+            this.WeightRegistrationCreateButton.Click += new System.EventHandler(this.WeightRegistrationCreateButton_Click);
             // 
             // RegisteredWeightGridView
             // 
@@ -320,6 +324,7 @@
             this.RegisteredWeightGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.RegisteredWeightGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RegisteredWeightGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.registeredWeightId,
             this.registeredWeightDate,
             this.registeredWeightTime,
             this.registeredWeight});
@@ -329,6 +334,14 @@
             this.RegisteredWeightGridView.RowHeadersVisible = false;
             this.RegisteredWeightGridView.Size = new System.Drawing.Size(363, 457);
             this.RegisteredWeightGridView.TabIndex = 0;
+            this.RegisteredWeightGridView.Click += new System.EventHandler(this.RegisteredWeightGridView_Click);
+            // 
+            // registeredWeightId
+            // 
+            this.registeredWeightId.HeaderText = "";
+            this.registeredWeightId.Name = "registeredWeightId";
+            this.registeredWeightId.ReadOnly = true;
+            this.registeredWeightId.Visible = false;
             // 
             // registeredWeightDate
             // 
@@ -351,12 +364,12 @@
             this.registeredWeight.Name = "registeredWeight";
             this.registeredWeight.ReadOnly = true;
             // 
-            // textBox16
+            // WeightRegistrationDateInput
             // 
-            this.textBox16.Location = new System.Drawing.Point(6, 32);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 20);
-            this.textBox16.TabIndex = 38;
+            this.WeightRegistrationDateInput.Location = new System.Drawing.Point(6, 32);
+            this.WeightRegistrationDateInput.Name = "WeightRegistrationDateInput";
+            this.WeightRegistrationDateInput.Size = new System.Drawing.Size(100, 20);
+            this.WeightRegistrationDateInput.TabIndex = 38;
             // 
             // label17
             // 
@@ -367,12 +380,12 @@
             this.label17.TabIndex = 46;
             this.label17.Text = "Time of checkpoint";
             // 
-            // textBox15
+            // WeightRegistrationTimeInput
             // 
-            this.textBox15.Location = new System.Drawing.Point(112, 32);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 20);
-            this.textBox15.TabIndex = 39;
+            this.WeightRegistrationTimeInput.Location = new System.Drawing.Point(112, 32);
+            this.WeightRegistrationTimeInput.Name = "WeightRegistrationTimeInput";
+            this.WeightRegistrationTimeInput.Size = new System.Drawing.Size(100, 20);
+            this.WeightRegistrationTimeInput.TabIndex = 39;
             // 
             // label18
             // 
@@ -1109,6 +1122,7 @@
             this.DrugPrescriptionDeleteButton.TabIndex = 63;
             this.DrugPrescriptionDeleteButton.Text = "Delete";
             this.DrugPrescriptionDeleteButton.UseVisualStyleBackColor = true;
+            this.DrugPrescriptionDeleteButton.Click += new System.EventHandler(this.DrugPrescriptionDeleteButton_Click);
             // 
             // DrugPrescriptionUpdateButton
             // 
@@ -1118,6 +1132,7 @@
             this.DrugPrescriptionUpdateButton.TabIndex = 62;
             this.DrugPrescriptionUpdateButton.Text = "Update";
             this.DrugPrescriptionUpdateButton.UseVisualStyleBackColor = true;
+            this.DrugPrescriptionUpdateButton.Click += new System.EventHandler(this.DrugPrescriptionUpdateButton_Click);
             // 
             // DrugPrescriptionCreateButton
             // 
@@ -1249,9 +1264,9 @@
         private System.Windows.Forms.TextBox ProfileWeightInput;
         private System.Windows.Forms.TextBox ProfileAgeInput;
         private System.Windows.Forms.TextBox ProfileSurnameInput;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox WeightRegistrationDateInput;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox WeightRegistrationTimeInput;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
@@ -1264,9 +1279,9 @@
         private System.Windows.Forms.TextBox DrugTypeInput;
         private System.Windows.Forms.TextBox DrugDescriptionInput;
         private System.Windows.Forms.TextBox DrugNameInput;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button WeightRegistrationDeleteButton;
+        private System.Windows.Forms.Button WeightRegistrationUpdateButton;
+        private System.Windows.Forms.Button WeightRegistrationCreateButton;
         private System.Windows.Forms.Button ProfileDeleteButton;
         private System.Windows.Forms.Button ProfileUpdateButton;
         private System.Windows.Forms.Button ProfileCreateButton;
@@ -1279,10 +1294,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeight;
+        private System.Windows.Forms.TextBox WeightRegistrationWeightInput;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridViewTextBoxColumn profileId;
         private System.Windows.Forms.DataGridViewTextBoxColumn profileName;
@@ -1319,6 +1331,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugIntakeTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugStartDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn prescribedDrugEndDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeight;
     }
 }
 

@@ -8,17 +8,22 @@ namespace VisualZorgApp
 {
     class WeightRegistration
     {
+        private int id;
         private DateTime date;
         private DateTime time;
         private double weight;
 
-        public WeightRegistration(string date, string time, double weight)
+        public WeightRegistration(int id,string date, string time, double weight)
         {
+            SetId(id);
             SetDate(date);
             SetTime(time);
             SetWeight(weight);
         }
-
+        public int GetId()
+        {
+            return this.id;
+        }
         public DateTime GetDate()
         {
             return this.date;
@@ -31,7 +36,10 @@ namespace VisualZorgApp
         {
             return this.weight;
         }
-
+        public void SetId(int id)
+        {
+            this.id = id;
+        }
         public void SetDate(string date)
         {
             DateTime Date = DateTime.Parse(date);
