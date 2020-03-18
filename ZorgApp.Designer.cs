@@ -606,6 +606,7 @@
             // 
             this.ProfileRoleIdInput.FormattingEnabled = true;
             this.ProfileRoleIdInput.Location = new System.Drawing.Point(536, 18);
+            this.ProfileRoleIdInput.MaxDropDownItems = 100;
             this.ProfileRoleIdInput.Name = "ProfileRoleIdInput";
             this.ProfileRoleIdInput.Size = new System.Drawing.Size(100, 21);
             this.ProfileRoleIdInput.TabIndex = 17;
@@ -1314,7 +1315,6 @@
         private System.Windows.Forms.TextBox DrugEndDateInput;
         private System.Windows.Forms.TextBox DrugStartDateInput;
         private System.Windows.Forms.TextBox DrugIntakeTimeInput;
-        private System.Windows.Forms.ComboBox ProfileRoleIdInput;
         private System.Windows.Forms.DataGridView DrugPrescriptionGridView;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
@@ -1335,6 +1335,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeightTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn registeredWeight;
+        private System.Windows.Forms.ComboBox ProfileRoleIdInput;
     }
 }
 

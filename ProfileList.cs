@@ -25,6 +25,7 @@ namespace VisualZorgApp
         public bool SqlAllRolesToList()
         {
             roleList.Clear();
+
             using (MySqlCommand qry = db.ExecuteSql("SELECT * FROM role"))
             {
                 try

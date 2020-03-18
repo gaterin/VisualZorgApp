@@ -28,10 +28,27 @@ namespace VisualZorgApp
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            profileList.SqlAllProfilesToList();
-            drugList.SqlAllDrugsToList();
-            drugPrescriptionList.SqlAllDrugPrescriptionsToList();
+            FetchAllData();
+            RenderAll();
+            /*MessageBox.Show(msg);*/
 
+        }
+
+        private void FetchAllData()
+        {
+            
+                profileList.SqlAllProfilesToList();
+                profileList.SqlAllRolesToList();
+                drugList.SqlAllDrugsToList();
+                drugPrescriptionList.SqlAllDrugPrescriptionsToList();
+
+                
+
+            
+        }
+
+        private void RenderAll()
+        {
             RenderMyProfile();
             RenderMyProfilePrescribedDrugs();
             RenderMyProfileRegisteredWeights();
@@ -39,10 +56,9 @@ namespace VisualZorgApp
             RenderDrugs();
             RenderPrescribedDrugs();
             NotifyPrescribedDrugs();
-           
-            /*MessageBox.Show(msg);*/
-
         }
+
+
         private void RenderPrescribedDrugs()
         {
             DrugPrescriptionGridView.Rows.Clear();
@@ -146,14 +162,15 @@ namespace VisualZorgApp
 
             ProfileGridView.Rows.Clear();
             ProfileGridView.Refresh();
+            ProfileRoleIdInput.Items.Clear();
             //populate role dropdown
-            ProfileRoleIdInput.DataSource = profileList.GetRoleList();
-            ProfileRoleIdInput.DisplayMember = "name";
+
 
             foreach (var item in profileList.GetRoleList())
             {
-                
+                ProfileRoleIdInput.Items.Add(item.GetId()+" , "+item.GetName());
             }
+
             //populate profile view
             foreach (var item in profileList.GetProfileList())
             {
@@ -226,13 +243,17 @@ namespace VisualZorgApp
                  !string.IsNullOrWhiteSpace(ProfileRoleIdInput.Text)
                 )
             {
+                //Id is separated from the ComboBox string and used to make the query
+                string[] profileRoleIdArray = ProfileRoleIdInput.Text.Split(',');
+                int profileRoleId = Convert.ToInt32(profileRoleIdArray[0].Trim());
+
                 profileList.SqlCreateProfile(
-                                ProfileNameInput.Text.ToString(),
-                                ProfileSurnameInput.Text.ToString(),
+                                ProfileNameInput.Text,
+                                ProfileSurnameInput.Text,
                                 Convert.ToInt32(ProfileAgeInput.Text),
                                 Convert.ToDouble(ProfileWeightInput.Text),
                                 Convert.ToDouble(ProfileLengthInput.Text),
-                                Convert.ToInt32(ProfileRoleIdInput.Text)
+                                profileRoleId
                                 );
             }
 
@@ -253,8 +274,8 @@ namespace VisualZorgApp
             profileList.SqlUpdateProfile
                             (
                                 currentRowId,
-                                ProfileNameInput.Text.ToString(),
-                                ProfileSurnameInput.Text.ToString(),
+                                ProfileNameInput.Text,
+                                ProfileSurnameInput.Text,
                                 Convert.ToInt32(ProfileAgeInput.Text),
                                 Convert.ToDouble(ProfileWeightInput.Text),
                                 Convert.ToDouble(ProfileLengthInput.Text),
@@ -285,10 +306,10 @@ namespace VisualZorgApp
                 )
             {
                 drugList.SqlCreateDrug(
-                                DrugNameInput.Text.ToString(),
-                                DrugDescriptionInput.Text.ToString(),
-                                DrugTypeInput.Text.ToString(),
-                                DrugDosageInput.Text.ToString()
+                                DrugNameInput.Text,
+                                DrugDescriptionInput.Text,
+                                DrugTypeInput.Text,
+                                DrugDosageInput.Text
                                 );
             }
 
@@ -315,10 +336,10 @@ namespace VisualZorgApp
             {
                 drugList.SqlUpdateDrug(
                                 currentRowId,
-                                DrugNameInput.Text.ToString(),
-                                DrugDescriptionInput.Text.ToString(),
-                                DrugTypeInput.Text.ToString(),
-                                DrugDosageInput.Text.ToString()
+                                DrugNameInput.Text,
+                                DrugDescriptionInput.Text,
+                                DrugTypeInput.Text,
+                                DrugDosageInput.Text
                                 );
             }
             drugList.SqlAllDrugsToList();
@@ -329,10 +350,7 @@ namespace VisualZorgApp
         {
             int id = myProfile.GetId();
             myProfile = new MyProfile(id);
-            RenderMyProfile();
-            RenderMyProfilePrescribedDrugs();
-            RenderMyProfileRegisteredWeights();
-            RenderPrescribedDrugs();
+            RenderAll();
         }
 
         private void DrugPrescriptionGridView_Click(object sender, EventArgs e)
@@ -364,9 +382,9 @@ namespace VisualZorgApp
                 drugPrescriptionList.SqlCreateDrugPrescription(
                                 Convert.ToInt32(ProfileIdInput.Text),
                                 Convert.ToInt32(DrugIdInput.Text),
-                                DrugIntakeTimeInput.Text.ToString(),
-                                DrugStartDateInput.Text.ToString(),
-                                DrugEndDateInput.Text.ToString()
+                                DrugIntakeTimeInput.Text,
+                                DrugStartDateInput.Text,
+                                DrugEndDateInput.Text
                                 );
             }
 
@@ -387,9 +405,9 @@ namespace VisualZorgApp
                 drugPrescriptionList.SqlUpdateDrugPrescription(
                                   Convert.ToInt32(ProfileIdInput.Text),
                                   Convert.ToInt32(DrugIdInput.Text),
-                                  DrugIntakeTimeInput.Text.ToString(),
-                                  DrugStartDateInput.Text.ToString(),
-                                  DrugEndDateInput.Text.ToString()
+                                  DrugIntakeTimeInput.Text,
+                                  DrugStartDateInput.Text,
+                                  DrugEndDateInput.Text
                                   );
             }
 
