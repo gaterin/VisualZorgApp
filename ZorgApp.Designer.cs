@@ -1183,6 +1183,7 @@
             // 
             this.ProfileIdInput.FormattingEnabled = true;
             this.ProfileIdInput.Location = new System.Drawing.Point(9, 18);
+            this.ProfileIdInput.MaxDropDownItems = 100;
             this.ProfileIdInput.Name = "ProfileIdInput";
             this.ProfileIdInput.Size = new System.Drawing.Size(97, 21);
             this.ProfileIdInput.TabIndex = 69;
@@ -1191,6 +1192,7 @@
             // 
             this.DrugIdInput.FormattingEnabled = true;
             this.DrugIdInput.Location = new System.Drawing.Point(112, 18);
+            this.DrugIdInput.MaxDropDownItems = 100;
             this.DrugIdInput.Name = "DrugIdInput";
             this.DrugIdInput.Size = new System.Drawing.Size(100, 21);
             this.DrugIdInput.TabIndex = 70;
