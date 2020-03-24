@@ -14,9 +14,14 @@ namespace VisualZorgApp
         private int roleId;
 
         //Constructor overloading
-        public Profile() { 
-
-     
+        public Profile() {
+            SetId(0);
+            SetName(null);
+            SetSurname(null);
+            SetAge(0);
+            SetWeight(0);
+            SetLength(0);
+            SetRoleId(0);
         }
 
         public Profile(int id, string name , string surname)
