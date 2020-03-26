@@ -14,7 +14,8 @@ namespace VisualZorgApp
         private int roleId;
 
         //Constructor overloading
-        public Profile() {
+        public Profile() 
+        {
             SetId(0);
             SetName(null);
             SetSurname(null);
@@ -23,7 +24,6 @@ namespace VisualZorgApp
             SetLength(0);
             SetRoleId(0);
         }
-
         public Profile(int id, string name , string surname)
         {
             SetId(id);
@@ -40,6 +40,7 @@ namespace VisualZorgApp
             SetLength(length);
             SetRoleId(roleId);
         }
+        
         //All property Getters
         public int GetId()
         {
@@ -69,8 +70,7 @@ namespace VisualZorgApp
         {
             return roleId;
         }
-       
-
+        
         //All property Setters
         public void SetId(int id)
         {
@@ -82,12 +82,10 @@ namespace VisualZorgApp
         }
         public void SetSurname(string surname)
         {
-            
             this.surname = surname;
         }
         public void SetAge(int age)
         {
-     
             this.age = age;
         }
         public void SetLength(double length)
@@ -102,14 +100,9 @@ namespace VisualZorgApp
         {
             this.roleId = roleId;
         }
-      
-        
         public double GetBmi()
         {
             return Math.Round(weight / (length * length), 2);
         }
-
-       
-
     }
 }
