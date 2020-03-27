@@ -231,7 +231,7 @@ namespace VisualZorgApp
                                 Convert.ToInt32(ProfileAgeInput.Text),
                                 Convert.ToDouble(ProfileWeightInput.Text),
                                 Convert.ToDouble(ProfileLengthInput.Text),
-                                Convert.ToInt32(ProfileRoleIdInput.Text)
+                                profileRoleId
                                 );
             }
 
