@@ -3,7 +3,7 @@ using MySql.Data.MySqlClient;
 
 namespace VisualZorgApp
 {
-    class DBConnection
+    public class DBConnection
     {
         public MySqlConnection con { get; private set; }
         private string server = "localhost";

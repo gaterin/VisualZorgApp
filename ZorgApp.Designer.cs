@@ -115,6 +115,8 @@
             this.drugType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.drugDosage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DrugPrescriptionList = new System.Windows.Forms.TabPage();
+            this.DrugIdInput = new System.Windows.Forms.ComboBox();
+            this.ProfileIdInput = new System.Windows.Forms.ComboBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.DrugPrescriptionGridView = new System.Windows.Forms.DataGridView();
@@ -134,8 +136,6 @@
             this.DrugEndDateInput = new System.Windows.Forms.TextBox();
             this.DrugStartDateInput = new System.Windows.Forms.TextBox();
             this.DrugIntakeTimeInput = new System.Windows.Forms.TextBox();
-            this.ProfileIdInput = new System.Windows.Forms.ComboBox();
-            this.DrugIdInput = new System.Windows.Forms.ComboBox();
             this.tabs.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -194,6 +194,7 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Change Password";
+            this.groupBox2.Visible = false;
             // 
             // button12
             // 
@@ -1013,6 +1014,24 @@
             this.DrugPrescriptionList.Text = "DrugPrescriptionList";
             this.DrugPrescriptionList.UseVisualStyleBackColor = true;
             // 
+            // DrugIdInput
+            // 
+            this.DrugIdInput.FormattingEnabled = true;
+            this.DrugIdInput.Location = new System.Drawing.Point(112, 18);
+            this.DrugIdInput.MaxDropDownItems = 100;
+            this.DrugIdInput.Name = "DrugIdInput";
+            this.DrugIdInput.Size = new System.Drawing.Size(100, 21);
+            this.DrugIdInput.TabIndex = 70;
+            // 
+            // ProfileIdInput
+            // 
+            this.ProfileIdInput.FormattingEnabled = true;
+            this.ProfileIdInput.Location = new System.Drawing.Point(9, 18);
+            this.ProfileIdInput.MaxDropDownItems = 100;
+            this.ProfileIdInput.Name = "ProfileIdInput";
+            this.ProfileIdInput.Size = new System.Drawing.Size(97, 21);
+            this.ProfileIdInput.TabIndex = 69;
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -1178,24 +1197,6 @@
             this.DrugIntakeTimeInput.Name = "DrugIntakeTimeInput";
             this.DrugIntakeTimeInput.Size = new System.Drawing.Size(100, 20);
             this.DrugIntakeTimeInput.TabIndex = 54;
-            // 
-            // ProfileIdInput
-            // 
-            this.ProfileIdInput.FormattingEnabled = true;
-            this.ProfileIdInput.Location = new System.Drawing.Point(9, 18);
-            this.ProfileIdInput.MaxDropDownItems = 100;
-            this.ProfileIdInput.Name = "ProfileIdInput";
-            this.ProfileIdInput.Size = new System.Drawing.Size(97, 21);
-            this.ProfileIdInput.TabIndex = 69;
-            // 
-            // DrugIdInput
-            // 
-            this.DrugIdInput.FormattingEnabled = true;
-            this.DrugIdInput.Location = new System.Drawing.Point(112, 18);
-            this.DrugIdInput.MaxDropDownItems = 100;
-            this.DrugIdInput.Name = "DrugIdInput";
-            this.DrugIdInput.Size = new System.Drawing.Size(100, 21);
-            this.DrugIdInput.TabIndex = 70;
             // 
             // ZorgApp
             // 

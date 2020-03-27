@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Tulpep.NotificationWindow;
+using VisualZorgApp.Handlers;
+using VisualZorgApp.ListHandlers;
 
 namespace VisualZorgApp
 {
@@ -197,30 +199,6 @@ namespace VisualZorgApp
 
             }
         }
-
-        public ProfileList GetGridData()
-        {
-            ProfileList profilesLocal = new ProfileList();
-
-            foreach (DataGridViewRow row in ProfileGridView.Rows)
-            {
-                
-                    int id = Convert.ToInt32(row.Cells[0].Value);
-                    string name = (string)row.Cells[1].Value;
-                    string surname = (string)row.Cells[2].Value;
-                    int age = Convert.ToInt32(row.Cells[3].Value);
-                    double weight = Convert.ToDouble(row.Cells[4].Value);
-                    double length = Convert.ToDouble(row.Cells[5].Value);
-                    int roleId = 2;
-
-                    profilesLocal.AddProfile(new Profile( id, name, surname, age,  weight, length, roleId));
-                
-            }
-            profilesLocal.GetProfileList().RemoveAt(profilesLocal.GetProfileList().Count - 1);
-             
-            return profilesLocal;
-        }
-
 
         private void ProfileGridView_Click(object sender, EventArgs e)
         {

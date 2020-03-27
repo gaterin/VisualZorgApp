@@ -1,5 +1,6 @@
 ﻿using System;
-namespace VisualZorgApp
+
+namespace VisualZorgApp.Handlers
 {
 
     class DrugPrescription

@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using MySql.Data.MySqlClient;
+﻿using System.Collections.Generic;
+using VisualZorgApp.Handlers;
+using VisualZorgApp.DataModels;
 
-namespace VisualZorgApp
+namespace VisualZorgApp.ListHandlers
 {
     public class ProfileList
     {

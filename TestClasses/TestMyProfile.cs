@@ -1,18 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using VisualZorgApp.ListHandlers;
 
-namespace VisualZorgApp
+namespace VisualZorgApp.TestClasses
 {
     /* 
      Naming convention for Test Methods
 
      [PascalCase]
 
-        ClassName_MethodName_StateUnderTest_ExpectedBehavior
+        MethodName_StateUnderTest_ExpectedBehavior
 
         Dots used in StateUnderTest are translated to 'dot'
         see example for clear usage
@@ -20,16 +16,16 @@ namespace VisualZorgApp
 
      Example:
 
-        Profile_SetName_SetName_SetNameToPatrick_True
-        Profile_SetWeight_SetWeightTo45dot82136_True
+        SetName_SetName_SetNameToPatrick_True
+        SetWeight_SetWeightTo45dot82136_True
          
     */
     [TestClass]
-    public class TestZorgApp
+    public class TestMyProfile
     {
         
         [TestMethod]
-        public void MyProfile_SetId_SetIdTo25_True()
+        public void SetId_SetIdTo25_True()
         {
             //Arrange
             MyProfile myProfile = new MyProfile(1);
@@ -45,7 +41,7 @@ namespace VisualZorgApp
         }
 
         [TestMethod]
-        public void MyProfile_SetName_SetNameToJohn_True()
+        public void SetName_SetNameToJohn_True()
         {
             //Arrange
             MyProfile myProfile = new MyProfile(1);
@@ -61,7 +57,7 @@ namespace VisualZorgApp
         }
 
         [TestMethod]
-        public void MyProfile_SetSurname_SetSurnameToLewis_True()
+        public void SetSurname_SetSurnameToLewis_True()
         {
             //Arrange
             MyProfile myProfile = new MyProfile(1);
@@ -77,7 +73,7 @@ namespace VisualZorgApp
         }
 
         [TestMethod]
-        public void MyProfile_SetAge_SetAgeTo59_True()
+        public void SetAge_SetAgeTo59_True()
         {
             //Arrange
             MyProfile myProfile = new MyProfile(1);
@@ -93,7 +89,7 @@ namespace VisualZorgApp
         }
 
         [TestMethod]
-        public void MyProfile_SetWeight_SetWeightTo5dot32456_True()
+        public void SetWeight_SetWeightTo5dot32456_True()
         {
             //Arrange
             MyProfile myProfile = new MyProfile(1);
@@ -109,7 +105,7 @@ namespace VisualZorgApp
         }
 
         [TestMethod]
-        public void MyProfile_SetLength_SetLengthTo1dot72_True()
+        public void SetLength_SetLengthTo1dot72_True()
         {
             //Arrange
             MyProfile myProfile = new MyProfile(1);
@@ -125,7 +121,7 @@ namespace VisualZorgApp
         }
 
         [TestMethod]
-        public void MyProfile_SetRoleId_SetRoleIdTo2_True()
+        public void SetRoleId_SetRoleIdTo2_True()
         {
             //Arrange
             MyProfile myProfile = new MyProfile(1);
@@ -141,7 +137,7 @@ namespace VisualZorgApp
         }
 
         [TestMethod]
-        public void MyProfile_SetRoleName_SetRoleNameToZorgverlener_True()
+        public void SetRoleName_SetRoleNameToZorgverlener_True()
         {
             //Arrange
             MyProfile myProfile = new MyProfile(1);
@@ -157,7 +153,7 @@ namespace VisualZorgApp
         }
 
         [TestMethod]
-        public void MyProfile_GetBmi_ReturnBmi_True()
+        public void GetBmi_ReturnBmi_True()
         {
             //Arrange
             MyProfile myProfile = new MyProfile(1);

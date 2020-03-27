@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using MySql.Data.MySqlClient;
-using System.Data;
-namespace VisualZorgApp
+﻿using System.Collections.Generic;
+using VisualZorgApp.DataModels;
+using VisualZorgApp.Handlers;
+
+namespace VisualZorgApp.ListHandlers
 {
     class DrugList
     {

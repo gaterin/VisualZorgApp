@@ -1,5 +1,5 @@
 ﻿
-namespace VisualZorgApp
+namespace VisualZorgApp.Handlers
 {
     class Drug
     {

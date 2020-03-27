@@ -79,29 +79,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Const.cs" />
-    <Compile Include="DrugDataModel.cs" />
-    <Compile Include="DrugPrescriptionDataModel.cs" />
-    <Compile Include="ProfileDataModel.cs" />
+    <Compile Include="DataModels\DataModel.cs" />
+    <Compile Include="DataModels\DrugDataModel.cs" />
+    <Compile Include="DataModels\DrugPrescriptionDataModel.cs" />
+    <Compile Include="DataModels\MyProfileDataModel.cs" />
+    <Compile Include="DataModels\ProfileDataModel.cs" />
     <Compile Include="DBConnection.cs" />
-    <Compile Include="Drug.cs" />
-    <Compile Include="DrugList.cs" />
-    <Compile Include="DrugPrescription.cs" />
-    <Compile Include="DrugPrescriptionList.cs" />
-    <Compile Include="MyProfile.cs" />
-    <Compile Include="Notification.cs">
+    <Compile Include="Handlers\Drug.cs" />
+    <Compile Include="ListHandlers\DrugList.cs" />
+    <Compile Include="Handlers\DrugPrescription.cs" />
+    <Compile Include="ListHandlers\DrugPrescriptionList.cs" />
+    <Compile Include="ListHandlers\MyProfile.cs" />
+    <Compile Include="Handlers\Notification.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Role.cs" />
-    <Compile Include="TestZorgApp.cs" />
-    <Compile Include="WeightRegistration.cs" />
+    <Compile Include="Handlers\Role.cs" />
+    <Compile Include="TestClasses\TestMyProfile.cs" />
+    <Compile Include="Handlers\WeightRegistration.cs" />
     <Compile Include="ZorgApp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ZorgApp.Designer.cs">
       <DependentUpon>ZorgApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Profile.cs" />
-    <Compile Include="ProfileList.cs" />
+    <Compile Include="Handlers\Profile.cs" />
+    <Compile Include="ListHandlers\ProfileList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ZorgApp.resx">
@@ -116,7 +118,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="json\ProfileList.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -132,10 +133,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="img\logo\zorgapplogo.svg" />
-    <Content Include="img\logo\zorgapplogo.ico" />
     <Content Include="sql\zorgapp.sql" />
     <Content Include="zorgapplogo.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
