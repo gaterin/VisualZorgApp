@@ -30,17 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZorgApp));
             this.tabs = new System.Windows.Forms.TabControl();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button12 = new System.Windows.Forms.Button();
-            this.label20 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.MyProfileTab = new System.Windows.Forms.TabPage();
+            this.changeLanguageDutchButton = new System.Windows.Forms.Button();
             this.myProfileWeightRegistrationGroupBox = new System.Windows.Forms.GroupBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.myProfileWeightRegistrationWeightLabel = new System.Windows.Forms.Label();
             this.WeightRegistrationWeightInput = new System.Windows.Forms.TextBox();
             this.WeightRegistrationDeleteButton = new System.Windows.Forms.Button();
             this.WeightRegistrationUpdateButton = new System.Windows.Forms.Button();
@@ -51,16 +44,26 @@
             this.registeredWeightTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.registeredWeight = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WeightRegistrationDateInput = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.myProfileWeightRegistrationTimeLabel = new System.Windows.Forms.Label();
             this.WeightRegistrationTimeInput = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
+            this.myProfileWeightRegistrationDateLabel = new System.Windows.Forms.Label();
             this.myProfilePrescribedDrugsGroupBox = new System.Windows.Forms.GroupBox();
             this.MyProfilePrescribedDrugGridView = new System.Windows.Forms.DataGridView();
             this.myProfilePrescribedDrugName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.myProfilePrescribedDrugIntakeTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.myProfilePrescribedDrugStartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.myProfilePrescribedDrugEndDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.myProfileDetailsGroupBox = new System.Windows.Forms.GroupBox();
+            this.myProfilePreRoleNameLabel = new System.Windows.Forms.Label();
+            this.myProfilePreIdLabel = new System.Windows.Forms.Label();
+            this.myProfilePreRoleIdLabel = new System.Windows.Forms.Label();
+            this.myProfilePreBmiLabel = new System.Windows.Forms.Label();
+            this.myProfilePreLengthLabel = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.myProfilePreWeightLabel = new System.Windows.Forms.Label();
+            this.myProfilePreAgeLabel = new System.Windows.Forms.Label();
+            this.myProfilePreSurnameLabel = new System.Windows.Forms.Label();
+            this.myProfilePreNameLabel = new System.Windows.Forms.Label();
             this.myProfileRoleNameLabel = new System.Windows.Forms.Label();
             this.myProfileIdLabel = new System.Windows.Forms.Label();
             this.myProfileRoleIdLabel = new System.Windows.Forms.Label();
@@ -71,7 +74,7 @@
             this.myProfileAgeLabel = new System.Windows.Forms.Label();
             this.myProfileSurnameLabel = new System.Windows.Forms.Label();
             this.myProfileNameLabel = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ProfileListTab = new System.Windows.Forms.TabPage();
             this.ProfileRoleIdInput = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -136,26 +139,29 @@
             this.DrugEndDateInput = new System.Windows.Forms.TextBox();
             this.DrugStartDateInput = new System.Windows.Forms.TextBox();
             this.DrugIntakeTimeInput = new System.Windows.Forms.TextBox();
+            this.changeLanguageEnglishButton = new System.Windows.Forms.Button();
+            this.changeLanguageGroupBox = new System.Windows.Forms.GroupBox();
+            this.changeLanguageBulgarianButton = new System.Windows.Forms.Button();
             this.tabs.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.MyProfileTab.SuspendLayout();
             this.myProfileWeightRegistrationGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RegisteredWeightGridView)).BeginInit();
             this.myProfilePrescribedDrugsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MyProfilePrescribedDrugGridView)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.myProfileDetailsGroupBox.SuspendLayout();
+            this.ProfileListTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfileGridView)).BeginInit();
             this.DrugList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DrugGridView)).BeginInit();
             this.DrugPrescriptionList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DrugPrescriptionGridView)).BeginInit();
+            this.changeLanguageGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabs
             // 
-            this.tabs.Controls.Add(this.tabPage2);
-            this.tabs.Controls.Add(this.tabPage1);
+            this.tabs.Controls.Add(this.MyProfileTab);
+            this.tabs.Controls.Add(this.ProfileListTab);
             this.tabs.Controls.Add(this.DrugList);
             this.tabs.Controls.Add(this.DrugPrescriptionList);
             this.tabs.Location = new System.Drawing.Point(12, 12);
@@ -165,106 +171,42 @@
             this.tabs.TabIndex = 1;
             this.tabs.Click += new System.EventHandler(this.tabs_Click);
             // 
-            // tabPage2
+            // MyProfileTab
             // 
-            this.tabPage2.Controls.Add(this.groupBox2);
-            this.tabPage2.Controls.Add(this.myProfileWeightRegistrationGroupBox);
-            this.tabPage2.Controls.Add(this.myProfilePrescribedDrugsGroupBox);
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1111, 556);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "MyProfile";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.MyProfileTab.Controls.Add(this.changeLanguageGroupBox);
+            this.MyProfileTab.Controls.Add(this.myProfileWeightRegistrationGroupBox);
+            this.MyProfileTab.Controls.Add(this.myProfilePrescribedDrugsGroupBox);
+            this.MyProfileTab.Controls.Add(this.myProfileDetailsGroupBox);
+            this.MyProfileTab.Location = new System.Drawing.Point(4, 22);
+            this.MyProfileTab.Name = "MyProfileTab";
+            this.MyProfileTab.Padding = new System.Windows.Forms.Padding(3);
+            this.MyProfileTab.Size = new System.Drawing.Size(1111, 556);
+            this.MyProfileTab.TabIndex = 1;
+            this.MyProfileTab.Text = "MyProfile";
+            this.MyProfileTab.UseVisualStyleBackColor = true;
             // 
-            // groupBox2
+            // changeLanguageDutchButton
             // 
-            this.groupBox2.Controls.Add(this.button12);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.textBox18);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.textBox17);
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.textBox14);
-            this.groupBox2.Location = new System.Drawing.Point(6, 297);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(201, 253);
-            this.groupBox2.TabIndex = 3;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Change Password";
-            this.groupBox2.Visible = false;
-            // 
-            // button12
-            // 
-            this.button12.Location = new System.Drawing.Point(44, 176);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(113, 23);
-            this.button12.TabIndex = 53;
-            this.button12.Text = "Change Password";
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(6, 123);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(113, 13);
-            this.label20.TabIndex = 40;
-            this.label20.Text = "Repeat new password";
-            // 
-            // textBox18
-            // 
-            this.textBox18.Location = new System.Drawing.Point(6, 139);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(189, 20);
-            this.textBox18.TabIndex = 39;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(6, 74);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(78, 13);
-            this.label19.TabIndex = 38;
-            this.label19.Text = "New Password";
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(6, 90);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(189, 20);
-            this.textBox17.TabIndex = 37;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 26);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(72, 13);
-            this.label16.TabIndex = 36;
-            this.label16.Text = "Old Password";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(6, 42);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(189, 20);
-            this.textBox14.TabIndex = 35;
+            this.changeLanguageDutchButton.Location = new System.Drawing.Point(7, 19);
+            this.changeLanguageDutchButton.Name = "changeLanguageDutchButton";
+            this.changeLanguageDutchButton.Size = new System.Drawing.Size(188, 23);
+            this.changeLanguageDutchButton.TabIndex = 3;
+            this.changeLanguageDutchButton.Text = "Dutch";
+            this.changeLanguageDutchButton.UseVisualStyleBackColor = true;
+            this.changeLanguageDutchButton.Click += new System.EventHandler(this.languageDutchButton_Click);
             // 
             // myProfileWeightRegistrationGroupBox
             // 
-            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.label15);
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.myProfileWeightRegistrationWeightLabel);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationWeightInput);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationDeleteButton);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationUpdateButton);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationCreateButton);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.RegisteredWeightGridView);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationDateInput);
-            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.label17);
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.myProfileWeightRegistrationTimeLabel);
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.WeightRegistrationTimeInput);
-            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.label18);
+            this.myProfileWeightRegistrationGroupBox.Controls.Add(this.myProfileWeightRegistrationDateLabel);
             this.myProfileWeightRegistrationGroupBox.Location = new System.Drawing.Point(731, 6);
             this.myProfileWeightRegistrationGroupBox.Name = "myProfileWeightRegistrationGroupBox";
             this.myProfileWeightRegistrationGroupBox.Size = new System.Drawing.Size(374, 554);
@@ -272,14 +214,14 @@
             this.myProfileWeightRegistrationGroupBox.TabStop = false;
             this.myProfileWeightRegistrationGroupBox.Text = "Weight history";
             // 
-            // label15
+            // myProfileWeightRegistrationWeightLabel
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(215, 16);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 13);
-            this.label15.TabIndex = 51;
-            this.label15.Text = "Weight in kilogram";
+            this.myProfileWeightRegistrationWeightLabel.AutoSize = true;
+            this.myProfileWeightRegistrationWeightLabel.Location = new System.Drawing.Point(215, 16);
+            this.myProfileWeightRegistrationWeightLabel.Name = "myProfileWeightRegistrationWeightLabel";
+            this.myProfileWeightRegistrationWeightLabel.Size = new System.Drawing.Size(94, 13);
+            this.myProfileWeightRegistrationWeightLabel.TabIndex = 51;
+            this.myProfileWeightRegistrationWeightLabel.Text = "Weight in kilogram";
             // 
             // WeightRegistrationWeightInput
             // 
@@ -372,14 +314,14 @@
             this.WeightRegistrationDateInput.Size = new System.Drawing.Size(100, 20);
             this.WeightRegistrationDateInput.TabIndex = 38;
             // 
-            // label17
+            // myProfileWeightRegistrationTimeLabel
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(109, 16);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(98, 13);
-            this.label17.TabIndex = 46;
-            this.label17.Text = "Time of checkpoint";
+            this.myProfileWeightRegistrationTimeLabel.AutoSize = true;
+            this.myProfileWeightRegistrationTimeLabel.Location = new System.Drawing.Point(109, 16);
+            this.myProfileWeightRegistrationTimeLabel.Name = "myProfileWeightRegistrationTimeLabel";
+            this.myProfileWeightRegistrationTimeLabel.Size = new System.Drawing.Size(98, 13);
+            this.myProfileWeightRegistrationTimeLabel.TabIndex = 46;
+            this.myProfileWeightRegistrationTimeLabel.Text = "Time of checkpoint";
             // 
             // WeightRegistrationTimeInput
             // 
@@ -388,14 +330,14 @@
             this.WeightRegistrationTimeInput.Size = new System.Drawing.Size(100, 20);
             this.WeightRegistrationTimeInput.TabIndex = 39;
             // 
-            // label18
+            // myProfileWeightRegistrationDateLabel
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(6, 16);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(98, 13);
-            this.label18.TabIndex = 45;
-            this.label18.Text = "Date of checkpoint";
+            this.myProfileWeightRegistrationDateLabel.AutoSize = true;
+            this.myProfileWeightRegistrationDateLabel.Location = new System.Drawing.Point(6, 16);
+            this.myProfileWeightRegistrationDateLabel.Name = "myProfileWeightRegistrationDateLabel";
+            this.myProfileWeightRegistrationDateLabel.Size = new System.Drawing.Size(98, 13);
+            this.myProfileWeightRegistrationDateLabel.TabIndex = 45;
+            this.myProfileWeightRegistrationDateLabel.Text = "Date of checkpoint";
             // 
             // myProfilePrescribedDrugsGroupBox
             // 
@@ -457,151 +399,250 @@
             this.myProfilePrescribedDrugEndDate.Name = "myProfilePrescribedDrugEndDate";
             this.myProfilePrescribedDrugEndDate.ReadOnly = true;
             // 
-            // groupBox1
+            // myProfileDetailsGroupBox
             // 
-            this.groupBox1.Controls.Add(this.myProfileRoleNameLabel);
-            this.groupBox1.Controls.Add(this.myProfileIdLabel);
-            this.groupBox1.Controls.Add(this.myProfileRoleIdLabel);
-            this.groupBox1.Controls.Add(this.myProfileBmiLabel);
-            this.groupBox1.Controls.Add(this.myProfileLengthLabel);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.myProfileWeightLabel);
-            this.groupBox1.Controls.Add(this.myProfileAgeLabel);
-            this.groupBox1.Controls.Add(this.myProfileSurnameLabel);
-            this.groupBox1.Controls.Add(this.myProfileNameLabel);
-            this.groupBox1.Location = new System.Drawing.Point(5, 6);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(202, 286);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Your Details";
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfilePreRoleNameLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfilePreIdLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfilePreRoleIdLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfilePreBmiLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfilePreLengthLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.label19);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfilePreWeightLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfilePreAgeLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfilePreSurnameLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfilePreNameLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfileRoleNameLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfileIdLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfileRoleIdLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfileBmiLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfileLengthLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.label8);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfileWeightLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfileAgeLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfileSurnameLabel);
+            this.myProfileDetailsGroupBox.Controls.Add(this.myProfileNameLabel);
+            this.myProfileDetailsGroupBox.Location = new System.Drawing.Point(5, 6);
+            this.myProfileDetailsGroupBox.Margin = new System.Windows.Forms.Padding(2);
+            this.myProfileDetailsGroupBox.Name = "myProfileDetailsGroupBox";
+            this.myProfileDetailsGroupBox.Padding = new System.Windows.Forms.Padding(2);
+            this.myProfileDetailsGroupBox.Size = new System.Drawing.Size(202, 286);
+            this.myProfileDetailsGroupBox.TabIndex = 0;
+            this.myProfileDetailsGroupBox.TabStop = false;
+            this.myProfileDetailsGroupBox.Text = "Your Details";
+            // 
+            // myProfilePreRoleNameLabel
+            // 
+            this.myProfilePreRoleNameLabel.AutoSize = true;
+            this.myProfilePreRoleNameLabel.Location = new System.Drawing.Point(4, 249);
+            this.myProfilePreRoleNameLabel.Name = "myProfilePreRoleNameLabel";
+            this.myProfilePreRoleNameLabel.Size = new System.Drawing.Size(69, 13);
+            this.myProfilePreRoleNameLabel.TabIndex = 30;
+            this.myProfilePreRoleNameLabel.Text = "Role Name : ";
+            // 
+            // myProfilePreIdLabel
+            // 
+            this.myProfilePreIdLabel.AutoSize = true;
+            this.myProfilePreIdLabel.Location = new System.Drawing.Point(4, 32);
+            this.myProfilePreIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.myProfilePreIdLabel.Name = "myProfilePreIdLabel";
+            this.myProfilePreIdLabel.Size = new System.Drawing.Size(24, 13);
+            this.myProfilePreIdLabel.TabIndex = 29;
+            this.myProfilePreIdLabel.Text = "ID :";
+            // 
+            // myProfilePreRoleIdLabel
+            // 
+            this.myProfilePreRoleIdLabel.AutoSize = true;
+            this.myProfilePreRoleIdLabel.Location = new System.Drawing.Point(4, 223);
+            this.myProfilePreRoleIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.myProfilePreRoleIdLabel.Name = "myProfilePreRoleIdLabel";
+            this.myProfilePreRoleIdLabel.Size = new System.Drawing.Size(52, 13);
+            this.myProfilePreRoleIdLabel.TabIndex = 28;
+            this.myProfilePreRoleIdLabel.Text = "Role ID : ";
+            // 
+            // myProfilePreBmiLabel
+            // 
+            this.myProfilePreBmiLabel.AutoSize = true;
+            this.myProfilePreBmiLabel.Location = new System.Drawing.Point(4, 196);
+            this.myProfilePreBmiLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.myProfilePreBmiLabel.Name = "myProfilePreBmiLabel";
+            this.myProfilePreBmiLabel.Size = new System.Drawing.Size(35, 13);
+            this.myProfilePreBmiLabel.TabIndex = 27;
+            this.myProfilePreBmiLabel.Text = "BMI : ";
+            // 
+            // myProfilePreLengthLabel
+            // 
+            this.myProfilePreLengthLabel.AutoSize = true;
+            this.myProfilePreLengthLabel.Location = new System.Drawing.Point(4, 169);
+            this.myProfilePreLengthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.myProfilePreLengthLabel.Name = "myProfilePreLengthLabel";
+            this.myProfilePreLengthLabel.Size = new System.Drawing.Size(49, 13);
+            this.myProfilePreLengthLabel.TabIndex = 26;
+            this.myProfilePreLengthLabel.Text = "Length : ";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(4, 169);
+            this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(44, 13);
+            this.label19.TabIndex = 25;
+            this.label19.Text = "Name : ";
+            // 
+            // myProfilePreWeightLabel
+            // 
+            this.myProfilePreWeightLabel.AutoSize = true;
+            this.myProfilePreWeightLabel.Location = new System.Drawing.Point(4, 141);
+            this.myProfilePreWeightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.myProfilePreWeightLabel.Name = "myProfilePreWeightLabel";
+            this.myProfilePreWeightLabel.Size = new System.Drawing.Size(50, 13);
+            this.myProfilePreWeightLabel.TabIndex = 24;
+            this.myProfilePreWeightLabel.Text = "Weight : ";
+            // 
+            // myProfilePreAgeLabel
+            // 
+            this.myProfilePreAgeLabel.AutoSize = true;
+            this.myProfilePreAgeLabel.Location = new System.Drawing.Point(4, 115);
+            this.myProfilePreAgeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.myProfilePreAgeLabel.Name = "myProfilePreAgeLabel";
+            this.myProfilePreAgeLabel.Size = new System.Drawing.Size(35, 13);
+            this.myProfilePreAgeLabel.TabIndex = 23;
+            this.myProfilePreAgeLabel.Text = "Age : ";
+            // 
+            // myProfilePreSurnameLabel
+            // 
+            this.myProfilePreSurnameLabel.AutoSize = true;
+            this.myProfilePreSurnameLabel.Location = new System.Drawing.Point(4, 87);
+            this.myProfilePreSurnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.myProfilePreSurnameLabel.Name = "myProfilePreSurnameLabel";
+            this.myProfilePreSurnameLabel.Size = new System.Drawing.Size(69, 13);
+            this.myProfilePreSurnameLabel.TabIndex = 22;
+            this.myProfilePreSurnameLabel.Text = "Surname(s) : ";
+            // 
+            // myProfilePreNameLabel
+            // 
+            this.myProfilePreNameLabel.AutoSize = true;
+            this.myProfilePreNameLabel.Location = new System.Drawing.Point(4, 59);
+            this.myProfilePreNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.myProfilePreNameLabel.Name = "myProfilePreNameLabel";
+            this.myProfilePreNameLabel.Size = new System.Drawing.Size(44, 13);
+            this.myProfilePreNameLabel.TabIndex = 21;
+            this.myProfilePreNameLabel.Text = "Name : ";
             // 
             // myProfileRoleNameLabel
             // 
             this.myProfileRoleNameLabel.AutoSize = true;
-            this.myProfileRoleNameLabel.Location = new System.Drawing.Point(4, 249);
+            this.myProfileRoleNameLabel.Location = new System.Drawing.Point(75, 249);
             this.myProfileRoleNameLabel.Name = "myProfileRoleNameLabel";
-            this.myProfileRoleNameLabel.Size = new System.Drawing.Size(69, 13);
+            this.myProfileRoleNameLabel.Size = new System.Drawing.Size(0, 13);
             this.myProfileRoleNameLabel.TabIndex = 20;
-            this.myProfileRoleNameLabel.Text = "Role Name : ";
             // 
             // myProfileIdLabel
             // 
             this.myProfileIdLabel.AutoSize = true;
-            this.myProfileIdLabel.Location = new System.Drawing.Point(4, 32);
+            this.myProfileIdLabel.Location = new System.Drawing.Point(75, 32);
             this.myProfileIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileIdLabel.Name = "myProfileIdLabel";
-            this.myProfileIdLabel.Size = new System.Drawing.Size(24, 13);
+            this.myProfileIdLabel.Size = new System.Drawing.Size(0, 13);
             this.myProfileIdLabel.TabIndex = 18;
-            this.myProfileIdLabel.Text = "ID :";
             // 
             // myProfileRoleIdLabel
             // 
             this.myProfileRoleIdLabel.AutoSize = true;
-            this.myProfileRoleIdLabel.Location = new System.Drawing.Point(4, 223);
+            this.myProfileRoleIdLabel.Location = new System.Drawing.Point(75, 223);
             this.myProfileRoleIdLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileRoleIdLabel.Name = "myProfileRoleIdLabel";
-            this.myProfileRoleIdLabel.Size = new System.Drawing.Size(52, 13);
+            this.myProfileRoleIdLabel.Size = new System.Drawing.Size(0, 13);
             this.myProfileRoleIdLabel.TabIndex = 14;
-            this.myProfileRoleIdLabel.Text = "Role ID : ";
             // 
             // myProfileBmiLabel
             // 
             this.myProfileBmiLabel.AutoSize = true;
-            this.myProfileBmiLabel.Location = new System.Drawing.Point(4, 196);
+            this.myProfileBmiLabel.Location = new System.Drawing.Point(75, 196);
             this.myProfileBmiLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileBmiLabel.Name = "myProfileBmiLabel";
-            this.myProfileBmiLabel.Size = new System.Drawing.Size(35, 13);
+            this.myProfileBmiLabel.Size = new System.Drawing.Size(0, 13);
             this.myProfileBmiLabel.TabIndex = 12;
-            this.myProfileBmiLabel.Text = "BMI : ";
             // 
             // myProfileLengthLabel
             // 
             this.myProfileLengthLabel.AutoSize = true;
-            this.myProfileLengthLabel.Location = new System.Drawing.Point(4, 169);
+            this.myProfileLengthLabel.Location = new System.Drawing.Point(75, 169);
             this.myProfileLengthLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileLengthLabel.Name = "myProfileLengthLabel";
-            this.myProfileLengthLabel.Size = new System.Drawing.Size(49, 13);
+            this.myProfileLengthLabel.Size = new System.Drawing.Size(0, 13);
             this.myProfileLengthLabel.TabIndex = 10;
-            this.myProfileLengthLabel.Text = "Length : ";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(4, 169);
+            this.label8.Location = new System.Drawing.Point(75, 169);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(44, 13);
+            this.label8.Size = new System.Drawing.Size(0, 13);
             this.label8.TabIndex = 9;
-            this.label8.Text = "Name : ";
             // 
             // myProfileWeightLabel
             // 
             this.myProfileWeightLabel.AutoSize = true;
-            this.myProfileWeightLabel.Location = new System.Drawing.Point(4, 141);
+            this.myProfileWeightLabel.Location = new System.Drawing.Point(75, 141);
             this.myProfileWeightLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileWeightLabel.Name = "myProfileWeightLabel";
-            this.myProfileWeightLabel.Size = new System.Drawing.Size(50, 13);
+            this.myProfileWeightLabel.Size = new System.Drawing.Size(0, 13);
             this.myProfileWeightLabel.TabIndex = 7;
-            this.myProfileWeightLabel.Text = "Weight : ";
             // 
             // myProfileAgeLabel
             // 
             this.myProfileAgeLabel.AutoSize = true;
-            this.myProfileAgeLabel.Location = new System.Drawing.Point(4, 115);
+            this.myProfileAgeLabel.Location = new System.Drawing.Point(75, 115);
             this.myProfileAgeLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileAgeLabel.Name = "myProfileAgeLabel";
-            this.myProfileAgeLabel.Size = new System.Drawing.Size(35, 13);
+            this.myProfileAgeLabel.Size = new System.Drawing.Size(0, 13);
             this.myProfileAgeLabel.TabIndex = 5;
-            this.myProfileAgeLabel.Text = "Age : ";
             // 
             // myProfileSurnameLabel
             // 
             this.myProfileSurnameLabel.AutoSize = true;
-            this.myProfileSurnameLabel.Location = new System.Drawing.Point(4, 87);
+            this.myProfileSurnameLabel.Location = new System.Drawing.Point(75, 87);
             this.myProfileSurnameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileSurnameLabel.Name = "myProfileSurnameLabel";
-            this.myProfileSurnameLabel.Size = new System.Drawing.Size(69, 13);
+            this.myProfileSurnameLabel.Size = new System.Drawing.Size(0, 13);
             this.myProfileSurnameLabel.TabIndex = 2;
-            this.myProfileSurnameLabel.Text = "Surname(s) : ";
             // 
             // myProfileNameLabel
             // 
             this.myProfileNameLabel.AutoSize = true;
-            this.myProfileNameLabel.Location = new System.Drawing.Point(4, 59);
+            this.myProfileNameLabel.Location = new System.Drawing.Point(75, 59);
             this.myProfileNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.myProfileNameLabel.Name = "myProfileNameLabel";
-            this.myProfileNameLabel.Size = new System.Drawing.Size(44, 13);
+            this.myProfileNameLabel.Size = new System.Drawing.Size(0, 13);
             this.myProfileNameLabel.TabIndex = 0;
-            this.myProfileNameLabel.Text = "Name : ";
             // 
-            // tabPage1
+            // ProfileListTab
             // 
-            this.tabPage1.Controls.Add(this.ProfileRoleIdInput);
-            this.tabPage1.Controls.Add(this.label21);
-            this.tabPage1.Controls.Add(this.label5);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(this.ProfileDeleteButton);
-            this.tabPage1.Controls.Add(this.ProfileUpdateButton);
-            this.tabPage1.Controls.Add(this.ProfileCreateButton);
-            this.tabPage1.Controls.Add(this.ProfileLengthInput);
-            this.tabPage1.Controls.Add(this.ProfileWeightInput);
-            this.tabPage1.Controls.Add(this.ProfileAgeInput);
-            this.tabPage1.Controls.Add(this.ProfileSurnameInput);
-            this.tabPage1.Controls.Add(this.ProfileNameInput);
-            this.tabPage1.Controls.Add(this.ProfileGridView);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1111, 556);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "ProfileList";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.ProfileListTab.Controls.Add(this.ProfileRoleIdInput);
+            this.ProfileListTab.Controls.Add(this.label21);
+            this.ProfileListTab.Controls.Add(this.label5);
+            this.ProfileListTab.Controls.Add(this.label4);
+            this.ProfileListTab.Controls.Add(this.label3);
+            this.ProfileListTab.Controls.Add(this.label2);
+            this.ProfileListTab.Controls.Add(this.label1);
+            this.ProfileListTab.Controls.Add(this.ProfileDeleteButton);
+            this.ProfileListTab.Controls.Add(this.ProfileUpdateButton);
+            this.ProfileListTab.Controls.Add(this.ProfileCreateButton);
+            this.ProfileListTab.Controls.Add(this.ProfileLengthInput);
+            this.ProfileListTab.Controls.Add(this.ProfileWeightInput);
+            this.ProfileListTab.Controls.Add(this.ProfileAgeInput);
+            this.ProfileListTab.Controls.Add(this.ProfileSurnameInput);
+            this.ProfileListTab.Controls.Add(this.ProfileNameInput);
+            this.ProfileListTab.Controls.Add(this.ProfileGridView);
+            this.ProfileListTab.Location = new System.Drawing.Point(4, 22);
+            this.ProfileListTab.Name = "ProfileListTab";
+            this.ProfileListTab.Padding = new System.Windows.Forms.Padding(3);
+            this.ProfileListTab.Size = new System.Drawing.Size(1111, 556);
+            this.ProfileListTab.TabIndex = 0;
+            this.ProfileListTab.Text = "ProfileList";
+            this.ProfileListTab.UseVisualStyleBackColor = true;
             // 
             // ProfileRoleIdInput
             // 
@@ -1198,6 +1239,38 @@
             this.DrugIntakeTimeInput.Size = new System.Drawing.Size(100, 20);
             this.DrugIntakeTimeInput.TabIndex = 54;
             // 
+            // changeLanguageEnglishButton
+            // 
+            this.changeLanguageEnglishButton.Location = new System.Drawing.Point(7, 48);
+            this.changeLanguageEnglishButton.Name = "changeLanguageEnglishButton";
+            this.changeLanguageEnglishButton.Size = new System.Drawing.Size(188, 23);
+            this.changeLanguageEnglishButton.TabIndex = 4;
+            this.changeLanguageEnglishButton.Text = "English";
+            this.changeLanguageEnglishButton.UseVisualStyleBackColor = true;
+            this.changeLanguageEnglishButton.Click += new System.EventHandler(this.languageEnglishButton_Click);
+            // 
+            // changeLanguageGroupBox
+            // 
+            this.changeLanguageGroupBox.Controls.Add(this.changeLanguageBulgarianButton);
+            this.changeLanguageGroupBox.Controls.Add(this.changeLanguageDutchButton);
+            this.changeLanguageGroupBox.Controls.Add(this.changeLanguageEnglishButton);
+            this.changeLanguageGroupBox.Location = new System.Drawing.Point(5, 297);
+            this.changeLanguageGroupBox.Name = "changeLanguageGroupBox";
+            this.changeLanguageGroupBox.Size = new System.Drawing.Size(201, 253);
+            this.changeLanguageGroupBox.TabIndex = 1;
+            this.changeLanguageGroupBox.TabStop = false;
+            this.changeLanguageGroupBox.Text = "Change the language";
+            // 
+            // changeLanguageBulgarianButton
+            // 
+            this.changeLanguageBulgarianButton.Location = new System.Drawing.Point(7, 77);
+            this.changeLanguageBulgarianButton.Name = "changeLanguageBulgarianButton";
+            this.changeLanguageBulgarianButton.Size = new System.Drawing.Size(188, 23);
+            this.changeLanguageBulgarianButton.TabIndex = 5;
+            this.changeLanguageBulgarianButton.Text = "Bulgarian";
+            this.changeLanguageBulgarianButton.UseVisualStyleBackColor = true;
+            this.changeLanguageBulgarianButton.Click += new System.EventHandler(this.changeLanguageBulgarianButton_Click);
+            // 
             // ZorgApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1210,18 +1283,16 @@
             this.Text = "VisualZorgApp";
             this.Load += new System.EventHandler(this.ZorgApp_Load);
             this.tabs.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.MyProfileTab.ResumeLayout(false);
             this.myProfileWeightRegistrationGroupBox.ResumeLayout(false);
             this.myProfileWeightRegistrationGroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RegisteredWeightGridView)).EndInit();
             this.myProfilePrescribedDrugsGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MyProfilePrescribedDrugGridView)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.myProfileDetailsGroupBox.ResumeLayout(false);
+            this.myProfileDetailsGroupBox.PerformLayout();
+            this.ProfileListTab.ResumeLayout(false);
+            this.ProfileListTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfileGridView)).EndInit();
             this.DrugList.ResumeLayout(false);
             this.DrugList.PerformLayout();
@@ -1229,16 +1300,17 @@
             this.DrugPrescriptionList.ResumeLayout(false);
             this.DrugPrescriptionList.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DrugPrescriptionGridView)).EndInit();
+            this.changeLanguageGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.TabControl tabs;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage MyProfileTab;
+        private System.Windows.Forms.TabPage ProfileListTab;
         private System.Windows.Forms.DataGridView ProfileGridView;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox myProfileDetailsGroupBox;
         private System.Windows.Forms.Label myProfileNameLabel;
         private System.Windows.Forms.Label myProfileAgeLabel;
         private System.Windows.Forms.Label myProfileSurnameLabel;
@@ -1271,9 +1343,9 @@
         private System.Windows.Forms.TextBox ProfileAgeInput;
         private System.Windows.Forms.TextBox ProfileSurnameInput;
         private System.Windows.Forms.TextBox WeightRegistrationDateInput;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label myProfileWeightRegistrationTimeLabel;
         private System.Windows.Forms.TextBox WeightRegistrationTimeInput;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label myProfileWeightRegistrationDateLabel;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
@@ -1291,15 +1363,7 @@
         private System.Windows.Forms.Button ProfileDeleteButton;
         private System.Windows.Forms.Button ProfileUpdateButton;
         private System.Windows.Forms.Button ProfileCreateButton;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label myProfileWeightRegistrationWeightLabel;
         private System.Windows.Forms.TextBox WeightRegistrationWeightInput;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridViewTextBoxColumn profileId;
@@ -1341,6 +1405,20 @@
         private System.Windows.Forms.ComboBox ProfileRoleIdInput;
         private System.Windows.Forms.ComboBox ProfileIdInput;
         private System.Windows.Forms.ComboBox DrugIdInput;
+        private System.Windows.Forms.Button changeLanguageDutchButton;
+        private System.Windows.Forms.Label myProfilePreRoleNameLabel;
+        private System.Windows.Forms.Label myProfilePreIdLabel;
+        private System.Windows.Forms.Label myProfilePreRoleIdLabel;
+        private System.Windows.Forms.Label myProfilePreBmiLabel;
+        private System.Windows.Forms.Label myProfilePreLengthLabel;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label myProfilePreWeightLabel;
+        private System.Windows.Forms.Label myProfilePreAgeLabel;
+        private System.Windows.Forms.Label myProfilePreSurnameLabel;
+        private System.Windows.Forms.Label myProfilePreNameLabel;
+        private System.Windows.Forms.GroupBox changeLanguageGroupBox;
+        private System.Windows.Forms.Button changeLanguageEnglishButton;
+        private System.Windows.Forms.Button changeLanguageBulgarianButton;
     }
 }
 

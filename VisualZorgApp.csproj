@@ -85,6 +85,7 @@
     <Compile Include="DataModels\MyProfileDataModel.cs" />
     <Compile Include="DataModels\ProfileDataModel.cs" />
     <Compile Include="DBConnection.cs" />
+    <Compile Include="Handlers\Language.cs" />
     <Compile Include="Handlers\Drug.cs" />
     <Compile Include="ListHandlers\DrugList.cs" />
     <Compile Include="Handlers\DrugPrescription.cs" />

@@ -19,6 +19,7 @@ namespace VisualZorgApp
         DrugList drugList = new DrugList();
         DrugPrescriptionList drugPrescriptionList = new DrugPrescriptionList();
         MyProfile myProfile = new MyProfile(1);
+        Language language = new Language();
         
         public ZorgApp()
         {
@@ -53,7 +54,48 @@ namespace VisualZorgApp
             NotifyPrescribedDrugs();
         }
 
+        private void TranslateMyProfile(int langId)
+        {
+            Dictionary<string,string> lang= language.GetLang(langId);
 
+            MyProfileTab.Text = lang["myProfile_tab_header"];
+
+            myProfileDetailsGroupBox.Text = lang["myProfile_yourDetails_header"];
+            myProfilePrescribedDrugsGroupBox.Text = lang["myProfile_prescribedDrugs_header"];
+            myProfileWeightRegistrationGroupBox.Text = lang["myProfile_weightRegistration_header"];
+            changeLanguageGroupBox.Text = lang["myProfile_changeLanguage_header"];
+
+            myProfilePreIdLabel.Text = lang["myProfile_yourDetails_id"];
+            myProfilePreNameLabel.Text = lang["myProfile_yourDetails_name"];
+            myProfilePreSurnameLabel.Text = lang["myProfile_yourDetails_surname"];
+            myProfilePreAgeLabel.Text = lang["myProfile_yourDetails_age"];
+            myProfilePreWeightLabel.Text = lang["myProfile_yourDetails_weight"];
+            myProfilePreLengthLabel.Text = lang["myProfile_yourDetails_length"];
+            myProfilePreBmiLabel.Text = lang["myProfile_yourDetails_bmi"];
+            myProfilePreRoleIdLabel.Text = lang["myProfile_yourDetails_roleId"];
+            myProfilePreRoleNameLabel.Text = lang["myProfile_yourDetails_roleName"];
+
+            myProfileWeightRegistrationDateLabel.Text = lang["myProfile_weightRegistration_input_date"];
+            myProfileWeightRegistrationTimeLabel.Text = lang["myProfile_weightRegistration_input_time"];
+            myProfileWeightRegistrationWeightLabel.Text = lang["myProfile_weightRegistration_input_weight"];
+
+            WeightRegistrationCreateButton.Text = lang["myProfile_weightRegistration_button_create"];
+            WeightRegistrationUpdateButton.Text = lang["myProfile_weightRegistration_button_update"];
+            WeightRegistrationDeleteButton.Text = lang["myProfile_weightRegistration_button_delete"];
+            changeLanguageDutchButton.Text = lang["myProfile_changeLanguage_button_dutch"];
+            changeLanguageEnglishButton.Text = lang["myProfile_changeLanguage_button_english"];
+            changeLanguageBulgarianButton.Text = lang["myProfile_changeLanguage_button_bulgarian"];
+
+            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugName"].HeaderText = lang["myProfile_prescribedDrugs_table_drugName"];
+            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugIntakeTime"].HeaderText = lang["myProfile_prescribedDrugs_table_time"];
+            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugStartDate"].HeaderText = lang["myProfile_prescribedDrugs_table_startDate"];
+            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugEndDate"].HeaderText = lang["myProfile_prescribedDrugs_table_endDate"];
+
+            RegisteredWeightGridView.Columns["registeredWeightDate"].HeaderText = lang["myProfile_weightRegistration_table_date"];
+            RegisteredWeightGridView.Columns["registeredWeightTime"].HeaderText = lang["myProfile_weightRegistration_table_time"];
+            RegisteredWeightGridView.Columns["registeredWeight"].HeaderText = lang["myProfile_weightRegistration_table_weight"];
+
+        }
         private void RenderPrescribedDrugs()
         {
             DrugPrescriptionGridView.Rows.Clear();
@@ -128,15 +170,15 @@ namespace VisualZorgApp
         }
         private void RenderMyProfile()
         {
-            myProfileIdLabel.Text = "ID : " + myProfile.GetId().ToString();
-            myProfileNameLabel.Text = "Name : " + myProfile.GetName().ToString();
-            myProfileSurnameLabel.Text = "Surname : " + myProfile.GetSurname().ToString();
-            myProfileAgeLabel.Text = "Age : " + myProfile.GetAge().ToString();
-            myProfileWeightLabel.Text = "Weight : " + myProfile.GetWeight().ToString();
-            myProfileLengthLabel.Text = "Length : " + myProfile.GetLength().ToString();
-            myProfileBmiLabel.Text = "BMI : " + myProfile.GetBmi().ToString();
-            myProfileRoleIdLabel.Text = "Role ID : " + myProfile.GetRoleId().ToString();
-            myProfileRoleNameLabel.Text = "Role : " + myProfile.GetRoleName().ToString();
+            myProfileIdLabel.Text = myProfile.GetId().ToString();
+            myProfileNameLabel.Text = myProfile.GetName().ToString();
+            myProfileSurnameLabel.Text = myProfile.GetSurname().ToString();
+            myProfileAgeLabel.Text = myProfile.GetAge().ToString();
+            myProfileWeightLabel.Text =  myProfile.GetWeight().ToString();
+            myProfileLengthLabel.Text = myProfile.GetLength().ToString();
+            myProfileBmiLabel.Text = myProfile.GetBmi().ToString();
+            myProfileRoleIdLabel.Text =  myProfile.GetRoleId().ToString();
+            myProfileRoleNameLabel.Text = myProfile.GetRoleName().ToString();
 
             MyProfilePrescribedDrugGridView.Rows.Clear();
 
@@ -472,6 +514,19 @@ namespace VisualZorgApp
             RenderMyProfileRegisteredWeights();
         }
 
-       
+        private void languageDutchButton_Click(object sender, EventArgs e)
+        {
+            TranslateMyProfile(1);
+        }
+
+        private void languageEnglishButton_Click(object sender, EventArgs e)
+        {
+            TranslateMyProfile(2);
+        }
+
+        private void changeLanguageBulgarianButton_Click(object sender, EventArgs e)
+        {
+            TranslateMyProfile(3);
+        }
     }
 }
