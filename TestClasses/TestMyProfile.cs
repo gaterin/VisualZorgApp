@@ -16,7 +16,7 @@ namespace VisualZorgApp.TestClasses
 
      Example:
 
-        SetName_SetName_SetNameToPatrick_True
+        SetName_SetNameToPatrick_True
         SetWeight_SetWeightTo45dot82136_True
          
     */

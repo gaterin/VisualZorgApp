@@ -54,47 +54,104 @@ namespace VisualZorgApp
             NotifyPrescribedDrugs();
         }
 
-        private void TranslateMyProfile(int langId)
+        private void Translate(int langId)
         {
             Dictionary<string,string> lang= language.GetLang(langId);
+            string affix = " : ";
+
 
             MyProfileTab.Text = lang["myProfile_tab_header"];
+            ProfileListTab.Text = lang["profileList_tab_header"];
+            DrugListTab.Text = lang["profileList_tab_header"];
+            DrugPrescriptionListTab.Text = lang["drugPrescriptionList_tab_header"];
 
             myProfileDetailsGroupBox.Text = lang["myProfile_yourDetails_header"];
             myProfilePrescribedDrugsGroupBox.Text = lang["myProfile_prescribedDrugs_header"];
             myProfileWeightRegistrationGroupBox.Text = lang["myProfile_weightRegistration_header"];
             changeLanguageGroupBox.Text = lang["myProfile_changeLanguage_header"];
 
-            myProfilePreIdLabel.Text = lang["myProfile_yourDetails_id"];
-            myProfilePreNameLabel.Text = lang["myProfile_yourDetails_name"];
-            myProfilePreSurnameLabel.Text = lang["myProfile_yourDetails_surname"];
-            myProfilePreAgeLabel.Text = lang["myProfile_yourDetails_age"];
-            myProfilePreWeightLabel.Text = lang["myProfile_yourDetails_weight"];
-            myProfilePreLengthLabel.Text = lang["myProfile_yourDetails_length"];
-            myProfilePreBmiLabel.Text = lang["myProfile_yourDetails_bmi"];
-            myProfilePreRoleIdLabel.Text = lang["myProfile_yourDetails_roleId"];
-            myProfilePreRoleNameLabel.Text = lang["myProfile_yourDetails_roleName"];
+            myProfilePreIdLabel.Text = lang["reuse_id"] + affix;
+            myProfilePreNameLabel.Text = lang["reuse_name"] + affix;
+            myProfilePreSurnameLabel.Text = lang["reuse_surname"] + affix;
+            myProfilePreAgeLabel.Text =lang["reuse_age"] + affix;
+            myProfilePreWeightLabel.Text =  lang["reuse_weight"] + affix;
+            myProfilePreLengthLabel.Text = lang["reuse_length"] + affix;
+            myProfilePreBmiLabel.Text = lang["reuse_bmi"] + affix;
+            myProfilePreRoleIdLabel.Text =  lang["reuse_roleId"] + affix;
+            myProfilePreRoleNameLabel.Text =  lang["myProfile_yourDetails_roleName"] + affix;
 
             myProfileWeightRegistrationDateLabel.Text = lang["myProfile_weightRegistration_input_date"];
             myProfileWeightRegistrationTimeLabel.Text = lang["myProfile_weightRegistration_input_time"];
-            myProfileWeightRegistrationWeightLabel.Text = lang["myProfile_weightRegistration_input_weight"];
+            myProfileWeightRegistrationWeightLabel.Text = lang["reuse_weight"];
 
-            WeightRegistrationCreateButton.Text = lang["myProfile_weightRegistration_button_create"];
-            WeightRegistrationUpdateButton.Text = lang["myProfile_weightRegistration_button_update"];
-            WeightRegistrationDeleteButton.Text = lang["myProfile_weightRegistration_button_delete"];
+            WeightRegistrationCreateButton.Text = lang["button_create"];
+            WeightRegistrationUpdateButton.Text = lang["button_update"];
+            WeightRegistrationDeleteButton.Text = lang["button_delete"];
             changeLanguageDutchButton.Text = lang["myProfile_changeLanguage_button_dutch"];
             changeLanguageEnglishButton.Text = lang["myProfile_changeLanguage_button_english"];
             changeLanguageBulgarianButton.Text = lang["myProfile_changeLanguage_button_bulgarian"];
 
-            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugName"].HeaderText = lang["myProfile_prescribedDrugs_table_drugName"];
-            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugIntakeTime"].HeaderText = lang["myProfile_prescribedDrugs_table_time"];
-            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugStartDate"].HeaderText = lang["myProfile_prescribedDrugs_table_startDate"];
-            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugEndDate"].HeaderText = lang["myProfile_prescribedDrugs_table_endDate"];
+            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugName"].HeaderText = lang["reuse_drugName"];
+            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugIntakeTime"].HeaderText = lang["reuse_time"];
+            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugStartDate"].HeaderText = lang["reuse_startDate"];
+            MyProfilePrescribedDrugGridView.Columns["myProfilePrescribedDrugEndDate"].HeaderText = lang["reuse_endDate"];
 
-            RegisteredWeightGridView.Columns["registeredWeightDate"].HeaderText = lang["myProfile_weightRegistration_table_date"];
-            RegisteredWeightGridView.Columns["registeredWeightTime"].HeaderText = lang["myProfile_weightRegistration_table_time"];
-            RegisteredWeightGridView.Columns["registeredWeight"].HeaderText = lang["myProfile_weightRegistration_table_weight"];
+            RegisteredWeightGridView.Columns["registeredWeightDate"].HeaderText = lang["reuse_date"];
+            RegisteredWeightGridView.Columns["registeredWeightTime"].HeaderText = lang["reuse_time"];
+            RegisteredWeightGridView.Columns["registeredWeight"].HeaderText = lang["reuse_weight"];
 
+            profileListNameLabel.Text = lang["reuse_name"];
+            profileListSurnameLabel.Text = lang["reuse_surname"];
+            profileListAgeLabel.Text = lang["reuse_age"];
+            profileListWeightLabel.Text = lang["reuse_weight"];
+            profileListLengthLabel.Text = lang["reuse_length"];
+            profileListRoleIdLabel.Text = lang["reuse_roleId"];
+
+            ProfileGridView.Columns["profileId"].HeaderText = lang["reuse_profileId"];
+            ProfileGridView.Columns["profileName"].HeaderText = lang["reuse_name"];
+            ProfileGridView.Columns["profileSurname"].HeaderText = lang["reuse_surname"];
+            ProfileGridView.Columns["profileAge"].HeaderText = lang["reuse_age"];
+            ProfileGridView.Columns["profileWeight"].HeaderText = lang["reuse_weight"];
+            ProfileGridView.Columns["profileLength"].HeaderText = lang["reuse_length"];
+            ProfileGridView.Columns["profileRoleId"].HeaderText = lang["reuse_roleId"];
+            ProfileGridView.Columns["profileBmi"].HeaderText = lang["reuse_bmi"];
+
+            ProfileCreateButton.Text = lang["button_create"];
+            ProfileUpdateButton.Text = lang["button_update"];
+            ProfileDeleteButton.Text = lang["button_delete"];
+
+            drugListNameLabel.Text = lang["reuse_drugName"];
+            drugListDescriptionLabel.Text = lang["reuse_drugDescription"];
+            drugListTypeLabel.Text = lang["reuse_drugType"];
+            drugListDosageLabel.Text = lang["reuse_drugDosage"];
+
+            DrugGridView.Columns["drugId"].HeaderText = lang["reuse_drugId"];
+            DrugGridView.Columns["drugName"].HeaderText = lang["reuse_drugName"];
+            DrugGridView.Columns["drugDescription"].HeaderText = lang["reuse_drugDescription"];
+            DrugGridView.Columns["drugType"].HeaderText = lang["reuse_drugType"];
+            DrugGridView.Columns["drugDosage"].HeaderText = lang["reuse_drugDosage"];
+
+            DrugCreateButton.Text = lang["button_create"];
+            DrugUpdateButton.Text = lang["button_update"];
+            DrugDeleteButton.Text = lang["button_delete"];
+
+            drugPrescriptionListProfileIdLabel.Text = lang["reuse_profileId"];
+            drugPrescriptionListDrugIdLabel.Text = lang["reuse_drugId"];
+            drugPrescriptionListIntakeTimeLabel.Text = lang["reuse_intakeTime"];
+            drugPrescriptionListStartDateLabel.Text = lang["reuse_startDate"];
+            drugPrescriptionListEndDateLabel.Text = lang["reuse_endDate"];
+
+            DrugPrescriptionCreateButton.Text = lang["button_create"];
+            DrugPrescriptionUpdateButton.Text = lang["button_update"];
+            DrugPrescriptionDeleteButton.Text = lang["button_delete"];
+
+            DrugPrescriptionGridView.Columns["prescribedDrugId"].HeaderText = lang["reuse_drugId"];
+            DrugPrescriptionGridView.Columns["prescribedDrugName"].HeaderText = lang["reuse_drugName"];
+            DrugPrescriptionGridView.Columns["prescribedDrugProfileId"].HeaderText = lang["reuse_profileId"];
+            DrugPrescriptionGridView.Columns["prescribedDrugProfileName"].HeaderText = lang["reuse_profileName"];
+            DrugPrescriptionGridView.Columns["prescribedDrugIntakeTime"].HeaderText = lang["reuse_time"];
+            DrugPrescriptionGridView.Columns["prescribedDrugStartDate"].HeaderText = lang["reuse_startDate"];
+            DrugPrescriptionGridView.Columns["prescribedDrugEndDate"].HeaderText = lang["reuse_endDate"];
         }
         private void RenderPrescribedDrugs()
         {
@@ -516,17 +573,17 @@ namespace VisualZorgApp
 
         private void languageDutchButton_Click(object sender, EventArgs e)
         {
-            TranslateMyProfile(1);
+            Translate(1);
         }
 
         private void languageEnglishButton_Click(object sender, EventArgs e)
         {
-            TranslateMyProfile(2);
+            Translate(2);
         }
 
         private void changeLanguageBulgarianButton_Click(object sender, EventArgs e)
         {
-            TranslateMyProfile(3);
+            Translate(3);
         }
     }
 }
