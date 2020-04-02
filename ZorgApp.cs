@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Tulpep.NotificationWindow;
 using VisualZorgApp.Handlers;
 using VisualZorgApp.ListHandlers;
@@ -31,6 +32,7 @@ namespace VisualZorgApp
 
             FetchAllData();
             RenderAll();
+            InitChart();
             /*MessageBox.Show(msg);*/
 
         }
@@ -54,6 +56,23 @@ namespace VisualZorgApp
             NotifyPrescribedDrugs();
         }
 
+        private void InitChart()
+        {
+            myProfileWeightRegistrationChart.Series.Clear();
+
+            var weightRegistrationSeries = new Series();
+            weightRegistrationSeries.Name = "Weight (KG)";
+            weightRegistrationSeries.ChartType = SeriesChartType.Area;
+
+            foreach (var item in myProfile.GetWeightRegistrations())
+            {
+                weightRegistrationSeries.Points.AddXY(item.GetDate(), item.GetWeight());
+            }
+
+            myProfileWeightRegistrationChart.ChartAreas[0].RecalculateAxesScale();
+            myProfileWeightRegistrationChart.Series.Add(weightRegistrationSeries);
+
+        }
         private void Translate(int langId)
         {
             Dictionary<string,string> lang= language.GetLang(langId);
@@ -61,6 +80,9 @@ namespace VisualZorgApp
 
             try
             {
+                myProfileWeightRegistrationChart.Series[0].Name =
+                    lang["reuse_weight"];
+
                 MyProfileTab.Text = lang["myProfile_tab_header"];
                 ProfileListTab.Text = lang["profileList_tab_header"];
                 DrugListTab.Text = lang["profileList_tab_header"];
@@ -548,8 +570,9 @@ namespace VisualZorgApp
                                Convert.ToDouble(WeightRegistrationWeightInput.Text)
                                 );
             }
-
+            
             myProfile.FetchRegisteredWeightsForMyProfile(myProfile.GetId());
+            InitChart();
             RenderMyProfileRegisteredWeights();
         }
 
@@ -566,8 +589,9 @@ namespace VisualZorgApp
                                Convert.ToDouble(WeightRegistrationWeightInput.Text)
                                 );
             }
-
+            
             myProfile.FetchRegisteredWeightsForMyProfile(myProfile.GetId());
+            InitChart();
             RenderMyProfileRegisteredWeights();
         }
 
@@ -575,7 +599,9 @@ namespace VisualZorgApp
         {
             myProfile.SqlDeleteWeightRegistration();
             myProfile.FetchRegisteredWeightsForMyProfile(myProfile.GetId());
+            InitChart();
             RenderMyProfileRegisteredWeights();
+            
         }
 
         private void languageDutchButton_Click(object sender, EventArgs e)

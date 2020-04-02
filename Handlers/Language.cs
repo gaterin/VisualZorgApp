@@ -11,6 +11,7 @@ namespace VisualZorgApp.Handlers
     class Language
     {
         public Const constant = new Const();
+
         private Dictionary<string,string> dutch = new Dictionary<string, string>();
         private Dictionary<string,string> english = new Dictionary<string, string>();
         private Dictionary<string,string> bulgarian = new Dictionary<string, string>();

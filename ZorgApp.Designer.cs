@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZorgApp));
             this.tabs = new System.Windows.Forms.TabControl();
             this.MyProfileTab = new System.Windows.Forms.TabPage();
@@ -142,6 +145,7 @@
             this.DrugEndDateInput = new System.Windows.Forms.TextBox();
             this.DrugStartDateInput = new System.Windows.Forms.TextBox();
             this.DrugIntakeTimeInput = new System.Windows.Forms.TextBox();
+            this.myProfileWeightRegistrationChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabs.SuspendLayout();
             this.MyProfileTab.SuspendLayout();
             this.changeLanguageGroupBox.SuspendLayout();
@@ -156,6 +160,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DrugGridView)).BeginInit();
             this.DrugPrescriptionListTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DrugPrescriptionGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myProfileWeightRegistrationChart)).BeginInit();
             this.SuspendLayout();
             // 
             // tabs
@@ -167,12 +172,13 @@
             this.tabs.Location = new System.Drawing.Point(12, 12);
             this.tabs.Name = "tabs";
             this.tabs.SelectedIndex = 0;
-            this.tabs.Size = new System.Drawing.Size(1119, 582);
+            this.tabs.Size = new System.Drawing.Size(1119, 742);
             this.tabs.TabIndex = 1;
             this.tabs.Click += new System.EventHandler(this.tabs_Click);
             // 
             // MyProfileTab
             // 
+            this.MyProfileTab.Controls.Add(this.myProfileWeightRegistrationChart);
             this.MyProfileTab.Controls.Add(this.changeLanguageGroupBox);
             this.MyProfileTab.Controls.Add(this.myProfileWeightRegistrationGroupBox);
             this.MyProfileTab.Controls.Add(this.myProfilePrescribedDrugsGroupBox);
@@ -180,7 +186,7 @@
             this.MyProfileTab.Location = new System.Drawing.Point(4, 22);
             this.MyProfileTab.Name = "MyProfileTab";
             this.MyProfileTab.Padding = new System.Windows.Forms.Padding(3);
-            this.MyProfileTab.Size = new System.Drawing.Size(1111, 556);
+            this.MyProfileTab.Size = new System.Drawing.Size(1111, 716);
             this.MyProfileTab.TabIndex = 1;
             this.MyProfileTab.Text = "MyProfile";
             this.MyProfileTab.UseVisualStyleBackColor = true;
@@ -192,7 +198,7 @@
             this.changeLanguageGroupBox.Controls.Add(this.changeLanguageEnglishButton);
             this.changeLanguageGroupBox.Location = new System.Drawing.Point(5, 297);
             this.changeLanguageGroupBox.Name = "changeLanguageGroupBox";
-            this.changeLanguageGroupBox.Size = new System.Drawing.Size(201, 253);
+            this.changeLanguageGroupBox.Size = new System.Drawing.Size(201, 110);
             this.changeLanguageGroupBox.TabIndex = 1;
             this.changeLanguageGroupBox.TabStop = false;
             this.changeLanguageGroupBox.Text = "Change the language";
@@ -241,7 +247,7 @@
             this.myProfileWeightRegistrationGroupBox.Controls.Add(this.myProfileWeightRegistrationDateLabel);
             this.myProfileWeightRegistrationGroupBox.Location = new System.Drawing.Point(731, 6);
             this.myProfileWeightRegistrationGroupBox.Name = "myProfileWeightRegistrationGroupBox";
-            this.myProfileWeightRegistrationGroupBox.Size = new System.Drawing.Size(374, 554);
+            this.myProfileWeightRegistrationGroupBox.Size = new System.Drawing.Size(374, 401);
             this.myProfileWeightRegistrationGroupBox.TabIndex = 2;
             this.myProfileWeightRegistrationGroupBox.TabStop = false;
             this.myProfileWeightRegistrationGroupBox.Text = "Weight history";
@@ -303,11 +309,11 @@
             this.registeredWeightDate,
             this.registeredWeightTime,
             this.registeredWeight});
-            this.RegisteredWeightGridView.Location = new System.Drawing.Point(3, 87);
+            this.RegisteredWeightGridView.Location = new System.Drawing.Point(6, 87);
             this.RegisteredWeightGridView.Name = "RegisteredWeightGridView";
             this.RegisteredWeightGridView.ReadOnly = true;
             this.RegisteredWeightGridView.RowHeadersVisible = false;
-            this.RegisteredWeightGridView.Size = new System.Drawing.Size(363, 457);
+            this.RegisteredWeightGridView.Size = new System.Drawing.Size(362, 308);
             this.RegisteredWeightGridView.TabIndex = 0;
             this.RegisteredWeightGridView.Click += new System.EventHandler(this.RegisteredWeightGridView_Click);
             // 
@@ -378,7 +384,7 @@
             this.myProfilePrescribedDrugsGroupBox.Margin = new System.Windows.Forms.Padding(2);
             this.myProfilePrescribedDrugsGroupBox.Name = "myProfilePrescribedDrugsGroupBox";
             this.myProfilePrescribedDrugsGroupBox.Padding = new System.Windows.Forms.Padding(2);
-            this.myProfilePrescribedDrugsGroupBox.Size = new System.Drawing.Size(517, 554);
+            this.myProfilePrescribedDrugsGroupBox.Size = new System.Drawing.Size(517, 401);
             this.myProfilePrescribedDrugsGroupBox.TabIndex = 1;
             this.myProfilePrescribedDrugsGroupBox.TabStop = false;
             this.myProfilePrescribedDrugsGroupBox.Text = "Prescribed Drugs";
@@ -399,7 +405,7 @@
             this.MyProfilePrescribedDrugGridView.ReadOnly = true;
             this.MyProfilePrescribedDrugGridView.RowHeadersVisible = false;
             this.MyProfilePrescribedDrugGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.MyProfilePrescribedDrugGridView.Size = new System.Drawing.Size(509, 526);
+            this.MyProfilePrescribedDrugGridView.Size = new System.Drawing.Size(507, 377);
             this.MyProfilePrescribedDrugGridView.TabIndex = 0;
             this.MyProfilePrescribedDrugGridView.TabStop = false;
             // 
@@ -671,7 +677,7 @@
             this.ProfileListTab.Location = new System.Drawing.Point(4, 22);
             this.ProfileListTab.Name = "ProfileListTab";
             this.ProfileListTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ProfileListTab.Size = new System.Drawing.Size(1111, 556);
+            this.ProfileListTab.Size = new System.Drawing.Size(1111, 716);
             this.ProfileListTab.TabIndex = 0;
             this.ProfileListTab.Text = "ProfileList";
             this.ProfileListTab.UseVisualStyleBackColor = true;
@@ -824,7 +830,7 @@
             this.ProfileGridView.ReadOnly = true;
             this.ProfileGridView.RowHeadersVisible = false;
             this.ProfileGridView.RowHeadersWidth = 51;
-            this.ProfileGridView.Size = new System.Drawing.Size(1099, 504);
+            this.ProfileGridView.Size = new System.Drawing.Size(1099, 664);
             this.ProfileGridView.TabIndex = 1;
             this.ProfileGridView.Click += new System.EventHandler(this.ProfileGridView_Click);
             // 
@@ -907,7 +913,7 @@
             this.DrugListTab.Location = new System.Drawing.Point(4, 22);
             this.DrugListTab.Name = "DrugListTab";
             this.DrugListTab.Padding = new System.Windows.Forms.Padding(3);
-            this.DrugListTab.Size = new System.Drawing.Size(1111, 556);
+            this.DrugListTab.Size = new System.Drawing.Size(1111, 716);
             this.DrugListTab.TabIndex = 2;
             this.DrugListTab.Text = "DrugList";
             this.DrugListTab.UseVisualStyleBackColor = true;
@@ -1024,7 +1030,7 @@
             this.DrugGridView.RowHeadersVisible = false;
             this.DrugGridView.RowHeadersWidth = 51;
             this.DrugGridView.RowTemplate.Height = 24;
-            this.DrugGridView.Size = new System.Drawing.Size(1099, 504);
+            this.DrugGridView.Size = new System.Drawing.Size(1099, 664);
             this.DrugGridView.TabIndex = 1;
             this.DrugGridView.Click += new System.EventHandler(this.DrugGridView_Click);
             // 
@@ -1082,7 +1088,7 @@
             this.DrugPrescriptionListTab.Location = new System.Drawing.Point(4, 22);
             this.DrugPrescriptionListTab.Name = "DrugPrescriptionListTab";
             this.DrugPrescriptionListTab.Padding = new System.Windows.Forms.Padding(3);
-            this.DrugPrescriptionListTab.Size = new System.Drawing.Size(1111, 556);
+            this.DrugPrescriptionListTab.Size = new System.Drawing.Size(1111, 716);
             this.DrugPrescriptionListTab.TabIndex = 3;
             this.DrugPrescriptionListTab.Text = "DrugPrescriptionList";
             this.DrugPrescriptionListTab.UseVisualStyleBackColor = true;
@@ -1142,7 +1148,7 @@
             this.DrugPrescriptionGridView.ReadOnly = true;
             this.DrugPrescriptionGridView.RowHeadersVisible = false;
             this.DrugPrescriptionGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.DrugPrescriptionGridView.Size = new System.Drawing.Size(1099, 505);
+            this.DrugPrescriptionGridView.Size = new System.Drawing.Size(1099, 664);
             this.DrugPrescriptionGridView.TabIndex = 64;
             this.DrugPrescriptionGridView.TabStop = false;
             this.DrugPrescriptionGridView.Click += new System.EventHandler(this.DrugPrescriptionGridView_Click);
@@ -1271,11 +1277,31 @@
             this.DrugIntakeTimeInput.Size = new System.Drawing.Size(100, 20);
             this.DrugIntakeTimeInput.TabIndex = 54;
             // 
+            // myProfileWeightRegistrationChart
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.myProfileWeightRegistrationChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.myProfileWeightRegistrationChart.Legends.Add(legend1);
+            this.myProfileWeightRegistrationChart.Location = new System.Drawing.Point(6, 410);
+            this.myProfileWeightRegistrationChart.Name = "myProfileWeightRegistrationChart";
+            this.myProfileWeightRegistrationChart.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.myProfileWeightRegistrationChart.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.Maroon};
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Area;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.myProfileWeightRegistrationChart.Series.Add(series1);
+            this.myProfileWeightRegistrationChart.Size = new System.Drawing.Size(1099, 300);
+            this.myProfileWeightRegistrationChart.TabIndex = 3;
+            this.myProfileWeightRegistrationChart.Text = "WeightHistoryGraph";
+            // 
             // ZorgApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1143, 606);
+            this.ClientSize = new System.Drawing.Size(1143, 766);
             this.Controls.Add(this.tabs);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1301,6 +1327,7 @@
             this.DrugPrescriptionListTab.ResumeLayout(false);
             this.DrugPrescriptionListTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DrugPrescriptionGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myProfileWeightRegistrationChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1419,6 +1446,7 @@
         private System.Windows.Forms.GroupBox changeLanguageGroupBox;
         private System.Windows.Forms.Button changeLanguageEnglishButton;
         private System.Windows.Forms.Button changeLanguageBulgarianButton;
+        private System.Windows.Forms.DataVisualization.Charting.Chart myProfileWeightRegistrationChart;
     }
 }
 
