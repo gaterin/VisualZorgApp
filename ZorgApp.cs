@@ -85,7 +85,7 @@ namespace VisualZorgApp
 
                 MyProfileTab.Text = lang["myProfile_tab_header"];
                 ProfileListTab.Text = lang["profileList_tab_header"];
-                DrugListTab.Text = lang["profileList_tab_header"];
+                DrugListTab.Text = lang["drugList_tab_header"];
                 DrugPrescriptionListTab.Text = lang["drugPrescriptionList_tab_header"];
 
                 myProfileDetailsGroupBox.Text = lang["myProfile_yourDetails_header"];
