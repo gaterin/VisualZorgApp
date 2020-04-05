@@ -2,6 +2,8 @@
 
 namespace VisualZorgApp.Handlers
 {
+    // Notification class
+    // Overload constructor used to popup when creating the Notification
     class Notification : PopupNotifier
     {
         public Notification(string title, string message)

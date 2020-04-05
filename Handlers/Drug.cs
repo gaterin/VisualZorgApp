@@ -1,6 +1,8 @@
 ﻿
 namespace VisualZorgApp.Handlers
 {
+    // Drug class
+    // Basic class used as unit
     class Drug
     {
         private int id;

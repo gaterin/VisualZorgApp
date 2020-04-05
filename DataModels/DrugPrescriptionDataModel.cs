@@ -5,6 +5,11 @@ using MySql.Data.MySqlClient;
 using VisualZorgApp.Handlers;
 namespace VisualZorgApp.DataModels
 {
+    // Child class used as datamodel for DrugPrescription class
+    // [C]reate drugprescription query 
+    // [R]ead all drugprescriptions query as ListObject of DrugPrescription
+    // [U]pdate drugprescription query
+    // [D]elete drugprescription query
     class DrugPrescriptionDataModel : DataModel
     {
         public List<DrugPrescription> GetAllDrugPrescriptions()

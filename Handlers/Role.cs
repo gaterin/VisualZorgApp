@@ -1,5 +1,7 @@
 ﻿namespace VisualZorgApp.Handlers
 {
+    // Role class
+    // Basic class used as unit
     public class Role
     {
         private int id;

@@ -1,13 +1,14 @@
-﻿using System;
+﻿
 using System.IO;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 
 namespace VisualZorgApp.Handlers
 {
+    // Dictionary class
+    // IMPORTANT: Make sure you have set the curDir variable in Const.cs right it should be.
+    // Reads Language file based on id
+    // Fills Dictionaries per file
     class Language
     {
         public Const constant = new Const();

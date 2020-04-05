@@ -4,25 +4,15 @@ using VisualZorgApp.DataModels;
 
 namespace VisualZorgApp.ListHandlers
 {
+    // List handler class
+    // Handles all CRUD functionalities via its DataModel
+    // Reads all roles into roleList
     public class ProfileList
     {
 
         private List<Profile> profileList = new List<Profile>();
         private List<Role> roleList = new List<Role>();
         private ProfileDataModel dm = new ProfileDataModel();
-        
-        public ProfileList()
-        {
-            
-/*
-            profiles.Add(new Profile { id = 1, name = "Hugh", surname = "Mungu", age = 96, weight = 68.71, length = 1.31, type = 1, username = "hugh", password = "mungu" });
-            profiles.Add(new Profile { id = 2, name = "Jack", surname = "Mango", age = 56, weight = 78.23, length = 1.81, type = 2, username = "jack", password = "mango" });
-            profiles.Add(new Profile { id = 3, name = "Phil", surname = "PorPo", age = 14, weight = 45.22, length = 2.11, type = 2, username = "phil", password = "porpo" });
-*/
-            /*SqlAllUsersToProfiles();*/
-
-        }
-
         
         public bool SqlDeleteProfile(int id)
         {

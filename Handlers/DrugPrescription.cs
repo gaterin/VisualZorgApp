@@ -2,7 +2,9 @@
 
 namespace VisualZorgApp.Handlers
 {
-
+    // Drug class
+    // Basic class used as unit
+    // Setters of drugIntakeTime,drugStartDate and drugEndDate take string as input
     class DrugPrescription
     {
         private int drugId;

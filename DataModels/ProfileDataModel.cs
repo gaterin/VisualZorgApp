@@ -5,7 +5,12 @@ using VisualZorgApp.Handlers;
 
 namespace VisualZorgApp.DataModels
 {
-    class ProfileDataModel: DataModel
+    // Child class used as datamodel for Profile class
+    // [C]reate profile query 
+    // [R]ead all profiles query as ListObject of Profile
+    // [U]pdate profile query
+    // [D]elete profile query
+    class ProfileDataModel : DataModel
     {
         public List<Profile> GetAllProfiles()
         {

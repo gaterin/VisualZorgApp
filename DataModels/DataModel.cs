@@ -3,6 +3,11 @@ using MySql.Data.MySqlClient;
 
 namespace VisualZorgApp.DataModels
 {
+    // DataModel base class
+    // Uses SQL
+    // initializes database class
+    // Parent class for all Datamodels
+    // Reader executes are defined in the child classes 
     public class DataModel
     {
         private DBConnection db = new DBConnection();

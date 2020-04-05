@@ -4,6 +4,8 @@ using VisualZorgApp.Handlers;
 
 namespace VisualZorgApp.ListHandlers
 {
+    // List handler class
+    // Handles all CRUD functionalities via its DataModel
     class DrugList
     {
         private List<Drug> drugList = new List<Drug>();

@@ -6,6 +6,11 @@ using VisualZorgApp.Handlers;
 
 namespace VisualZorgApp.DataModels
 {
+    // Child class used as datamodel for Drug class
+    // [C]reate drug query 
+    // [R]ead all drugs query as ListObject of Drug
+    // [U]pdate drug query
+    // [D]elete drug query
     class DrugDataModel : DataModel
     {
         

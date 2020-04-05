@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
-using MySql.Data.MySqlClient;
 using VisualZorgApp.DataModels;
 using VisualZorgApp.Handlers;
 namespace VisualZorgApp.ListHandlers
 {
-   
+    // List handler class
+    // Handles all CRUD functionalities via its DataModel
+    // MyProfile class is used as a 'logged in' Profile child class
+    // Sets all data based on id
+    
     class MyProfile : Profile
     {
         private int id;
-        private string username;
-        private string password;
         private string roleName;
 
         private int selectedRowWeightRegistrationId;
 
-        private DBConnection db = new DBConnection();
         private MyProfileDataModel dm = new MyProfileDataModel();
         private List<DrugPrescription> prescribedDrugs = new List<DrugPrescription>();
         private List<WeightRegistration> registeredWeights = new List<WeightRegistration>();
@@ -124,20 +124,6 @@ namespace VisualZorgApp.ListHandlers
         {
             return roleName;
         }
-        public string GetUsername()
-        {
-            return username;
-        }
-        private void SetUsername(string username)
-        {
-            this.username = username;
-        }
-        private void SetPassword(string password)
-        {
-            this.password = password;
-        }
-
-
         public bool FetchPrescribedDrugsForMyProfile(int id)
         {
             prescribedDrugs.Clear();
@@ -148,18 +134,6 @@ namespace VisualZorgApp.ListHandlers
         public void AddRangePrescribedDrug(List<DrugPrescription> prescribedDrug)
         {
             prescribedDrugs.AddRange(prescribedDrug);
-        }
-        public bool CheckUserPass(string username, string password)
-        {
-            if (this.username == username && this.password == password)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-
         }
 
     }

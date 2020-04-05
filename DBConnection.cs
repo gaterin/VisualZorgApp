@@ -3,6 +3,10 @@ using MySql.Data.MySqlClient;
 
 namespace VisualZorgApp
 {
+
+    //Db class
+    //Used to connect to database
+    //used to execute Sql queries to the database
     public class DBConnection
     {
         public MySqlConnection con { get; private set; }
@@ -27,7 +31,7 @@ namespace VisualZorgApp
         }
         public MySqlCommand ExecuteSql(string sql)
         {
-
+            
             using (MySqlCommand cmd = new MySqlCommand(sql, con))
             {
                 return cmd;

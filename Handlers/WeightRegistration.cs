@@ -2,6 +2,9 @@
 
 namespace VisualZorgApp.Handlers
 {
+    // Drug class
+    // Basic class used as unit
+    // Setters of time and date take string as input
     class WeightRegistration
     {
         private int id;

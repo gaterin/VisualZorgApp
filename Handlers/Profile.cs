@@ -3,7 +3,9 @@
 namespace VisualZorgApp.Handlers
 {
 
-    //Profile class
+    // Profile class
+    // Basic class used as unit
+
     public class Profile
     {
         private int id;

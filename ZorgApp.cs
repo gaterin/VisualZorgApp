@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using Tulpep.NotificationWindow;
 using VisualZorgApp.Handlers;
 using VisualZorgApp.ListHandlers;
 
 namespace VisualZorgApp
 {
+    // UI related class
+    // All classes are used here to form the UI
+    // Fetches, Renders and gives parameters to all setters of all classes
+    // Translates all visible Text variables within the UI, not the data of the database itself
     public partial class ZorgApp : Form
     {
         ProfileList profileList = new ProfileList();
@@ -29,12 +27,9 @@ namespace VisualZorgApp
 
         private void ZorgApp_Load(object sender, EventArgs e)
         {
-
             FetchAllData();
             RenderAll();
             InitChart();
-            /*MessageBox.Show(msg);*/
-
         }
 
         private void FetchAllData()

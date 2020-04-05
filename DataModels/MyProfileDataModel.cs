@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using VisualZorgApp.Handlers;
 
 
 namespace VisualZorgApp.DataModels
 {
+    // Child class used as datamodel for MyProfile class
+    // Read single Profile based on id (same id as Read DrugPrescription)
+    // Read DrugPrescription based on id (same id as Read Profile)
+    // [C]reate WeightRegistration query 
+    // [R]ead all WeightRegistrations query as ListObject of WeightRegistration
+    // [U]pdate WeightRegistration query
+    // [D]elete WeightRegistration query
     class MyProfileDataModel : DataModel
     {
         public string[] GetProfile(int id)
